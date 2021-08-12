@@ -8,7 +8,27 @@
 + JQuery\<HTMLElement>: $button (questionable?)
 + boolean: ```{tobe}+{noun}+{adj/verb-ed}``` wasButtonClicked, areButtonsGreen
 ### Abbreviation
-+ Background: bg
+* **addr** address
+* **app** application
+* **bg** background
+* **btn** button
+* **char** character
+* **col** column
+* **coord** coordinate
+* **db** database
+* **dest** destination
+* **dir** directory
+* **len** length
+* **msg** message
+* **num** number
+* **obj** object
+* **param** parameter
+* **pic** picture
+* **pos** position
+* **str** string
+* **src** source
+* **val** value
+* **var** variable
 ### Event
 + ```on+{noun}+{action}```: onBgChange
 + Trigger at 1st/2nd... time: onBgFirstChange
