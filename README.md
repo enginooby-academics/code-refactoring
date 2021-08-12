@@ -58,7 +58,7 @@ console.log('foo bar');
 ```
 ### Task
 + // TODO: general tasks
-+ // REFACTOR - // DRY
++ // REFACTOR - // DRY - // PARAMETERIZE
 + // UTIL: helper method to move into a dedicated file
 + // FIX
 + // REMOVE 
