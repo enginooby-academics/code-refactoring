@@ -1,6 +1,7 @@
 # Naming
 + Constant: BUTTON_SELECTOR
 + Interface: IClickable
++ Enum: ButtonState {Clicked, Forcus, Hover, Active}
 ### Variable
 + Element/HTMLElement: eButton
 + NodeListOf\<Element>: esButton
@@ -13,11 +14,25 @@
 + Trigger at 1st/2nd... time: onBgFirstChange
 
 # Commenting
-+ Explanatory/documenting: on separate lines preceding the code they are referring to.
+### Document
++ Function/block/statement: on the above line
+```
+// this does...
+function fooBar(){}
+```
++ Variable: on the same line
+```
+public string cookie; // this meta tag has been deprecated in M63
+```
++ Output: on the below line
+```
+console.log('foo bar');
+// expected output: foo bar
+```
 ### Task
 + // TODO: general tasks
 + // REFACTOR
-+ // UTIL: helper functions to move into a dedicated file
++ // UTIL: helper method to move into a dedicated file
 + // FIX
 + // REMOVE 
 + Project-specific
