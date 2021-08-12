@@ -1,13 +1,18 @@
 # Naming
-+ Constant: BUTTON_SELECTOR
-+ Interface: IClickable
-+ Enum: ButtonState {Clicked, Forcus, Hover, Active}
++ Constant: *BTN_SELECTOR*
++ Interface: *IClickable*
++ Enum: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
++ Event: ```on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
 ### Variable
-+ Element/HTMLElement: eButton
-+ NodeListOf\<Element>: esButton
-+ JQuery\<HTMLElement>: $button (questionable?)
-+ boolean: ```{tobe}+{noun}+{adj/verb-ed}``` wasButtonClicked, areButtonsGreen
-### Abbreviation
++ Element/HTMLElement: *eButton*
++ NodeListOf\<Element>: *esButton* (questionable?)
++ JQuery\<HTMLElement>: *$button* (questionable?)
++ boolean: ```{tobe}+{noun}+{adj/verb-ed}``` *wasButtonClicked*, *areButtonsGreen*
+
+<details>
+      <summary><b>Abbreviation</b></summary>
+<br>
+      
 * **addr** address
 * **app** application
 * **bg** background
@@ -29,9 +34,9 @@
 * **src** source
 * **val** value
 * **var** variable
-### Event
-+ ```on+{noun}+{action}```: onBgChange
-+ Trigger at 1st/2nd... time: onBgFirstChange
+      
+</details>
+
 
 # Commenting
 ### Document
@@ -51,7 +56,7 @@ console.log('foo bar');
 ```
 ### Task
 + // TODO: general tasks
-+ // REFACTOR
++ // REFACTOR - // DRY
 + // UTIL: helper method to move into a dedicated file
 + // FIX
 + // REMOVE 
