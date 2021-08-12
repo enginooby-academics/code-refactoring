@@ -3,7 +3,7 @@
 + Function/variable ```camelCase```: *disableBtn()*
 + Class ```PascalCase```: *CoolBtn*
 + Interface ```I_```: *IClickable*
-+ Enum ```PascalCase```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
++ Enum ```PascalCase-Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
 + Event ```on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
 ### Variable
 + Element/HTMLElement ```e_```: *eButton*
