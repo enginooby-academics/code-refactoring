@@ -1,12 +1,14 @@
 # Naming
-+ Constant: *BTN_SELECTOR*
-+ Interface: *IClickable*
-+ Enum: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
-+ Event: ```on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
++ Constant ```SNAKE_CASE```: *BTN_SELECTOR*
++ Function/variable ```camelCase```: *disableBtn()*
++ Class ```PascalCase```: *CoolBtn*
++ Interface ```I_```: *IClickable*
++ Enum ```PascalCase```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
++ Event ```on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
 ### Variable
-+ Element/HTMLElement: *eButton*
-+ NodeListOf\<Element>: *esButton* (questionable?)
-+ JQuery\<HTMLElement>: *$button* (questionable?)
++ Element/HTMLElement ```e_```: *eButton*
++ NodeListOf\<Element> ```es_```: *esButton* (questionable?)
++ JQuery\<HTMLElement> ```$_```: *$button* (questionable?)
 + boolean: ```{tobe}+{noun}+{adj/verb-ed}``` *wasButtonClicked*, *areButtonsGreen*
 
 <details>
