@@ -6,10 +6,10 @@
 + Enum ```PascalCase-Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
 + Event ```on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
 ### Variable
-+ Element/HTMLElement ```e_```: *eButton*
-+ NodeListOf\<Element> ```es_```: *esButton* (questionable?)
-+ JQuery\<HTMLElement> ```$_```: *$button* (questionable?)
-+ boolean: ```{tobe}+{noun}+{adj/verb-ed}``` *wasButtonClicked*, *areButtonsGreen*
++ Element/HTMLElement ```e_```: *eBtn*
++ NodeListOf\<Element> ```es_```: *esBtn* (questionable?)
++ JQuery\<HTMLElement> ```$_```: *$btn* (questionable?)
++ boolean: ```{tobe}+{noun}+{adj/verb-ed}``` *wasBtnClicked*, *areBtnsGreen*
 
 <details>
       <summary><b>Abbreviation</b></summary>
