@@ -1,6 +1,6 @@
 # Naming
-+ Constant ```SNAKE_CASE```: *BTN_SELECTOR*
-+ Function/variable ```camelCase```: *disableBtn()*
++ Constant (wide-scoped) ```SNAKE_CASE```: *BTN_SELECTOR*
++ Function/variable/constant (function-scoped) ```camelCase```: *disableBtn()*
 + Class ```PascalCase```: *CoolBtn*
 + Interface ```I_```: *IClickable*
 + Enum ```PascalCase-Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
