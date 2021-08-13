@@ -66,11 +66,12 @@ const schema = new Schema<User>({...
 ```
 ### Task
 + // TODO: general tasks
-+ // REFACTOR - // DRY - // PARAMETERIZE
-+ // UTIL: helper method to move into a dedicated file
 + // FIX
-+ // REMOVE 
-+ Project-specific
++ // REMOVE: the code is used for reference later and removed when becoming unneccesary.
++ // ADHOC: temporary code needed to be replaced by more elegant solutions.
++ // UTIL: utility/helper method should be moved into a dedicated file.
++ // REFACTOR - // DRY - // PARAMETERIZE
++ // SPECIFIC: the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
 ### Section
 > Use upper case to search by matched case in files containing many categorizes, components, etc.
 + Categorize:
