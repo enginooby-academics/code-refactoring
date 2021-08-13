@@ -1,7 +1,7 @@
 # Coding Conventions
 ## 1. Naming
-+ Constant (project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
-+ Function/variable/constant (function-scoped) ```camelCase```: *disableBtn()*
++ Constant (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
++ Function/variable/constant (reference type || function-scoped) ```camelCase```: *disableBtn()*
 + Class ```PascalCase```: *CoolBtn*
 + Interface ```PascalCase | I_```: *IClickable*
 + Enum ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
