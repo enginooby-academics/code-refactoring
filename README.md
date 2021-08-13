@@ -1,11 +1,12 @@
-# Naming
+# Coding Conventions
+## 1. Naming
 + Constant (project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
 + Function/variable/constant (function-scoped) ```camelCase```: *disableBtn()*
 + Class ```PascalCase```: *CoolBtn*
 + Interface ```PascalCase | I_```: *IClickable*
 + Enum ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
 + Event ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
-### Variable
+#### Variable
 + Element/HTMLElement ```e_```: *eBtn*
 + NodeListOf\<Element> ```es_```: *esBtn* (questionable?)
 + JQuery\<HTMLElement> ```$_```: *$btn* (questionable?)
@@ -41,8 +42,8 @@
 </details>
 
 
-# Commenting
-### Document
+## 2. Commenting
+#### Document
 + Function/block/statement: on the above line
 ```
 // this does...
@@ -65,7 +66,7 @@ inteface User { name: string...
 const schema = new Schema<User>({...
 ...
 ```
-### Task
+#### Task
 + // TODO: general tasks
 + // FIX
 + // REMOVE: the code is used for reference later and removed when becoming unneccesary.
@@ -73,7 +74,7 @@ const schema = new Schema<User>({...
 + // UTIL: utility/helper method should be moved into a dedicated file.
 + // REFACTOR - // DRY - // PARAMETERIZE
 + // SPECIFIC: the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
-### Section
+#### Section
 > Use upper case to search by matched case in files containing many categorizes, components, etc.
 + Categorize:
 ```
@@ -86,9 +87,9 @@ const schema = new Schema<User>({...
 /* BUTTON */
 ```
 
-# Git
+## 3. Git
 + Repo name ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
-### Commit message
+#### Commit message
 + **Initial commit** first commit of the project involving common/familiar setup.
 + **[Exp]** experimenting, trying out a feature. This code can be used for reference later and removed when getting familiar (marked with // REMOVE).
 + **[Refactor]** refactoring code, removing unnecesary code/comments, reorganinzing code/files, etc.
