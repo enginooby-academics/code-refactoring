@@ -56,6 +56,14 @@ public string cookie; // this meta tag has been deprecated in M63
 console.log('foo bar');
 // expected output: foo bar
 ```
++ Procedure: on the above lines with 1, 2, 3...
+```
+// 1. Create an interface representing a document in MongoDB
+inteface User { name: string...
+// 2. Create a Schema corresponding to the document interface
+const schema = new Schema<User>({...
+...
+```
 ### Task
 + // TODO: general tasks
 + // REFACTOR - // DRY - // PARAMETERIZE
