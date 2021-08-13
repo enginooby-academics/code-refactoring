@@ -1,9 +1,9 @@
 # Naming
-+ Constant (wide-scoped) ```SNAKE_CASE```: *BTN_SELECTOR*
++ Constant (wide-scoped) ```SNAKE_CASE|All caps```: *BTN_SELECTOR*
 + Function/variable/constant (function-scoped) ```camelCase```: *disableBtn()*
 + Class ```PascalCase```: *CoolBtn*
 + Interface ```I_```: *IClickable*
-+ Enum ```PascalCase-Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
++ Enum ```PascalCase|Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
 + Event ```on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
 ### Variable
 + Element/HTMLElement ```e_```: *eBtn*
@@ -72,7 +72,7 @@ const schema = new Schema<User>({...
 + // REMOVE 
 + Project-specific
 ### Section
-> Use upper case to search by matched case in files containing many categorizes, components...
+> Use upper case to search by matched case in files containing many categorizes, components, etc.
 + Categorize:
 ```
 /*-------------------------
@@ -83,3 +83,10 @@ const schema = new Schema<User>({...
 ```
 /* BUTTON */
 ```
+
+# Git
++ Repo name ```kebab-case|All lower```
+### Commit message
++ **Initial commit** first commit of the project involving common/familiar setup.
++ **[Exp]** experimenting, trying out a feature. This code can be used for reference later and removed when getting familiar.
++ **[Refactor]** refactoring code, cleaning unnecesary code/comments, reorganinzing code/files, etc.
