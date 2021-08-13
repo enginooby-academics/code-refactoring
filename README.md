@@ -9,7 +9,8 @@
 + Element/HTMLElement ```e_```: *eBtn*
 + NodeListOf\<Element> ```es_```: *esBtn* (questionable?)
 + JQuery\<HTMLElement> ```$_```: *$btn* (questionable?)
-+ boolean ```{tobe}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
++ Boolean ```{tobe}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
++ Private class member ```_```: *_id* (questionable?)
 
 <details>
       <summary><b>Abbreviation</b></summary>
@@ -86,10 +87,10 @@ const schema = new Schema<User>({...
 ```
 
 # Git
-+ Repo name ```kebab-case | All lower```
++ Repo name ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
 ### Commit message
 + **Initial commit** first commit of the project involving common/familiar setup.
-+ **[Exp]** experimenting, trying out a feature. This code can be used for reference later and removed when getting familiar.
++ **[Exp]** experimenting, trying out a feature. This code can be used for reference later and removed when getting familiar (marked with // REMOVE).
 + **[Refactor]** refactoring code, removing unnecesary code/comments, reorganinzing code/files, etc.
 + **[Fix]**
 + **[Test]**
