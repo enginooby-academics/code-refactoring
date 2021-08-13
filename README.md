@@ -1,5 +1,5 @@
 # Naming
-+ Constant (wide-scoped) ```SNAKE_CASE|All caps```: *BTN_SELECTOR*
++ Constant (project/file/class-scoped) ```SNAKE_CASE|All caps```: *BTN_SELECTOR*
 + Function/variable/constant (function-scoped) ```camelCase```: *disableBtn()*
 + Class ```PascalCase```: *CoolBtn*
 + Interface ```I_```: *IClickable*
@@ -89,4 +89,7 @@ const schema = new Schema<User>({...
 ### Commit message
 + **Initial commit** first commit of the project involving common/familiar setup.
 + **[Exp]** experimenting, trying out a feature. This code can be used for reference later and removed when getting familiar.
-+ **[Refactor]** refactoring code, cleaning unnecesary code/comments, reorganinzing code/files, etc.
++ **[Refactor]** refactoring code, removing unnecesary code/comments, reorganinzing code/files, etc.
++ **[Fix]**
++ **[Test]**
++ **[Doc]**
