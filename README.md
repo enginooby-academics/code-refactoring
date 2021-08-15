@@ -88,7 +88,7 @@ const schema = new Schema<User>({...
 ```
 
 # 3. Preference
-+ ~~Enum~~ => Union types ([peference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) [TS]
++ ~~Enum~~ => Union types ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) [TS]
 + ~~Equality operator (==)~~ => Stric equality operator (===) [TS]
 + ~~Promise/callback chaining~~ => async-await [TS/JS]
 
@@ -101,6 +101,7 @@ const schema = new Schema<User>({...
 + Object destructuring [TS/JS]
 + Object property shorthand [TS/JS]
 + If conditional w/ truthy/falsy values [TS/JS, Groovy, Perl, PHP, Python, Ruby]
++ String interpolation [TS/JS]
 
 # 5. Git
 + Repo name ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
