@@ -1,5 +1,4 @@
-# Coding Conventions
-## 1. Naming
+# 1. Naming
 + Constant (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
 + Function/variable/constant (reference type || function-scoped) ```camelCase```: *disableBtn()*
 + Class ```PascalCase```: *CoolBtn*
@@ -31,6 +30,7 @@
 * **msg** message
 * **num** number
 * **obj** object
+* **pwd** password
 * **param** parameter
 * **pic** picture
 * **pos** position
@@ -42,7 +42,7 @@
 </details>
 
 
-## 2. Commenting
+# 2. Commenting
 ### Document
 + Function/block/statement: on the above line
 ```
@@ -87,7 +87,22 @@ const schema = new Schema<User>({...
 /* BUTTON */
 ```
 
-## 3. Git
+# 3. Preference
++ ~~Enum~~ => Union types ([peference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) [TS]
++ ~~Equality operator (==)~~ => Stric equality operator (===) [TS]
++ ~~Promise/callback chaining~~ => async-await [TS/JS]
+
+# 4. Shorthand
+> Recommend to use following features if available in a language for brevity
++ Ternary operator [most languages]
++ Nullish coalescing operator [C#, PHP, TS]
++ Logical nullish assigment [TS]
++ Constructor shorthand/property promotion [TS, PHP]
++ Object destructuring [TS/JS]
++ Object property shorthand [TS/JS]
++ If conditional w/ truthy/falsy values [TS/JS, Groovy, Perl, PHP, Python, Ruby]
+
+# 5. Git
 + Repo name ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
 ### Commit message
 + **Initial commit** first commit of the project involving common/familiar setup.
