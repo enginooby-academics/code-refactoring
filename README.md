@@ -88,26 +88,26 @@ const schema = new Schema<User>({...
 ```
 
 # 3. Preference
-+ ~~Enum~~ => Union types ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) [TS]
-+ ~~Equality operator (==)~~ => Strict equality operator (===) [TS]
-+ ~~Promise/callback chaining~~ => async-await [TS/JS]
-+ ~~String~~ => StringBuffer for string appending [Java, C#]
-+ ~~try-finally~~ => using [C#]
-+ Object initializer/builder [C#]
-+ Named arguments [PHP, Kotlin]
++ ~~Enum~~ => Union types ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
++ ~~Equality operator (==)~~ => Strict equality operator (===) *[TS]*
++ ~~Promise/callback chaining~~ => async-await *[TS/JS]*
++ ~~String~~ => StringBuffer for string appending *[Java, C#]*
++ ~~try-finally~~ => using *[C#]*
++ Object initializer/builder [C#]*
++ Named arguments *[PHP, Kotlin]*
 
 # 4. Shorthand
 > Recommend to use following features if available in a language for brevity
-+ Ternary operator [most languages]
-+ Nullish coalescing operator [C#, PHP, TS]
-+ Logical nullish assigment [TS]
-+ Constructor shorthand/property promotion [TS, PHP]
-+ Object destructuring [TS/JS]
-+ Object property shorthand [TS/JS]
-+ If conditional w/ truthy/falsy values [TS/JS, Groovy, Perl, PHP, Python, Ruby]
-+ String interpolation/template [TS/JS, Kotlin]
-+ Implicit typing: var (for long named type) [C#]
-+ Concise new [C#9] ```ExampleClass instance = new();```
++ Ternary operator *[most languages]*
++ Nullish coalescing operator *[C#, PHP, TS]*
++ Logical nullish assigment *[TS]*
++ Constructor shorthand/property promotion *[TS, PHP]*
++ Object destructuring *[TS/JS]*
++ Object property shorthand *[TS/JS]*
++ If conditional w/ truthy/falsy values *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
++ String interpolation/template *[TS/JS, Kotlin]*
++ Implicit typing: var (for long named type) *[C#]*
++ Concise new *[C#9]* ```ExampleClass instance = new();```
 
 # 5. Git
 + Repo name ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
