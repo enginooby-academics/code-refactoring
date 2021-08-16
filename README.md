@@ -46,21 +46,21 @@
 # 2. Commenting
   
 ### Document
-+ Function/block/statement: on the above line
++ **Function/block/statement**: on the above line
 ```
 // this does...
 function fooBar(){}
 ```
-+ Variable: on the same line
++ **Variable**: on the same line
 ```
 public string cookie; // this meta tag has been deprecated in M63
 ```
-+ Output: on the below line
++ **Output**: on the below line
 ```
 console.log('foo bar');
 // expected output: foo bar
 ```
-+ Procedure: on the above lines with 1, 2, 3...
++ **Procedure**: on the above lines with 1, 2, 3...
 ```
 // 1. Create an interface representing a document in MongoDB
 inteface User { name: string...
@@ -80,13 +80,13 @@ const schema = new Schema<User>({...
   
 ### Section
 > Use upper case to search by matched case in files containing many categorizes, components, etc.
-+ Categorize:
++ **Categorize**
 ```
 /*-------------------------
       BASIC COMPONENTS
 -------------------------*/
 ```
-+ Component:
++ **Component**
 ```
 /* BUTTON */
 ```
@@ -136,7 +136,7 @@ ExampleClass instance = new();
 ```
 
 # 5. Git
-+ Repo name ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
++ **Repo name** ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
   
 ### Commit message
 + **Initial commit** first commit of the project involving common/familiar setup.
