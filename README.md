@@ -1,4 +1,6 @@
-# 1. Naming
+# I - Naming
+  
+### 1.1 - General
 + **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
 + **Function/variable/constant** (reference type || function-scoped) ```camelCase```: *disableBtn()*
 + **Class/struct/record** ```PascalCase```: *CoolBtn*
@@ -6,46 +8,29 @@
 + **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
 + **Event** ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
   
-### Variable
+### 1.2 - Variable
 + **Element/HTMLElement** ```e prefix```: *eBtn*
 + **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
 + **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
 + **Boolean** ```{tobe}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
 + **Private class member** ```_ prefix```: *_id* (questionable?)
   
-<details>
-      <summary><b>Abbreviation</b></summary>
-<br>
-      
-* **addr** address
-* **app** application
-* **bg** background
-* **btn** button
-* **char** character
-* **col** column
-* **coord** coordinate
-* **db** database
-* **dest** destination
-* **dir** directory
+### 1.3 - Abbreviation
+* **addr** address - **app** application
+* **bg** background - **btn** button
+* **char** character - **col** column - **coord** coordinate
+* **db** database - **dest** destination - **dir** directory
 * **len** length
 * **msg** message
 * **num** number
 * **obj** object
-* **pwd** password
-* **param** parameter
-* **pic** picture
-* **pos** position
-* **str** string
-* **src** source
-* **val** value
-* **var** variable
-      
-</details>
+* **pwd** password - **param** parameter - **pic** picture - **pos** position
+* **str** string - **src** source
+* **val** value - **var** variable
 
-
-# 2. Commenting
+# II. Commenting
   
-### Document
+### 2.1 - Document
 + **Function/block/statement**: on the above line
 ```
 // this does...
@@ -69,7 +54,7 @@ const schema = new Schema<User>({...
 ...
 ```
   
-### Task
+### 2.2 - Task
 + **TODO** general tasks
 + **FIX**
 + **REMOVE** the code is used for reference later and removed when becoming unneccesary.
@@ -78,7 +63,7 @@ const schema = new Schema<User>({...
 + **REFACTOR** - **DRY** - **PARAMETERIZE**
 + **SPECIFIC** the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
   
-### Section
+### 2.3 - Section
 > Use **upper case** to search by matched case in files containing many categorizes, components, etc. (esp CSS file)
 + **Categorize** containing multiple components
 ```
@@ -91,7 +76,7 @@ const schema = new Schema<User>({...
 /* BUTTON */
 ```
 
-# 3. Preference
+# III. Preference
 > Alternative ways of doing stuffs but help improving **code readability & clarity**
 + ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
 + ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
@@ -109,7 +94,7 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
 
-# 4. Shorthand
+# IV. Shorthand
 > Recommend to utilize following features if available in the using language for **code brevity**
 + **Ternary operator** *[most languages]*
 + **Nullish coalescing operator** *[C#, PHP, TS]*
@@ -155,7 +140,7 @@ ExampleClass instance = new ExampleClass();
 ExampleClass instance = new();
 ```
 
-# 5. Git
+# V. Git
 + **Repo name** ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
   
 ### Commit message
