@@ -79,8 +79,8 @@ const schema = new Schema<User>({...
 + **SPECIFIC** the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
   
 ### Section
-> Use upper case to search by matched case in files containing many categorizes, components, etc.
-+ **Categorize**
+> Use **upper case** to search by matched case in files containing many categorizes, components, etc. (esp CSS file)
++ **Categorize** containing multiple components
 ```
 /*-------------------------
       BASIC COMPONENTS
