@@ -97,7 +97,7 @@ const schema = new Schema<User>({...
 + Named arguments *[PHP, Kotlin]*
 
 # 4. Shorthand
-> Recommend to use following features if available in a language for brevity
+> Recommend to utilize following features for code brevity if available in the using language
 + Ternary operator *[most languages]*
 + Nullish coalescing operator *[C#, PHP, TS]*
 + Logical nullish assigment *[TS]*
@@ -105,9 +105,29 @@ const schema = new Schema<User>({...
 + Object destructuring *[TS/JS]*
 + Object property shorthand *[TS/JS]*
 + If conditional w/ truthy/falsy values *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
-+ String interpolation/template *[TS/JS, Kotlin]*
-+ Implicit typing: var (for long named type) *[C#]*
-+ Concise new *[C#9]* ```ExampleClass instance = new();```
+```
+if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
+// shorthand
+if(a && b && c && d && array.length)
+```
++ String interpolation/template *[TS/JS, Kotlin, PHP]*
+```
+console.log("Sum of " + a + " and " + b + " is " + (a + b))
+// shorthand
+console.log(`Sum of ${a} and ${b} is ${a+b}`)
+```
++ Implicit typing - var: for long named type *[C#]*
+```
+AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
+// shorthand
+var instance = new AReallyReallyLooooongClass();
+```
++ Concise new *[C#9]* 
+```
+ExampleClass instance = new ExampleClass();
+// shorthand
+ExampleClass instance = new();
+```
 
 # 5. Git
 + Repo name ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
