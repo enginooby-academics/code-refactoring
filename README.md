@@ -100,6 +100,7 @@ const schema = new Schema<User>({...
 + **Object initializer/builder** [C#]*
 + **Object destructuring** *[TS/JS]*
 + **Named arguments** *[PHP, Kotlin]*
++ **Spaceship/three-way comparison operator** (<=>) [C++, Groovy, Kotlin, Perl, PHP, Ruby]
 + **Guard clause/assert/precondition**
 + ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
 + ~~String concatenation operator (+)~~ => **String interpolation/template** *[TS/JS, Kotlin, PHP]*
@@ -116,6 +117,14 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 + **Logical nullish assigment** *[TS]*
 + **Constructor shorthand/property promotion** *[TS, PHP]*
 + **Object property shorthand** *[TS/JS]*
++ **Lambda expression** *[Java, TS/JS, Dart]
+```
+function getSum(a: number, b: number) {
+  return a + b
+}
+// shorthand
+const getSum = (a: number, b: number) => (a + b)
+```
 + If conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
 ```
 if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
