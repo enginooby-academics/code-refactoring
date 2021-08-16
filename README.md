@@ -1,5 +1,13 @@
+# Table of Contents
+1. [Naming](#1)
+2. [Commenting](#2)
+3. [Preference](#3)
+4. [Shorthand](#4)
+5. [Git](#5)
+
+<a name="1"></a>  
 # I - Naming
-  
+
 ### 1.1 - General
 + **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
 + **Function/variable/constant** (reference type || function-scoped) ```camelCase```: *disableBtn()*
@@ -28,6 +36,7 @@
 * **str** string - **src** source
 * **val** value - **var** variable
 
+<a name="2"></a>  
 # II - Commenting
   
 ### 2.1 - Document
@@ -76,6 +85,7 @@ const schema = new Schema<User>({...
 /* BUTTON */
 ```
 
+<a name="3"></a>  
 # III - Preference
 > Alternative ways of doing stuffs but help improving **code readability & clarity**
 + ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
@@ -94,6 +104,7 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
 
+<a name="4"></a>  
 # IV - Shorthand
 > Recommend to utilize following features if available in the using language for **code brevity**
 + **Ternary operator** *[most languages]*
@@ -140,6 +151,7 @@ ExampleClass instance = new ExampleClass();
 ExampleClass instance = new();
 ```
 
+<a name="5"></a>  
 # V - Git
 + **Repo name** ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
   
