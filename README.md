@@ -15,6 +15,7 @@
 + **Interface** ```PascalCase | I prefix```: *IClickable*
 + **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
 + **Event** ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
++ **CSS selector** ```BEM```: *hero__btn--round* ([reference](https://sparkbox.com/foundry/bem_by_example))
   
 ### 1.2 - Variable
 + **Element/HTMLElement** ```e prefix```: *eBtn*
