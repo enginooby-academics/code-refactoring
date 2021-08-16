@@ -1,17 +1,17 @@
 # 1. Naming
-+ Constant (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
-+ Function/variable/constant (reference type || function-scoped) ```camelCase```: *disableBtn()*
-+ Class/struct/record ```PascalCase```: *CoolBtn*
-+ Interface ```PascalCase | I prefix```: *IClickable*
-+ Enum ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
-+ Event ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
++ **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
++ **Function/variable/constant** (reference type || function-scoped) ```camelCase```: *disableBtn()*
++ **Class/struct/record** ```PascalCase```: *CoolBtn*
++ **Interface** ```PascalCase | I prefix```: *IClickable*
++ **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
++ **Event** ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
   
 ### Variable
-+ Element/HTMLElement ```e prefix```: *eBtn*
-+ NodeListOf\<Element> ```es prefix```: *esBtn* (questionable?)
-+ JQuery\<HTMLElement> ```$ prefix```: *$btn* (questionable?)
-+ Boolean ```{tobe}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
-+ Private class member ```_ prefix```: *_id* (questionable?)
++ **Element/HTMLElement** ```e prefix```: *eBtn*
++ **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
++ **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
++ **Boolean** ```{tobe}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
++ **Private class member** ```_ prefix```: *_id* (questionable?)
   
 <details>
       <summary><b>Abbreviation</b></summary>
