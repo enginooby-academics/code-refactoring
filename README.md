@@ -70,13 +70,13 @@ const schema = new Schema<User>({...
 ```
   
 ### Task
-+ // TODO: general tasks
-+ // FIX
-+ // REMOVE: the code is used for reference later and removed when becoming unneccesary.
-+ // ADHOC: temporary code needed to be replaced by more elegant solutions.
-+ // UTIL: utility/helper method should be moved into a dedicated file.
-+ // REFACTOR - // DRY - // PARAMETERIZE
-+ // SPECIFIC: the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
++ **TODO** general tasks
++ **FIX**
++ **REMOVE** the code is used for reference later and removed when becoming unneccesary.
++ **ADHOC** temporary code needed to be replaced by more elegant solutions.
++ **UTIL** utility/helper method should be moved into a dedicated file.
++ **REFACTOR** - **DRY** - **PARAMETERIZE**
++ **SPECIFIC** the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
   
 ### Section
 > Use upper case to search by matched case in files containing many categorizes, components, etc.
@@ -93,16 +93,16 @@ const schema = new Schema<User>({...
 
 # 3. Preference
 > Alternative ways of doing stuffs but help improving **code readability & clarity**
-+ ~~Enum~~ => Union types ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
-+ ~~Equality operator (==)~~ => Strict equality operator (===) *[TS]*
-+ ~~Promise/callback chaining~~ => async-await *[TS/JS]*
-+ ~~String~~ => StringBuffer for string appending *[Java, C#]*
-+ ~~try-finally~~ => using *[C#]*
-+ Object initializer/builder [C#]*
-+ Object destructuring *[TS/JS]*
-+ Named arguments *[PHP, Kotlin]*
-+ Guard clause/assert/precondition
-+ ~~String concatenation operator (+)~~ => String interpolation/template *[TS/JS, Kotlin, PHP]*
++ ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
++ ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
++ ~~Promise/callback chaining~~ => **async-await** *[TS/JS]*
++ ~~try-finally~~ => **using** *[C#]*
++ **Object initializer/builder** [C#]*
++ **Object destructuring** *[TS/JS]*
++ **Named arguments** *[PHP, Kotlin]*
++ **Guard clause/assert/precondition**
++ ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
++ ~~String concatenation operator (+)~~ => **String interpolation/template** *[TS/JS, Kotlin, PHP]*
 ```
 console.log("Sum of " + a + " and " + b + " is " + (a + b))
 // preference
@@ -111,24 +111,24 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 
 # 4. Shorthand
 > Recommend to utilize following features if available in the using language for **code brevity**
-+ Ternary operator *[most languages]*
-+ Nullish coalescing operator *[C#, PHP, TS]*
-+ Logical nullish assigment *[TS]*
-+ Constructor shorthand/property promotion *[TS, PHP]*
-+ Object property shorthand *[TS/JS]*
-+ If conditional w/ truthy/falsy values *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
++ **Ternary operator** *[most languages]*
++ **Nullish coalescing operator** *[C#, PHP, TS]*
++ **Logical nullish assigment** *[TS]*
++ **Constructor shorthand/property promotion** *[TS, PHP]*
++ **Object property shorthand** *[TS/JS]*
++ If conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
 ```
 if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
 // shorthand
 if(a && b && c && d && array.length)
 ```
-+ Implicit typing - var: for long named type *[C#]*
++ Implicit typing - **var**: for long named type *[C#]*
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
 // shorthand
 var instance = new AReallyReallyLooooongClass();
 ```
-+ Concise new *[C#9]* 
++ Concise **new** *[C#9]* 
 ```
 ExampleClass instance = new ExampleClass();
 // shorthand
