@@ -100,7 +100,6 @@ const schema = new Schema<User>({...
 + **Object initializer/builder** [C#]*
 + **Object destructuring** *[TS/JS]*
 + **Named arguments** *[PHP, Kotlin]*
-+ **Spaceship/three-way comparison operator** (<=>) [C++, Groovy, Kotlin, Perl, PHP, Ruby]
 + **Guard clause/assert/precondition**
 + ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
 + ~~String concatenation operator (+)~~ => **String interpolation/template** *[TS/JS, Kotlin, PHP]*
@@ -114,10 +113,22 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 > Recommend to utilize following features if available in the using language for **code brevity**
 + **Ternary operator** *[most languages]*
 + **Nullish coalescing operator** *[C#, PHP, TS]*
-+ **Logical nullish assigment** *[TS]*
++ **Logical nullish assigment operator** *[TS]*
 + **Constructor shorthand/property promotion** *[TS, PHP]*
-+ **Object property shorthand** *[TS/JS]*
-+ **Lambda expression** *[Java, TS/JS, Dart]
++ **Object property shorthand** *[TS/JS]
++ **Spaceship/three-way comparison operator** (<=>) *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
+```
+$users = ['branko', 'ivana', 'luka', 'ivano'];
+
+usort($users, function ($a, $b) {
+  return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
+});
+// shorthand
+usort($users, function ($a, $b) {
+  return $a <=> $b;
+});
+```
++ **Lambda expression** *[Java, TS/JS, Dart]*
 ```
 function getSum(a: number, b: number) {
   return a + b
