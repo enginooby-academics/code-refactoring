@@ -199,7 +199,7 @@ AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
 // shorthand
 var instance = new AReallyReallyLooooongClass();
 ```
-+ Concise **new** *[C#9]* 
++ **Concise new (new())** *[C#9]* 
 ```
 ExampleClass instance = new ExampleClass();
 // shorthand
