@@ -91,7 +91,7 @@ const schema = new Schema<User>({...
 > Alternative ways of doing stuffs but help improving **code readability & clarity**
 + ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
 + ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
-+ ~~Promise/callback chaining~~ => **async-await** *[TS/JS]*
++ ~~Promise/callback chaining~~ => **async-await** *[ES6]*
 + ~~try-finally~~ => **using** *[C#]*
 + **Object initializer/builder** [C#]*
 + **Object destructuring** *[TS/JS]*
@@ -108,12 +108,66 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 <a name="4"></a>  
 # IV - Shorthand
 > Recommend to utilize following features if available in the using language for **code brevity**
-+ **Ternary operator** *[most languages]*
-+ **Nullish coalescing operator** *[C#, PHP, TS]*
-+ **Logical nullish assigment operator** *[TS]*
-+ **Constructor shorthand/property promotion** *[TS, PHP]*
-+ **Object property shorthand** *[TS/JS]
-+ **Spaceship/three-way comparison operator** (<=>) *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
++ **Ternary operator (? :)** *[most languages]*
+```
+if (a > b) {
+    result = x;
+}
+else {
+    result = y;
+}
+// shorthand
+result = a > b ? x : y;
+```
++ **Nullish coalescing operator (??)** *[C#, PHP, ES11]*
+```
+result = (a !== null && a !== undefined) ? a : b;
+// shorthand
+result = a ?? b
+```
++ **Logical nullish assigment operator (??=)** *[TS/JS]*
+```
+a ?? (a = b)
+// shorthand
+a ??= b
+```
++ **Constructor shorthand/property promotion** *[TS, PHP8]*
+```
+class User {
+  private name: string;
+  private age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+// shorthand
+class User {
+  constructor(
+    private name: string,
+    private age: number
+  ) {}
+}
+```
++ **Object property value shorthand** *[ES6]*
+```
+let cat = 'Miaow';
+let dog = 'Woof';
+let bird = 'Peet peet';
+
+var myPets = {
+  cat: cat,
+  dog: dog,
+  bird: bird
+}
+//shorthand
+let myPets = {
+  cat,
+  dog,
+  bird
+}
+```
++ **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
 ```
 $users = ['branko', 'ivana', 'luka', 'ivano'];
 
@@ -125,7 +179,7 @@ usort($users, function ($a, $b) {
   return $a <=> $b;
 });
 ```
-+ **Lambda expression** *[Java, TS/JS, Dart]*
++ **Lambda expression/Arrow function (=>)** *[Java8, ES6, Dart]*
 ```
 function getSum(a: number, b: number) {
   return a + b
@@ -139,7 +193,7 @@ if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !=
 // shorthand
 if(a && b && c && d && array.length)
 ```
-+ Implicit typing - **var**: for long named type *[C#]*
++ **Implicit typing (var)**: for long named type *[C#]*
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
 // shorthand
