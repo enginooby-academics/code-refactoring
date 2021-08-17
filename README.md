@@ -1,3 +1,4 @@
+<a name="0"></a>  
 # Table of Contents
 1. [Naming](#1)
 2. [Commenting](#2)
@@ -7,7 +8,7 @@
 
 <a name="1"></a>  
 # I - Naming
-
+[To the top](#0)
 ### 1.1 - General
 + **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
 + **Function/variable/constant** (reference type || function-scoped) ```camelCase```: *disableBtn()*
@@ -39,7 +40,7 @@
 
 <a name="2"></a>  
 # II - Commenting
-  
+[To the top](#0)  
 ### 2.1 - Document
 + **Function/block/statement**: on the above line
 ```
@@ -88,6 +89,7 @@ const schema = new Schema<User>({...
 
 <a name="3"></a>  
 # III - Preference
+[To the top](#0)
 > Alternative ways of doing stuffs but help improving **code readability & clarity**
 + ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
 + ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
@@ -107,6 +109,7 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 
 <a name="4"></a>  
 # IV - Shorthand
+[To the top](#0)
 > Recommend to utilize following features if available in the using language for **code brevity**
 + **Ternary operator (? :)** *[most languages]*
 ```
@@ -208,6 +211,7 @@ ExampleClass instance = new();
 
 <a name="5"></a>  
 # V - Git
+[To the top](#0)
 + **Repo name** ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
   
 ### Commit message
