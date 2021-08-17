@@ -5,6 +5,7 @@
 3. [Preference](#3)
 4. [Shorthand](#4)
 5. [Git](#5)
+6. [Architecture](#6)
 
 <a name="1"></a>  
 # I - Naming
@@ -221,3 +222,9 @@ ExampleClass instance = new();
 + **[Fix]**
 + **[Test]**
 + **[Doc]**
+
+<a name="6"></a>  
+# VI - Architecture
+[⬆ To the top](#0)
+> Standard approaches to structure & organize code files
++ **SASS** ```7-1``` ([reference](https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture))
