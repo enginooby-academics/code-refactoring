@@ -228,3 +228,4 @@ ExampleClass instance = new();
 [⬆ To the top](#0)
 > Standard approaches to structure & organize code files
 + **SASS** ```7-1``` ([reference](https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture))
++ **TS & NodeJS** ([reference](https://github.com/microsoft/TypeScript-Node-Starter))
