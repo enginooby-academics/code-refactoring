@@ -82,6 +82,9 @@ const schema = new Schema<User>({...
 /*-------------------------
       BASIC COMPONENTS
 -------------------------*/
+
+///////////////////////////
+//    BASIC COMPONENTS
 ```
 + **Component**
 ```
