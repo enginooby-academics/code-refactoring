@@ -104,7 +104,7 @@ const schema = new Schema<User>({...
 + **Named arguments** *[PHP, Kotlin]*
 + **Guard clause/assert/precondition**
 + ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
-+ ~~String concatenation operator (+)~~ => **String interpolation/template** *[TS/JS, Kotlin, PHP]*
++ ~~String concatenation operator (+)~~ => **String interpolation/template literals** *[TS/JS, Kotlin, PHP]*
 ```
 console.log("Sum of " + a + " and " + b + " is " + (a + b))
 // preference
@@ -232,6 +232,26 @@ let x, y, z=3;
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
 // shorthand
 var instance = new AReallyReallyLooooongClass();
+```
+
+### 4.4 - Mathematics
++ **Exponent power** *[ES]*
+```
+const power = Math.pow(4, 3);
+// shorthand 
+const power = 4**3;
+```
++ **Floor rounding** *[ES]*
+```
+const floor = Math.floor(6.8);
+// shorthand 
+const floor = ~~6.8;
+```
++ **Decimal base exponents** *[ES]*
+```
+10000000
+// shorthand
+1e7
 ```
 
 <a name="5"></a>  
