@@ -31,7 +31,7 @@
 + **Element/HTMLElement** ```e prefix```: *eBtn*
 + **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
 + **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
-+ **Boolean** ```{tobe}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
++ **Boolean** ```{tobe/have/any}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
 + **Private class member** ```_ prefix```: *_id* (questionable?)
 
 ### 2 - Others
@@ -60,7 +60,7 @@ console.log('foobar') // expected output: foobar
 Result of block of statements: below
 ```
 const a = 'foo'
-const b = 'bar
+const b = 'bar'
 console.log(a + b)
 // expected output: foobar
 ```
@@ -106,13 +106,14 @@ const schema = new Schema<User>({...
 + **SPECIFIC** the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
   
 ### 3 - Section
-> Use **upper case** to search by matched case in files containing many categorizes, components, etc. (esp CSS file)
+> Use **upper case** to search by matched case in files (esp. CSS files) containing many categorizes, components, etc. 
 + **Categorize** containing multiple components
 ```
 /*-------------------------
       BASIC COMPONENTS
 -------------------------*/
-
+```
+```
 ///////////////////////////
 //    BASIC COMPONENTS
 ```
@@ -131,7 +132,18 @@ const schema = new Schema<User>({...
 + ~~try-finally~~ => **using** *[C#]*
 + **Object initializer/builder** [C#]*
 + **Object destructuring** *[TS/JS]*
-+ **Named arguments** *[PHP, Kotlin]*
++ **Named arguments** *[PHP, Kotlin, C#]*
+```
+// Method
+public void doSomething(string foo, int bar) 
+{
+...
+}
+
+doSomething("someString", 1);
+// preference
+doSomething(foo: "someString", bar: 1);
+```
 + **Guard clause/assert/precondition**
 + ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
 + ~~String concatenation operator (+)~~ => **String interpolation/template literals** *[TS/JS, Kotlin, PHP]*
