@@ -115,6 +115,7 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 # IV - Shorthand
 [⬆ To the top](#0)
 > Recommend to utilize following features if available in the using language for **code brevity**
+### 4.1 - Operator
 + **Ternary operator (? :)** *[most languages]*
 ```
 if (a > b) {
@@ -138,6 +139,36 @@ a ?? (a = b)
 // shorthand
 a ??= b
 ```
++ **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
+```
+$users = ['branko', 'ivana', 'luka', 'ivano'];
+
+usort($users, function ($a, $b) {
+  return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
+});
+// shorthand
+usort($users, function ($a, $b) {
+  return $a <=> $b;
+});
+```
+  
+### 4.2 - Control flow
++ Conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
+```
+if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
+// shorthand
+if(a && b && c && d && array.length)
+```
++ Conditional w/ **short circuit evaluation** *[most languages]*
+```
+if(isHungry) {
+  code()
+}
+// shorthand
+isHungry && code()
+```
+  
+### 4.3 - Class, function & variable
 + **Constructor shorthand/property promotion** *[TS, PHP8]*
 ```
 class User {
@@ -174,17 +205,11 @@ let myPets = {
   bird
 }
 ```
-+ **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
++ **Concise new (new())** *[C#9]* 
 ```
-$users = ['branko', 'ivana', 'luka', 'ivano'];
-
-usort($users, function ($a, $b) {
-  return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
-});
+ExampleClass instance = new ExampleClass();
 // shorthand
-usort($users, function ($a, $b) {
-  return $a <=> $b;
-});
+ExampleClass instance = new();
 ```
 + **Lambda expression/Arrow function (=>)** *[Java8, ES6, Dart]*
 ```
@@ -194,23 +219,19 @@ function getSum(a: number, b: number) {
 // shorthand
 const getSum = (a: number, b: number) => (a + b)
 ```
-+ If conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
++ **Multiple variable declaration** [ES, C#, Java]
 ```
-if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
+let x;
+let y;
+let z = 3;
 // shorthand
-if(a && b && c && d && array.length)
+let x, y, z=3;
 ```
 + **Implicit typing (var)**: for long named type *[C#]*
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
 // shorthand
 var instance = new AReallyReallyLooooongClass();
-```
-+ **Concise new (new())** *[C#9]* 
-```
-ExampleClass instance = new ExampleClass();
-// shorthand
-ExampleClass instance = new();
 ```
 
 <a name="5"></a>  
@@ -230,5 +251,5 @@ ExampleClass instance = new();
 # VI - Architecture
 [⬆ To the top](#0)
 > Standard approaches to structure & organize code files
-+ **SASS** ```7-1``` ([reference](https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture))
++ **SASS** ```7-1 pattern``` ([reference](https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture))
 + **TS & NodeJS** ([reference](https://github.com/microsoft/TypeScript-Node-Starter))
