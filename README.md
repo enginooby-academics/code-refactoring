@@ -1,32 +1,16 @@
 <a name="0"></a>  
 # Table of Contents
-1. [Naming](#1)
-2. [Commenting](#2)
-3. [Preference](#3)
-4. [Shorthand](#4)
-5. [Git](#5)
-6. [Architecture](#6)
+1. [Abbreviation](#abbreviation)
+1. [Naming](#naming)
+2. [Commenting](#commenting)
+3. [Preference](#preference)
+4. [Shorthand](#shorthand)
+5. [Git](#git)
+6. [Architecture](#architecture)
 
-<a name="1"></a>  
-# I - Naming
-[⬆ To the top](#0)
-### 1.1 - General
-+ **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
-+ **Function/variable/constant** (reference type || function-scoped) ```camelCase```: *disableBtn()*
-+ **Class/struct/record** ```PascalCase```: *CoolBtn*
-+ **Interface** ```PascalCase | I prefix```: *IClickable*
-+ **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
-+ **Event** ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
-+ **CSS class** ```BEM```: *hero__btn--round* ([reference](https://sparkbox.com/foundry/bem_by_example))
-  
-### 1.2 - Variable
-+ **Element/HTMLElement** ```e prefix```: *eBtn*
-+ **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
-+ **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
-+ **Boolean** ```{tobe}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
-+ **Private class member** ```_ prefix```: *_id* (questionable?)
-  
-### 1.3 - Abbreviation
+<a name="abbreviation"></a>  
+### I - Abbreviation
+> Should be **universally accepted**, provide **good result of shortening**, used for naming & commenting
 * **addr** address - **app** application
 * **bg** background - **btn** button
 * **char** character - **col** column - **coord** coordinate
@@ -39,34 +23,80 @@
 * **str** string - **src** source
 * **val** value - **var** variable
 
-<a name="2"></a>  
-# II - Commenting
+<a name="naming"></a>  
+# II - Naming
 [⬆ To the top](#0)
-### 2.1 - Document
-+ **Function/block/statement**: on the above line
+
+### 1 - Variable
++ **Element/HTMLElement** ```e prefix```: *eBtn*
++ **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
++ **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
++ **Boolean** ```{tobe}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
++ **Private class member** ```_ prefix```: *_id* (questionable?)
+
+### 2 - Others
++ **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
++ **Function/variable/constant** (reference type || function-scoped) ```camelCase```: *disableBtn()*
++ **Class/struct/record** ```PascalCase```: *CoolBtn*
++ **Interface** ```PascalCase | I prefix```: *IClickable*
++ **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
++ **Event** ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
++ **CSS class** ```BEM```: *hero__btn--round* ([reference](https://sparkbox.com/foundry/bem_by_example))
+
+<a name="commenting"></a>  
+# III - Commenting
+[⬆ To the top](#0)
+### 1 - Document
++ **Variable**: same line
+```
+public string cookie; // this meta tag has been deprecated in M63
+```
++ **Output**
+
+Result of single statement: same line
+```
+console.log('foobar') // expected output: foobar
+```
+Result of block of statements: below
+```
+const a = 'foo'
+const b = 'bar
+console.log(a + b)
+// expected output: foobar
+```
++ **Function/block**: above 
 ```
 // this does...
 function fooBar(){}
 ```
-+ **Variable**: on the same line
-```
-public string cookie; // this meta tag has been deprecated in M63
-```
-+ **Output**: on the below line
-```
-console.log('foo bar');
-// expected output: foo bar
-```
-+ **Procedure**: on the above lines with 1, 2, 3...
++ **Ordered procedure**: above each line w/ cardinal numbers	
 ```
 // 1. Create an interface representing a document in MongoDB
 inteface User { name: string...
 // 2. Create a Schema corresponding to the document interface
 const schema = new Schema<User>({...
-...
+// 3...
+```
++ **Mixed procedure**: above the procedure + mark according line w/ cardinal numbers	
+
+```
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+.container {
+  max-width: $max-width; /* 1 */
+  margin-left: auto; /* 2 */
+  margin-right: auto; /* 2 */
+  padding-left: 20px; /* 3 */
+  padding-right: 20px; /* 3 */
+  width: 100%; /* 1 */
+}
 ```
   
-### 2.2 - Task
+### 2 - Task
 + **TODO** general tasks
 + **FIX**
 + **REMOVE** the code is used for reference later and removed when becoming unneccesary.
@@ -75,7 +105,7 @@ const schema = new Schema<User>({...
 + **REFACTOR** - **DRY** - **PARAMETERIZE**
 + **SPECIFIC** the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
   
-### 2.3 - Section
+### 3 - Section
 > Use **upper case** to search by matched case in files containing many categorizes, components, etc. (esp CSS file)
 + **Categorize** containing multiple components
 ```
@@ -91,8 +121,8 @@ const schema = new Schema<User>({...
 /* BUTTON */
 ```
 
-<a name="3"></a>  
-# III - Preference
+<a name="preference"></a>  
+# IV - Preference
 [⬆ To the top](#0)
 > Alternative ways of doing stuffs but help improving **code readability & clarity**
 + ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
@@ -111,11 +141,11 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
 
-<a name="4"></a>  
-# IV - Shorthand
+<a name="shorthand"></a>  
+# V - Shorthand
 [⬆ To the top](#0)
 > Recommend to utilize following features if available in the using language for **code brevity**
-### 4.1 - Declaration & Initialization
+### 1 - Declaration & Initialization
 + W/ **Nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
@@ -155,7 +185,7 @@ ExampleClass instance = new ExampleClass();
 ExampleClass instance = new();
 ```
   
-### 4.2 - Control Flow
+### 2 - Control Flow
 + **Ternary operator (? :)** *[most languages]*
 ```
 if (a > b) {
@@ -182,7 +212,7 @@ if(isHungry) {
 isHungry && code()
 ```
   
-### 4.3 - Class, Object, Function
+### 3 - Class, Object, Function
 + **Constructor shorthand/property promotion** *[TS, PHP8]*
 ```
 class User {
@@ -228,7 +258,7 @@ function getSum(a: number, b: number) {
 const getSum = (a: number, b: number) => (a + b)
 ```
 
-### 4.4 - Mathematics
+### 4 - Mathematics
 + **Exponent power** *[ES]*
 ```
 const power = Math.pow(4, 3);
@@ -248,7 +278,7 @@ const floor = ~~6.8;
 1e7
 ```
 
-### 4.5 - Conversion
+### 5 - Conversion
 + String to number *[ES]*
 ```
 const num1 = parseInt("100");
@@ -291,8 +321,8 @@ const arr = [1, 2, 3, 4];
 const arr2 = [...arr];
 ```
 
-<a name="5"></a>  
-# V - Git
+<a name="git"></a>  
+# VI - Git
 [⬆ To the top](#0)
 + **Repo name** ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
   
@@ -304,8 +334,8 @@ const arr2 = [...arr];
 + **[Test]**
 + **[Doc]**
 
-<a name="6"></a>  
-# VI - Architecture
+<a name="architecture"></a>  
+# VII - Architecture
 [⬆ To the top](#0)
 > Standard approaches to structure & organize code files
 + **SASS** ```7-1 pattern``` ([reference](https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture))
