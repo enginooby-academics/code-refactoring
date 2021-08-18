@@ -115,7 +115,47 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 # IV - Shorthand
 [⬆ To the top](#0)
 > Recommend to utilize following features if available in the using language for **code brevity**
-### 4.1 - Operator
+### 4.1 - Declaration & Initialization
++ W/ **Nullish coalescing operator (??)** *[C#, PHP, ES11]*
+```
+result = (a !== null && a !== undefined) ? a : b;
+// shorthand
+result = a ?? b
+```
++ W/ **short circuit evaluation** *[most languages]*
+```
+result = (a !== null && a !== undefined) ? a : b;
+// shorthand
+result = a || b
+```
++ **Logical nullish assigment operator (??=)** *[TS/JS]*
+```
+a ?? (a = b)
+// shorthand
+a ??= b
+```
++ **Multiple variable declaration** [ES, C#, Java]
+```
+let a;
+let b;
+let c = 3;
+// shorthand
+let a, b, c=3;
+```
++ **Implicit typing (var)**: for long named type *[C#]*
+```
+AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
+// shorthand
+var instance = new AReallyReallyLooooongClass();
+```
++ **Concise new (new())** *[C#9]* 
+```
+ExampleClass instance = new ExampleClass();
+// shorthand
+ExampleClass instance = new();
+```
+  
+### 4.2 - Control Flow
 + **Ternary operator (? :)** *[most languages]*
 ```
 if (a > b) {
@@ -127,32 +167,6 @@ else {
 // shorthand
 result = a > b ? x : y;
 ```
-+ **Nullish coalescing operator (??)** *[C#, PHP, ES11]*
-```
-result = (a !== null && a !== undefined) ? a : b;
-// shorthand
-result = a ?? b
-```
-+ **Logical nullish assigment operator (??=)** *[TS/JS]*
-```
-a ?? (a = b)
-// shorthand
-a ??= b
-```
-+ **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
-```
-$users = ['branko', 'ivana', 'luka', 'ivano'];
-
-usort($users, function ($a, $b) {
-  return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
-});
-// shorthand
-usort($users, function ($a, $b) {
-  return $a <=> $b;
-});
-```
-  
-### 4.2 - Control flow
 + Conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
 ```
 if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
@@ -168,7 +182,7 @@ if(isHungry) {
 isHungry && code()
 ```
   
-### 4.3 - Class, function & variable
+### 4.3 - Class, Object, Function
 + **Constructor shorthand/property promotion** *[TS, PHP8]*
 ```
 class User {
@@ -205,12 +219,6 @@ let myPets = {
   bird
 }
 ```
-+ **Concise new (new())** *[C#9]* 
-```
-ExampleClass instance = new ExampleClass();
-// shorthand
-ExampleClass instance = new();
-```
 + **Lambda expression/Arrow function (=>)** *[Java8, ES6, Dart]*
 ```
 function getSum(a: number, b: number) {
@@ -218,20 +226,6 @@ function getSum(a: number, b: number) {
 }
 // shorthand
 const getSum = (a: number, b: number) => (a + b)
-```
-+ **Multiple variable declaration** [ES, C#, Java]
-```
-let x;
-let y;
-let z = 3;
-// shorthand
-let x, y, z=3;
-```
-+ **Implicit typing (var)**: for long named type *[C#]*
-```
-AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
-// shorthand
-var instance = new AReallyReallyLooooongClass();
 ```
 
 ### 4.4 - Mathematics
@@ -252,6 +246,49 @@ const floor = ~~6.8;
 10000000
 // shorthand
 1e7
+```
+
+### 4.5 - Conversion
++ String to number *[ES]*
+```
+const num1 = parseInt("100");
+const num2 =  parseFloat("100.01");
+// shorthand
+const num1 = +"100";
+const num2 =  +"100.01";
+```
+
+### Others
++ **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
+```
+$users = ['branko', 'ivana', 'luka', 'ivano'];
+
+usort($users, function ($a, $b) {
+  return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
+});
+// shorthand
+usort($users, function ($a, $b) {
+  return $a <=> $b;
+});
+```
++ **Spread operator (...)** [ES6]
+
+For joining arrays:
+```
+const odd = [1, 3, 5];
+const nums = [2 ,4 , 6].concat(odd);
+// shorthand
+const odd = [1, 3, 5 ];
+const nums = [2 ,4 , 6, ...odd];
+```
+  
+For cloning array:
+```
+const arr = [1, 2, 3, 4];
+const arr2 = arr.slice()
+// shorthand
+const arr = [1, 2, 3, 4];
+const arr2 = [...arr];
 ```
 
 <a name="5"></a>  
