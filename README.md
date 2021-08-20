@@ -157,8 +157,8 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 # V - Shorthand
 [⬆ To the top](#0)
 > Recommend to utilize following features if available in the using language for **code brevity**
-### 1 - Declaration & Initialization
-+ W/ **Nullish coalescing operator (??)** *[C#, PHP, ES11]*
+### 1 - Declaration, Initialization & Assignment
++ W/ **nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
 // shorthand
@@ -170,19 +170,27 @@ result = (a !== null && a !== undefined) ? a : b;
 // shorthand
 result = a || b
 ```
-+ **Logical nullish assigment operator (??=)** *[TS/JS]*
++ **Logical nullish assigment operator (??=)** *[TS/JS, C#8]*
 ```
 a ?? (a = b)
 // shorthand
 a ??= b
 ```
-+ **Multiple variable declaration** [ES, C#, Java]
++ **Multiple variable declaration** _[ES, C#, Java]_
 ```
 let a;
 let b;
 let c = 3;
 // shorthand
-let a, b, c=3;
+let a, b, c = 3;
+```
++ Assign multiple variables using **object destructuring** _[ES]_
+```
+let a = 1;
+let b = 2;
+let c = 3;
+// shorthand
+[a, b, c] = [1, 2, 3]
 ```
 + **Implicit typing (var)**: for long named type *[C#]*
 ```
