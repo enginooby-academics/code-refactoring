@@ -132,6 +132,12 @@ const schema = new Schema<User>({...
 + ~~try-finally~~ => **using** *[C#]*
 + **Object initializer/builder** [C#]*
 + **Object destructuring** *[TS/JS]*
++ Check for nullity using **is** & **is not** _[C#9]_
+```
+if (a == null && b != null)
+// preference
+if (a is null && b is not null)
+```
 + **Named arguments** *[PHP, Kotlin, C#]*
 ```
 // Method
