@@ -1,15 +1,15 @@
 <a name="0"></a>  
 # Table of Contents
-1. [Abbreviation](#abbreviation)
+1. [Abbreviations](#abbreviations)
 1. [Naming](#naming)
 2. [Commenting](#commenting)
-3. [Preference](#preference)
-4. [Shorthand](#shorthand)
+3. [Preferences](#preferences)
+4. [Shorthands](#shorthands)
 5. [Git](#git)
 6. [Architecture](#architecture)
 
-<a name="abbreviation"></a>  
-### I - Abbreviation
+<a name="abbreviations"></a>  
+### I - Abbreviations
 > Should be **universally accepted**, provide **good result of shortening**, used for naming & commenting
 * **addr** address - **app** application
 * **bg** background - **btn** button
@@ -122,22 +122,20 @@ const schema = new Schema<User>({...
 /* BUTTON */
 ```
 
-<a name="preference"></a>  
-# IV - Preference
+<a name="preferences"></a>  
+# IV - Preferences
 [⬆ To the top](#0)
-> Alternative ways of doing stuffs but help improving **code readability & clarity**
+> Alternative ways of doing stuffs to help improving **code readability & clarity**  
+
+**[Preferences in C++ | Unreal Engine](CPP_UE.md#preferences)**  
+**[Preferences in C#](CS.md#preferences)**  
+
 + ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
 + ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
 + ~~Promise/callback chaining~~ => **async-await** *[ES6]*
 + ~~try-finally~~ => **using** *[C#]*
 + **Object initializer/builder** [C#]*
 + **Object destructuring** *[TS/JS]*
-+ Check for nullity using **is** & **is not** _[C#9]_
-```
-if (a == null && b != null)
-// preference
-if (a is null && b is not null)
-```
 + **Named arguments** *[PHP, Kotlin, C#]*
 ```
 // Method
@@ -159,8 +157,8 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
 
-<a name="shorthand"></a>  
-# V - Shorthand
+<a name="shorthands"></a>  
+# V - Shorthands
 [⬆ To the top](#0)
 > Recommend to utilize following features if available in the using language for **code brevity**
 ### 1 - Declaration, Initialization & Assignment
