@@ -161,6 +161,9 @@ console.log(`Sum of ${a} and ${b} is ${a + b}`)
 # V - Shorthands
 [⬆ To the top](#0)
 > Recommend to utilize following features if available in the using language for **code brevity**
+
+**[Shorthands in C#](CS.md#shorthands)**  
+
 ### 1 - Declaration, Initialization & Assignment
 + W/ **nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
@@ -196,18 +199,7 @@ let c = 3;
 // shorthand
 [a, b, c] = [1, 2, 3]
 ```
-+ **Implicit typing (var)**: for long named type *[C#]*
-```
-AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
-// shorthand
-var instance = new AReallyReallyLooooongClass();
-```
-+ **Concise new (new())** *[C#9]* 
-```
-ExampleClass instance = new ExampleClass();
-// shorthand
-ExampleClass instance = new();
-```
+
   
 ### 2 - Control Flow
 + **Ternary operator (? :)** *[most languages]*
