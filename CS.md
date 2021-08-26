@@ -13,11 +13,11 @@ if (a is null && b is not null)
 ```
 enum BankStatus {Open, Closed, VIPOnly};
 
-static bool CheckIfCanWalkIntoBankSwitch(BankStatus status, bool isVip)
+static bool CheckIfCanWalkIntoBankSwitch(BankStatus bankStatus, bool isVip)
 {
     bool result = false;
 
-    switch(status)
+    switch(bankStatus)
     {
         case BankStatus.Open : 
             result = true;
@@ -32,11 +32,12 @@ static bool CheckIfCanWalkIntoBankSwitch(BankStatus status, bool isVip)
 
     return result;
 }
-```
+
 // shorthand (w/ arrow function)
-static bool CheckIfCanWalkIntoBank(BankStatus status, bool isVip) => status switch
+static bool CheckIfCanWalkIntoBank(BankStatus bankStatus, bool isVip) => bankStatus switch
 {
     BankBranchStatus.Open => true, 
     BankBranchStatus.Closed => false, 
     BankBranchStatus.VIPCustomersOnly => isVip
 };
+```
