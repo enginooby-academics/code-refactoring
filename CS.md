@@ -41,3 +41,15 @@ static bool CheckIfCanWalkIntoBank(BankStatus bankStatus, bool isVip) => bankSta
     BankBranchStatus.VIPCustomersOnly => isVip
 };
 ```
++ **Implicit typing (var)**: for long named type
+```
+AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
+// shorthand
+var instance = new AReallyReallyLooooongClass();
+```
++ **Concise new (new())** *[C#9]* 
+```
+ExampleClass instance = new ExampleClass();
+// shorthand
+ExampleClass instance = new();
+```
