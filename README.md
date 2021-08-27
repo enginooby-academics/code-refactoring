@@ -265,7 +265,7 @@ let myPets = {
   bird
 }
 ```
-+ **Lambda expression/Arrow function (=>)** *[Java8, ES6, Dart]*
++ **Lambda expression/Arrow function/Expression-bodied members (=>)** *[Java8, ES6, Dart, C#]*
 ```
 function getSum(a: number, b: number) {
   return a + b
