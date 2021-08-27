@@ -1,7 +1,7 @@
 # C#
 
 ## Preferences
-+ Check for nullity using **is** & **is not** _[C#9]_
++ Check for nullity using **pattern matching (is, is not)**_[C#9]_
 ```
 if (a == null && b != null)
 // preference
@@ -15,7 +15,7 @@ class User {
     public int Age {get; init};
 }
 
-User user = new User {Name = "John", age = 18};
+User user = new() {Name = "John", age = 18};
 user.Name = "John Ritter"; // no error
 user.Age = 20; // error! CS8852.
 ```
@@ -81,4 +81,17 @@ namespace HelloWorld
 // shorthand
 using System;
 Console.WriteLine("Hello World!");
+```
++ **File-scoped namespace declaration** _[C#10]_
+```
+namespace AppA {
+    class User {
+        ...
+    }
+}
+// shorthand
+namespace AppA;
+class User {
+    ...
+}
 ```
