@@ -1,7 +1,7 @@
 # C#
 
 ## Preferences
-+ Check for nullity using **pattern matching (is, is not)**_[C#9]_
++ Check for nullity using **pattern matching (is, is not)**_[C#7]_
 ```
 if (a == null && b != null)
 // preference
@@ -18,6 +18,12 @@ class User {
 User user = new() {Name = "John", age = 18};
 user.Name = "John Ritter"; // no error
 user.Age = 20; // error! CS8852.
+```
++ **Digit separators**: for long numbers _[C#7]_
+```
+public const long BillionsAndBillions = 100000000000;
+// preference
+public const long BillionsAndBillions = 100_000_000_000;
 ```
 
 ## Shorthands
