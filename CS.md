@@ -7,6 +7,18 @@ if (a == null && b != null)
 // preference
 if (a is null && b is not null)
 ```
++ ~~Class/Struct~~ => **Record**: for immutable data models _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types))
++ ~~set accessor~~ => **init accesor**: for immutable properties in class/struct/record _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#init-only-setters))
+```
+class User {
+    public string Name {get; set};
+    public int Age {get; init};
+}
+
+User user = new User {Name = "John", age = 18};
+user.Name = "John Ritter"; // no error
+user.Age = 20; // error! CS8852.
+```
 
 ## Shorthands
 + **Switch expressions** _[C#8]_
@@ -53,7 +65,7 @@ ExampleClass instance = new ExampleClass();
 // shorthand
 ExampleClass instance = new();
 ```
-+ **Top-level statement**: compact Main method _[C#9]_
++ **Top-level statement**: compact Main method _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#top-level-statements))
 ```
 using System;
 namespace HelloWorld
