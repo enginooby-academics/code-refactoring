@@ -53,3 +53,20 @@ ExampleClass instance = new ExampleClass();
 // shorthand
 ExampleClass instance = new();
 ```
++ **Top-level statement**: compact Main method _[C#9]_
+```
+using System;
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+// shorthand
+using System;
+Console.WriteLine("Hello World!");
+```
