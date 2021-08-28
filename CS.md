@@ -25,6 +25,8 @@ public const long BillionsAndBillions = 100000000000;
 // preference
 public const long BillionsAndBillions = 100_000_000_000;
 ```
++ Use **readonly** for members which don't modify state, e.g. ```ToString()``` _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))  
+> Reason: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
 
 ## Shorthands
 + **Switch expressions** _[C#8]_
@@ -46,6 +48,8 @@ static bool CheckIfCanWalkIntoBankSwitch(BankStatus bankStatus, bool isVip)
         case BankStatus.VIPCustomersOnly : 
             result = isVip;
             break;
+        default:
+            throw new ArgumentException(message: "invalid enum value"),
     }
 
     return result;
@@ -56,7 +60,8 @@ static bool CheckIfCanWalkIntoBank(BankStatus bankStatus, bool isVip) => bankSta
 {
     BankBranchStatus.Open => true, 
     BankBranchStatus.Closed => false, 
-    BankBranchStatus.VIPCustomersOnly => isVip
+    BankBranchStatus.VIPCustomersOnly => isVip,
+    _ => throw new ArgumentException(message: "invalid enum value")
 };
 ```
 + **Implicit typing (var)**: for long named type
