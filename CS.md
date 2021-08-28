@@ -25,7 +25,7 @@ public const long BillionsAndBillions = 100000000000;
 // preference
 public const long BillionsAndBillions = 100_000_000_000;
 ```
-+ Use **readonly** for members which don't modify state, e.g. ```ToString()``` _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))  
++ Use **readonly** for members which don't modify state, e.g. ```ToString()``` _[C#8]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))  
 > Reason: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
 
 ## Shorthands
@@ -105,4 +105,36 @@ namespace AppA;
 class User {
     ...
 }
+```
++ Use **from end operator (^)** & **range operator (..)** for sequence/collection _[C#8])_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/ranges-indexes#language-support-for-indices-and-ranges))
+```
+string[] words = new string[]
+{
+                // index from start    index from end
+    "The",      // 0                   ^9
+    "quick",    // 1                   ^8
+    "brown",    // 2                   ^7
+    "fox",      // 3                   ^6
+    "jumped",   // 4                   ^5
+    "over",     // 5                   ^4
+    "the",      // 6                   ^3
+    "lazy",     // 7                   ^2
+    "dog"       // 8                   ^1
+};              // 9 (or words.Length) ^0
+
+// access element
+Console.WriteLine($"The last word is {words[words.Length - 1]}");
+Console.WriteLine($"The second last word is {words[words.Length - 2]}");
+// shorthand
+Console.WriteLine($"The last word is {words[^1]}");
+Console.WriteLine($"The second last word is {words[^2]}");
+
+// extract elements
+string[] quickBrownFox = new string[] {words[1], words[2], words[3]};
+// shorthand
+string[] quickBrownFox = words[1..4];
+// other examples
+string[] allWords = words[..];
+string[] lazyDog = words[^2..^0];
+string[] theLazyDog = words[6..];
 ```
