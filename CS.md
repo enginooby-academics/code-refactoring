@@ -52,10 +52,21 @@ partial class MyClass : IF2
 ```
 namespace ExtensionMethods;
 
-public static class IntExtensions
+public static class IntUtils
 {
     public static bool IsGreaterThan(this int i, int value) => i > value;
     public static bool IsPrime...
+}
+
+public static class StringUtils
+{
+    public static int GetWordCount(this string word)
+    {
+        if(string.IsNullOrEmpty(word) return 0;
+        
+        string[] strArray = word.Split(' ');
+        return strArray.Count();
+    }
 }
 ```
 Usage:  
@@ -63,7 +74,10 @@ Usage:
 using ExtensionMethods;
 
 int i = 5;
-if(i.IsGreaterThan(3)) System.Console.WriteLine($"{i} is greater than 3");
+if(i.IsGreaterThan(3)) System.Console.WriteLine($"{i} is greater than 3"); // output: 5 is greater than 3
+
+string name = "Foo Bar";
+System.Console.WriteLine(name.GetWordCount()); // output: 2
 ```
 
 ## Shorthands
