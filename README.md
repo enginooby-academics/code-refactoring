@@ -37,6 +37,7 @@
 ### 2 - Others
 + **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
 + **Function/variable/constant** (reference type || function-scoped) ```camelCase```: *disableBtn()*
++ **Function** (in C#|Unity; C++|Unreal Engine) ```PascalCase```: *DisableBtn()*
 + **Class/struct/record** ```PascalCase```: *CoolBtn*
 + **Interface** ```PascalCase | I prefix```: *IClickable*
 + **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
