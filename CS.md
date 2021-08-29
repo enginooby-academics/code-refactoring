@@ -19,6 +19,7 @@ User user = new() {Name = "John", age = 18};
 user.Name = "John Ritter"; // no error
 user.Age = 20; // error! CS8852.
 ```
++ Prefer **object initializer syntax** than overloading constructors or invoking multiples setters ([reference](https://stackoverflow.com/a/740682))
 + **Digit separators**: for long numbers _[C#7]_
 ```
 public const long BillionsAndBillions = 100000000000;
