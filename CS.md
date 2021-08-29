@@ -47,6 +47,24 @@ partial class MyClass : IF2
 ```
 + ~~Region directive (#region)~~
 > Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
++ Create **extension methods** for commonly used operations on value types or existing classes  
+> Reason: reduce one parameter in utility method for value types, add new functions for a class without modify/inheritate it
+```
+namespace ExtensionMethods;
+
+public static class IntExtensions
+{
+    public static bool IsGreaterThan(this int i, int value) => i > value;
+    public static bool IsPrime...
+}
+```
+Usage:  
+```
+using ExtensionMethods;
+
+int i = 5;
+if(i.IsGreaterThan(3)) System.Console.WriteLine($"{i} is greater than 3");
+```
 
 ## Shorthands
 + **Switch expressions** _[C#8]_
