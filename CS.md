@@ -45,6 +45,8 @@ partial class MyClass : IF2
     // implementation of IF2
 }
 ```
++ ~~Region directive (#region)~~
+> Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
 
 ## Shorthands
 + **Switch expressions** _[C#8]_
