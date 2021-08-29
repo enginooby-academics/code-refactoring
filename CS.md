@@ -48,7 +48,7 @@ partial class MyClass : IF2
 + ~~Region directive (#region)~~
 > Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
 + Create **extension methods** for commonly used operations on value types or existing classes  
-> Reason: reduce one parameter in utility method for value types, add new functions for a class without modify/inheritate it
+> Reason: reduce one parameter in utility method for value types, add new functions for a class without modifying/inheriting it
 ```
 namespace ExtensionMethods;
 
@@ -60,13 +60,7 @@ public static class IntUtils
 
 public static class StringUtils
 {
-    public static int GetWordCount(this string word)
-    {
-        if(string.IsNullOrEmpty(word) return 0;
-        
-        string[] strArray = word.Split(' ');
-        return strArray.Count();
-    }
+    public static int GetWordCount(this string word) => str.Split(new char[] { ' ', '.', '?' }, StringSplitOptions.RemoveEmptyEntries).Length;
 }
 ```
 Usage:  
