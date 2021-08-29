@@ -186,11 +186,11 @@ string[] lazyDog = words[^2..^0];
 string[] theLazyDog = words[6..];
 ```
 + Initialize collections using **object initializer syntax**
-``
+```
 List<string> users = new();  
 users.Add("User 1");  
 users.Add("User 2");
 
 // shorthand
 List<string> users = new() {"User 1", "User 2");
-``
+```
