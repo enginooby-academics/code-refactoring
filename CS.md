@@ -27,6 +27,24 @@ public const long BillionsAndBillions = 100_000_000_000;
 ```
 + Use **readonly** for members which don't modify state, e.g. ```ToString()``` _[C#8]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))  
 > Reason: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
++ Use **partial class** to split the implementation of different interfaces
+```
+partial class MyClass
+{
+    // main implementation of MyClass
+}
+
+
+partial class MyClass : IF1
+{
+    // implementation of IF1
+}
+
+partial class MyClass : IF2
+{
+    // implementation of IF2
+}
+```
 
 ## Shorthands
 + **Switch expressions** _[C#8]_
