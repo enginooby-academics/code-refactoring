@@ -75,6 +75,14 @@ string name = "Foo Bar";
 System.Console.WriteLine(name.GetWordCount()); // output: 2
 ```
 + ~~POCO class~~ => **tuple**: for returning multiple values from private and internal utility methods _[C#7]_
++ ~~Casting~~ => **System.Convert** 
+> Reason: Convert class enables to convert between non-compatible types
+```
+string variable = "5.00"; 
+
+double varDouble = (double)variable; // error: InvalidCastException
+double varDouble = System.Convert.ToDouble(variable); // no error
+```
 
 ## Shorthands
 + **Switch expressions** _[C#8]_
@@ -143,16 +151,33 @@ Console.WriteLine("Hello World!");
 ```
 + **File-scoped namespace declaration** _[C#10]_
 ```
-namespace AppA {
+namespace ApplicationA {
     class User {
         ...
     }
 }
 // shorthand
-namespace AppA;
+namespace ApplicationA;
 class User {
     ...
 }
+```
++ **Namespace alias qualifier (::)**
+```
+namespace ApplicationA;
+class User {}
+```
+```
+namespace ApplicationB;
+class User {}
+```
+Main 
+```
+using A = ApplicationA;
+using B = ApplicationB;
+
+A::User = new();
+B::User = new();
 ```
 + Use **from end operator (^)** & **range operator (..)** for sequence/collection _[C#8])_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/ranges-indexes#language-support-for-indices-and-ranges))
 ```
