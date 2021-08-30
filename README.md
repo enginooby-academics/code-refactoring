@@ -27,21 +27,24 @@
 # II - Naming
 [⬆ To the top](#0)
 
-### 1 - Variable
+### 1 - Variable & Constant
+> Normally use camelCase
 + **Element/HTMLElement** ```e prefix```: *eBtn*
 + **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
 + **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
 + **Boolean** ```{tobe/have/any}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
 + **Private class member** ```_ prefix```: *_id* (questionable?)
-
-### 2 - Others
 + **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
-+ **Function/variable/constant** (reference type || function-scoped) ```camelCase```: *disableBtn()*
++ **Constant** (reference type || function-scoped) ```camelCase```
+
+### 2 - Type & Function
++ **Function** ```camelCase```: *disableBtn()*
 + **Function** (in C#|Unity; C++|Unreal Engine) ```PascalCase```: *DisableBtn()*
 + **Class/struct/record** ```PascalCase```: *CoolBtn*
 + **Interface** ```PascalCase | I prefix```: *IClickable*
 + **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
-+ **Event** ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
++ **Event** (of current class) ```camelCase | on+{ordinal}+{action}```: *onClick()*, *on1stClick()*
++ **Event** (of other object) ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
 + **CSS class** ```BEM```: *hero__btn--round* ([reference](https://sparkbox.com/foundry/bem_by_example))
 
 <a name="commenting"></a>  
