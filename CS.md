@@ -74,6 +74,7 @@ if(i.IsGreaterThan(3)) System.Console.WriteLine($"{i} is greater than 3"); // ou
 string name = "Foo Bar";
 System.Console.WriteLine(name.GetWordCount()); // output: 2
 ```
++ ~~POCO class~~ => **tuple**: for returning multiple values from private and internal utility methods _[C#7]_
 
 ## Shorthands
 + **Switch expressions** _[C#8]_
@@ -193,4 +194,20 @@ users.Add("User 2");
 
 // shorthand
 List<string> users = new() {"User 1", "User 2");
+```
++ Use **tuple** in class constructor _[C#7]_
+```
+class User {
+    public string Name {get; set};
+    public int Age {get; set};
+    
+    // longhand
+    public User(string name, int age){
+        _name = name;
+        _age = age;
+    }
+    
+    // shorthand
+    public User(string name, int age) => (_name, _age) = (name, age);
+}
 ```
