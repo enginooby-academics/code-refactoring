@@ -26,9 +26,9 @@
 <a name="naming"></a>  
 # II - Naming
 [⬆ To the top](#0)
+> Normally use camelCase for variables & functions/methods, SNAKE_CASE for constants, PascalCase for types, w/ prefix if necessary
 
 ### 1 - Variable & Constant
-> Normally use camelCase
 + **Element/HTMLElement** ```e prefix```: *eBtn*
 + **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
 + **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
