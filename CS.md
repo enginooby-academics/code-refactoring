@@ -126,6 +126,12 @@ AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
 // shorthand
 var instance = new AReallyReallyLooooongClass();
 ```
++ Declare nullable type w/ **T?**
+```
+Nullable<int> num = null;
+// shorthand
+int? num = null;
+```
 + **Concise new (new())** *[C#9]* 
 ```
 ExampleClass instance = new ExampleClass();
