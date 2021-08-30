@@ -83,6 +83,8 @@ string variable = "5.00";
 double varDouble = (double)variable; // error: InvalidCastException
 double varDouble = System.Convert.ToDouble(variable); // no error
 ```
+~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
+> Reason: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
 
 ## Shorthands
 + **Switch expressions** _[C#8]_
@@ -242,7 +244,7 @@ class User {
     public User(string name, int age) => (_name, _age) = (name, age);
 }
 ```
-** String methods**
+**String methods**
 ```
 // Indicates whether the specified string is null or an Empty string.
 string.IsNullOrEmpty(string value);
