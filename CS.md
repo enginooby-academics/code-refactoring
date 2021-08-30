@@ -242,3 +242,11 @@ class User {
     public User(string name, int age) => (_name, _age) = (name, age);
 }
 ```
+** String methods**
+```
+// Indicates whether the specified string is null or an Empty string.
+string.IsNullOrEmpty(string value);
+
+// Indicates whether a specified string is null, empty, or consists only of white-space characters.
+string.IsNullOrWhiteSpace(string value);
+```
