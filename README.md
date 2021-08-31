@@ -204,7 +204,7 @@ function getInsuranceDeductible(insurance) {
   }
 }
 
-//preference
+//preference (can use daisy chaining to shorten furthermore)
 function getInsuranceDeductible(insurance) {
   if (!insurance.covered) return 0
   if (insurance.majorRepair) return 500
@@ -223,7 +223,7 @@ if (a > b) {
 else {
     result = y;
 }
-// shorthand
+//shorthand
 result = a > b ? x : y;
 ```
 For return:
@@ -234,8 +234,26 @@ if (a > b) {
 else {
     return y;
 }
-// shorthand
+//shorthand
 return a > b ? x : y;
+```
++ Daisy chaining:
+```
+function getInsuranceDeductible(insurance) {
+  if (!insurance.covered) return 0
+  if (insurance.majorRepair) return 500
+  if (insurance.mediumRepair) return 300
+
+  return 100
+}
+
+//shorthand
+function getInsuranceDeductible(insurance) {
+  return insurance.covered ? 0
+         : insurance.majorRepair ? 500
+         : insurance.mediumRepair ? 300 
+         : 100
+}
 ```
 
 + Conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
