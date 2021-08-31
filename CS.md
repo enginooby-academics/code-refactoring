@@ -18,19 +18,19 @@
 + **Implicit typing (var)**: for long named type
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
-// shorthand
+//shorthand
 var instance = new AReallyReallyLooooongClass();
 ```
 + Declare nullable type w/ **T?**
 ```
 Nullable<int> num = null;
-// shorthand
+//shorthand
 int? num = null;
 ```
 + **Concise new (new())** *[C#9]* 
 ```
 ExampleClass instance = new ExampleClass();
-// shorthand
+//shorthand
 ExampleClass instance = new();
 ```
 + Initialize collections using **collection initializer syntax**
@@ -39,7 +39,7 @@ List<string> users = new();
 users.Add("User 1");  
 users.Add("User 2");
 
-// shorthand
+//shorthand
 List<string> users = new {"User 1", "User 2");
 ```
 
@@ -74,7 +74,7 @@ static bool CheckIfCanWalkIntoBankSwitch(BankStatus bankStatus, bool isVip)
     return result;
 }
 
-// shorthand (w/ arrow function)
+//shorthand (w/ arrow function)
 static bool CheckIfCanWalkIntoBank(BankStatus bankStatus, bool isVip) => bankStatus switch
 {
     BankBranchStatus.Open => true, 
@@ -121,18 +121,18 @@ user.Age = 20; // error! CS8852.
 ```
 partial class MyClass
 {
-    // main implementation of MyClass
+    //main implementation of MyClass
 }
 
 
 partial class MyClass : IF1
 {
-    // implementation of IF1
+    //implementation of IF1
 }
 
 partial class MyClass : IF2
 {
-    // implementation of IF2
+    //implementation of IF2
 }
 ```
 + ~~POCO class~~ => **tuple**: for returning multiple values from private and internal utility methods _[C#7]_
@@ -142,13 +142,13 @@ class User {
     public string Name {get; set};
     public int Age {get; set};
     
-    // longhand
+    //longhand
     public User(string name, int age){
         _name = name;
         _age = age;
     }
     
-    // shorthand
+    //shorthand
     public User(string name, int age) => (_name, _age) = (name, age);
 }
 ```
@@ -217,7 +217,13 @@ if ((user1 == user2) || ((user1 != null && user2 != null) && user1.Equals(user2)
 //shorthand
 if(Object.Equals(user1, user2))
 ```
-
++ Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
+> Pro: removes the additional string allocation overhead
+```
+str1.ToUpper() == str2.ToUpper()
+//preference
+str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
+```
 
 
 <a name="_string"></a>      
@@ -234,13 +240,6 @@ public void PrintUserName(User currentUser)
     //preference
     currentUser is null && _logger.Error($"Argument {nameof(currentUser)} is not provided");
 }    
-```
-+ Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
-> Pro: removes the additional string allocation overhead
-```
-str1.ToUpper() == str2.ToUpper()
-//preference
-str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
 ```
 + ~~""~~ => **String.Empty**
 + ~~Escaped characters~~ => **verbatim string (@)**
@@ -329,23 +328,28 @@ string[] words = new string[]
     "lazy",     // 7                   ^2
     "dog"       // 8                   ^1
 };              // 9 (or words.Length) ^0
-
-// access element
+```
+    
+To access collection element:
+```
 Console.WriteLine($"The last word is {words[words.Length - 1]}");
 Console.WriteLine($"The second last word is {words[words.Length - 2]}");
-// shorthand
+//shorthand
 Console.WriteLine($"The last word is {words[^1]}");
 Console.WriteLine($"The second last word is {words[^2]}");
-
-// extract elements
+```
+    
+To extract elements:
+```
 string[] quickBrownFox = new string[] {words[1], words[2], words[3]};
-// shorthand
+//shorthand
 string[] quickBrownFox = words[1..4];
-// other examples
+//other examples
 string[] allWords = words[..];
 string[] lazyDog = words[^2..^0];
 string[] theLazyDog = words[6..];
 ```
+    
 + Make a collection of continuous integers using **Enumerable.Range()**
 ```
 //longhand
@@ -358,6 +362,7 @@ for(int i = 2; i <= 8; i++) from2To8.Add(i);
 List<int> from2To8 = Enumerable.Range(2, 8).ToList();
 ```
 
+    
 
 <a name="_others"></a>      
 ### Others
@@ -375,7 +380,7 @@ namespace HelloWorld
         }
     }
 }
-// shorthand
+//shorthand
 using System;
 Console.WriteLine("Hello World!");
 ```
@@ -387,7 +392,7 @@ namespace ApplicationA {
         ...
     }
 }
-// shorthand
+//shorthand
 namespace ApplicationA;
 class User {
     ...
