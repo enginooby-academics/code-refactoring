@@ -187,7 +187,7 @@ let c = 3;
 ```
   
 ### 2 - Control Flow
-+ **Guard clause/assert/precondition**: return early in special case or multiple return
++ **Guard clause/assert/precondition**: return early in special case; multiple return
 > Pro: avoid nested statements, improve readability
 ```
 function getInsuranceDeductible(insurance) {
@@ -204,7 +204,7 @@ function getInsuranceDeductible(insurance) {
   }
 }
 
-//preference (can use daisy chaining to shorten furthermore)
+//preference (use daisy chaining ternary operator to shorten furthermore)
 function getInsuranceDeductible(insurance) {
   if (!insurance.covered) return 0
   if (insurance.majorRepair) return 500
@@ -237,7 +237,7 @@ else {
 //shorthand
 return a > b ? x : y;
 ```
-+ Daisy chaining:
+Daisy chaining:
 ```
 function getInsuranceDeductible(insurance) {
   if (!insurance.covered) return 0
