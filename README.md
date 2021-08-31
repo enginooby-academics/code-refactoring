@@ -150,42 +150,20 @@ const schema = new Schema<User>({...
 **[Preferences in C++ | Unreal Engine](CPP_UE.md#preferences)**  
 **[Preferences in C#](CS.md#preferences)**  
 
-+ ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
-+ ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
-+ ~~Promise/callback chaining~~ => **async-await** *[ES6]*
-+ ~~try-finally~~ => **using** *[C#]*
-+ **Object destructuring** *[TS/JS]*
-+ **Named arguments** *[PHP, Kotlin, C#]*
-> Reason: for clarity, can change order of params
-```
-public void doSomething(string foo, int bar) {...}
-
-doSomething("someString", 1);
-//preference
-doSomething(foo: "someString", bar: 1);
-```
-+ ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
-+ ~~String concatenation operator (+)~~ => **String interpolation/template literals** *[TS/JS, Kotlin, PHP]*
-```
-console.log("Sum of " + a + " and " + b + " is " + (a + b))
-// preference
-console.log(`Sum of ${a} and ${b} is ${a + b}`)
-```
-
 ### 1 - Declaration, Initialization & Assignment
-+ W/ **nullish coalescing operator (??)** *[C#, PHP, ES11]*
++ Assign w/ nullable variable using **nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
 // shorthand
 result = a ?? b
 ```
-+ W/ **short circuit evaluation** *[most languages]*
++ Assign w/ nullable variable using **short circuit evaluation** *[most languages]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
 // shorthand
 result = a || b
 ```
-+ **Logical nullish assigment operator (??=)** *[TS/JS, C#8]*
++ Assign default value for nullable variable using **logical nullish assigment operator (??=)** *[TS/JS, C#8]*
 ```
 a ?? (a = b)
 // shorthand
@@ -199,7 +177,7 @@ let c = 3;
 // shorthand
 let a, b, c = 3;
 ```
-+ Assign multiple variables using **object destructuring** _[ES]_
++ Assign multiple variables using **object destructuring/tuple** _[ES, C#]_
 ```
 let a = 1;
 let b = 2;
@@ -209,8 +187,34 @@ let c = 3;
 ```
   
 ### 2 - Control Flow
-+ **Guard clause/assert/precondition**
++ **Guard clause/assert/precondition**: return early in special case or multiple return
+> Pro: avoid nested statements, improve readability
+```
+function getInsuranceDeductible(insurance) {
+  if (insurance.covered) {
+    if (insurance.majorRepair) {
+      return 500
+    } else if (insurance.mediumRepair) {
+      return 300
+    } else {
+      return 100
+    }
+  } else {
+    return 0
+  }
+}
+
+//preference
+function getInsuranceDeductible(insurance) {
+  if (!insurance.covered) return 0
+  if (insurance.majorRepair) return 500
+  if (insurance.mediumRepair) return 300
+
+  return 100
+}
+```
 + **Ternary operator (? :)** *[most languages]*  
+
 For assignment:
 ```
 if (a > b) {
@@ -249,7 +253,7 @@ if(isHungry) {
 isHungry && code()
 ```
   
-### 3 - Class, Object, Function
+### 3 - Type & Object
 + **Constructor shorthand/property promotion** *[TS, PHP8]*
 ```
 class User {
@@ -270,22 +274,19 @@ class User {
 ```
 + **Object property value shorthand** *[ES6]*
 ```
-let cat = 'Miaow';
-let dog = 'Woof';
-let bird = 'Peet peet';
+let name = 'User 1';
+let age = 18;
 
-var myPets = {
-  cat: cat,
-  dog: dog,
-  bird: bird
+var user = {
+  name: name,
+  age: age,
 }
 //shorthand
-let myPets = {
-  cat,
-  dog,
-  bird
-}
+let user = {name, age}
 ```
++ ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
+
+### 4 - Function & Method
 + **Lambda expression/Arrow function/Expression-bodied members (=>)** *[Java8, ES6, Dart, C#]*
 ```
 function getSum(a: number, b: number) {
@@ -294,8 +295,19 @@ function getSum(a: number, b: number) {
 // shorthand
 const getSum = (a: number, b: number) => (a + b)
 ```
++ **Named parameters** *[PHP, Kotlin, C#]*
+> Reason: for clarity, can change order of params
+```
+public void doSomething(string foo, int bar) {...}
 
-### 4 - Mathematics
+doSomething("someString", 1);
+//preference
+doSomething(foo: "someString", bar: 1);
+```
++ ~~Overloading function~~ => **optional parameters**
++ ~~Promise/callback chaining~~ => **async-await** *[ES6]*
+
+### 5 - Mathematics
 + **Exponent power** *[ES]*
 ```
 const power = Math.pow(4, 3);
@@ -315,7 +327,7 @@ const floor = ~~6.8;
 1e7
 ```
 
-### 5 - Conversion
+### 6 - String
 + String to number *[ES]*
 ```
 const num1 = parseInt("100");
@@ -324,8 +336,16 @@ const num2 =  parseFloat("100.01");
 const num1 = +"100";
 const num2 =  +"100.01";
 ```
++ ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
++ ~~String concatenation operator (+)~~ => **String interpolation/template literals** *[ES, C#, Kotlin, PHP]*
+```
+console.log("Sum of " + a + " and " + b + " is " + (a + b))
+// preference
+console.log(`Sum of ${a} and ${b} is ${a + b}`)
+```
 
-### Others
+### 7 - Comparision
++ ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
 + **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
 ```
 $users = ['branko', 'ivana', 'luka', 'ivano'];
@@ -338,7 +358,9 @@ usort($users, function ($a, $b) {
   return $a <=> $b;
 });
 ```
-+ **Spread operator (...)** [ES6]
+
+### 8 - Collection
++ **Spread operator (...)** _[ES6]_
 
 For joining arrays:
 ```
