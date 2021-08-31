@@ -84,7 +84,8 @@ double varDouble = (double)variable; // error: InvalidCastException
 double varDouble = System.Convert.ToDouble(variable); // no error
 ```
 + ~~Objest casting~~ => **as**
-> Reason: if non-comatible types, casting throws exception while as return null
+> Reason: if non-comatible types, casting throws InvalidCastException while as return null  
+> Con: potential to get NullReferenceException later
 ```
 User instance = (User) mobileUser;
 //preference
@@ -161,6 +162,20 @@ int? num = null;
 ExampleClass instance = new ExampleClass();
 // shorthand
 ExampleClass instance = new();
+```
++ **Automatic properties**
+```
+class User {
+    //longhand
+    private string _name;
+    public string Name {
+        get {return _name}
+        set (_name = value}
+    }
+    
+    //shorthand
+    public string Name {get; set}
+}
 ```
 + **Top-level statement**: compact Main method _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#top-level-statements))
 ```
