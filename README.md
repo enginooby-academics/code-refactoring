@@ -3,10 +3,8 @@
 1. [Abbreviations](#abbreviations)
 1. [Naming](#naming)
 2. [Commenting](#commenting)
-3. [Preferences](#preferences)
-4. [Shorthands](#shorthands)
-5. [Git](#git)
-6. [Architecture](#architecture)
+3. [Architecture](#architecture)
+4. [Coding Preferences](#preferences)
 
 <a name="abbreviations"></a>  
 ### I - Abbreviations
@@ -46,6 +44,16 @@
 + **Event** (of current class) ```camelCase | on+{ordinal}+{action}```: *onClick()*, *on1stClick()*
 + **Event** (of other object) ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
 + **CSS class** ```BEM```: *hero__btn--round* ([reference](https://sparkbox.com/foundry/bem_by_example))
+
+### 3 - Git
++ **Repo name** ```kebab-case | All lower``` (avoid lowerscore _ which seems bad for URL)  
+#### Commit message
++ **Initial commit** first commit of the project involving common/familiar setup.
++ **[Exp]** experimenting, trying out a feature. This code can be used for reference later and removed when getting familiar (marked with // REMOVE).
++ **[Refactor]** refactoring code, removing unnecesary code/comments, reorganinzing code/files, etc.
++ **[Fix]**
++ **[Test]**
++ **[Doc]**
 
 <a name="commenting"></a>  
 # III - Commenting
@@ -126,10 +134,18 @@ const schema = new Schema<User>({...
 /* BUTTON */
 ```
 
-<a name="preferences"></a>  
-# IV - Preferences
+<a name="architecture"></a>  
+# IV - Architecture
 [⬆ To the top](#0)
-> Alternative ways of doing stuffs to help improving **code readability & clarity**  
+> Standard approaches to structure & organize code files
++ **SASS** ```7-1 pattern``` ([reference](https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture))
++ **TS & NodeJS** ([reference](https://github.com/microsoft/TypeScript-Node-Starter))
+
+
+<a name="preferences"></a>  
+# V - Coding Preferences
+[⬆ To the top](#0)
+> Alternative ways of writing code to help improving **code readability, clarity, brevity & optimization**  
 
 **[Preferences in C++ | Unreal Engine](CPP_UE.md#preferences)**  
 **[Preferences in C#](CS.md#preferences)**  
@@ -138,21 +154,16 @@ const schema = new Schema<User>({...
 + ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
 + ~~Promise/callback chaining~~ => **async-await** *[ES6]*
 + ~~try-finally~~ => **using** *[C#]*
-+ **Object initializer/builder** [C#]*
 + **Object destructuring** *[TS/JS]*
 + **Named arguments** *[PHP, Kotlin, C#]*
+> Reason: for clarity, can change order of params
 ```
-// Method
-public void doSomething(string foo, int bar) 
-{
-...
-}
+public void doSomething(string foo, int bar) {...}
 
 doSomething("someString", 1);
-// preference
+//preference
 doSomething(foo: "someString", bar: 1);
 ```
-+ **Guard clause/assert/precondition**
 + ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
 + ~~String concatenation operator (+)~~ => **String interpolation/template literals** *[TS/JS, Kotlin, PHP]*
 ```
@@ -160,13 +171,6 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 // preference
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
-
-<a name="shorthands"></a>  
-# V - Shorthands
-[⬆ To the top](#0)
-> Recommend to utilize following features if available in the using language for **code brevity**
-
-**[Shorthands in C#](CS.md#shorthands)**  
 
 ### 1 - Declaration, Initialization & Assignment
 + W/ **nullish coalescing operator (??)** *[C#, PHP, ES11]*
@@ -203,10 +207,11 @@ let c = 3;
 // shorthand
 [a, b, c] = [1, 2, 3]
 ```
-
   
 ### 2 - Control Flow
-+ **Ternary operator (? :)** *[most languages]*
++ **Guard clause/assert/precondition**
++ **Ternary operator (? :)** *[most languages]*  
+For assignment:
 ```
 if (a > b) {
     result = x;
@@ -217,6 +222,18 @@ else {
 // shorthand
 result = a > b ? x : y;
 ```
+For return:
+```
+if (a > b) {
+    return x;
+}
+else {
+    return y;
+}
+// shorthand
+return a > b ? x : y;
+```
+
 + Conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
 ```
 if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
@@ -340,23 +357,3 @@ const arr2 = arr.slice()
 const arr = [1, 2, 3, 4];
 const arr2 = [...arr];
 ```
-
-<a name="git"></a>  
-# VI - Git
-[⬆ To the top](#0)
-+ **Repo name** ```kebab-case | All lower``` (avoid lowerscore _ which seem bad for URL)
-  
-### Commit message
-+ **Initial commit** first commit of the project involving common/familiar setup.
-+ **[Exp]** experimenting, trying out a feature. This code can be used for reference later and removed when getting familiar (marked with // REMOVE).
-+ **[Refactor]** refactoring code, removing unnecesary code/comments, reorganinzing code/files, etc.
-+ **[Fix]**
-+ **[Test]**
-+ **[Doc]**
-
-<a name="architecture"></a>  
-# VII - Architecture
-[⬆ To the top](#0)
-> Standard approaches to structure & organize code files
-+ **SASS** ```7-1 pattern``` ([reference](https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/7-1-sass-architecture))
-+ **TS & NodeJS** ([reference](https://github.com/microsoft/TypeScript-Node-Starter))
