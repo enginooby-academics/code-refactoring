@@ -298,6 +298,13 @@ class User {
     public User(string name, int age) => (_name, _age) = (name, age);
 }
 ```
++ **Implicit method group conversion**
+```
+List<string> users = new(){"User 1", "User 2"};
+users.ForEach(user => Console.WriteLine(user));
+//shorthand
+users.ForEach(Console.WriteLine);
+```
 + ~~Escaped characters~~ => **verbatim string (@)**
 ```
 string myFileName = "C:\\myfolder\\myfile.txt";
@@ -308,8 +315,8 @@ string myFileName = @"C:\myfolder\myfile.txt";
 + **String methods**
 ```
 // Indicates whether the specified string is null or an Empty string.
-string.IsNullOrEmpty(string value);
+String.IsNullOrEmpty(string value);
 
 // Indicates whether a specified string is null, empty, or consists only of white-space characters.
-string.IsNullOrWhiteSpace(string value);
+String.IsNullOrWhiteSpace(string value);
 ```
