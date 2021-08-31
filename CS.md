@@ -85,7 +85,22 @@ double varDouble = System.Convert.ToDouble(variable); // no error
 ```
 ~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
 > Reason: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
-
++ Use **nameof()** to address class/function/param name in string
+> Reason: when changing name, the corresspond values in string will update as well
+```
+public void PrintUserName(User currentUser)
+{
+    //The refactoring tool might miss the textual reference to current user below if we're renaming it
+    currentUser is null && _logger.Error("Argument currentUser is not provided");
+    
+    //preference
+    currentUser is null && _logger.Error($"Argument {nameof(currentUser)} is not provided");
+}    
+```
+    
+    
+    
+    
 ## Shorthands
 + **Switch expressions** _[C#8]_
 ```
@@ -219,7 +234,7 @@ string[] allWords = words[..];
 string[] lazyDog = words[^2..^0];
 string[] theLazyDog = words[6..];
 ```
-+ Initialize collections using **object initializer syntax**
++ Initialize collections using **collection initializer syntax**
 ```
 List<string> users = new();  
 users.Add("User 1");  
@@ -244,7 +259,7 @@ class User {
     public User(string name, int age) => (_name, _age) = (name, age);
 }
 ```
-**String methods**
++ **String methods**
 ```
 // Indicates whether the specified string is null or an Empty string.
 string.IsNullOrEmpty(string value);
