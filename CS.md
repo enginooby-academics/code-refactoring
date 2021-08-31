@@ -1,11 +1,19 @@
 # C#
 
 ## Preferences
-+ Check for nullity using **pattern matching (is, is not)**_[C#7]_
++ Check null using **pattern matching (is, is not)**_[C#7]_
 ```
 if (a == null && b != null)
-// preference
+//preference
 if (a is null && b is not null)
+```
++ Check null for nullable type using **HasValue**
+```
+User? user = null;
+
+if(user is not null)
+//preference
+if(user.HasValue)
 ```
 + ~~Class/Struct~~ => **Record**: for immutable data models _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types))
 + ~~set accessor~~ => **init accesor**: for immutable properties in class/struct/record _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#init-only-setters))
@@ -124,7 +132,7 @@ if(dictionary.ContainsKey(key))
 //preference
 if(dictionary.TryGetValue(key, out value)) 
 { ... }
-    
+```    
 
     
 ## Shorthands
@@ -325,9 +333,9 @@ string myFileName = @"C:\myfolder\myfile.txt";
 ```
 + **String methods**
 ```
-// Indicates whether the specified string is null or an Empty string.
+//Indicates whether the specified string is null or an Empty string.
 String.IsNullOrEmpty(string value);
 
-// Indicates whether a specified string is null, empty, or consists only of white-space characters.
+//Indicates whether a specified string is null, empty, or consists only of white-space characters.
 String.IsNullOrWhiteSpace(string value);
 ```
