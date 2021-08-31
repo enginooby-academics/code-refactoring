@@ -202,6 +202,16 @@ using B = ApplicationB;
 A::User = new();
 B::User = new();
 ```
++ **Aliased generics (using)**
+```
+Dictionary<string, Dictionary<string, List<string>>> User1 = new();
+Dictionary<string, Dictionary<string, List<string>>> User2 = new();
+
+//shorthand
+using ASimpleName = Dictionary<string, Dictionary<string, List<string>>>;
+ASimpleName User1 = new();
+ASimpleName User2 = new();
+```
 + Use **from end operator (^)** & **range operator (..)** for sequence/collection _[C#8])_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/ranges-indexes#language-support-for-indices-and-ranges))
 ```
 string[] words = new string[]
