@@ -203,6 +203,12 @@ class User {
     public string Name {get; set}
 }
 ```
++ Check equality for nullable objects using **Object.Equals()**
+```
+if ((user1 == user2) || ((user1 != null && user2 != null) && user1.Equals(user2)))
+//shorthand
+if(Object.Equals(user1, user2))
+```
 + **Top-level statement**: compact Main method _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#top-level-statements))
 ```
 using System;
