@@ -38,13 +38,14 @@
 + **Element/HTMLElement** ```e prefix```: *eBtn*
 + **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
 + **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
-+ **Boolean** ```{tobe/have/any}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
++ **Boolean** ```{is/have/can/do}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
 + **Private class member** ```_ prefix```: *_id* (questionable?)
 + **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
 + **Constant** (reference type || function-scoped) ```camelCase```
 
 ### 2 - Type & Function
 + **Function** ```camelCase```: *disableBtn()*
++ **Function** (async) ```camelCase | Async suffix``` *fetchUsersAsync()*
 + **Function** (in C#|Unity; C++|Unreal Engine) ```PascalCase```: *DisableBtn()*
 + **Class/struct/record** ```PascalCase```: *CoolBtn*
 + **Interface** ```PascalCase | I prefix```: *IClickable*
@@ -280,7 +281,25 @@ if(isHungry) {
 // shorthand
 isHungry && code()
 ```
-  
+
+
+
+### Expressions
++ ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
++ **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
+```
+$users = ['branko', 'ivana', 'luka', 'ivano'];
+
+usort($users, function ($a, $b) {
+  return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
+});
+// shorthand
+usort($users, function ($a, $b) {
+  return $a <=> $b;
+});
+```
+
+
   
 ### Type
 + **Constructor shorthand/property promotion** *[TS, PHP8]*
@@ -347,18 +366,3 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
 
-
-### Comparision
-+ ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
-+ **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
-```
-$users = ['branko', 'ivana', 'luka', 'ivano'];
-
-usort($users, function ($a, $b) {
-  return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
-});
-// shorthand
-usort($users, function ($a, $b) {
-  return $a <=> $b;
-});
-```
