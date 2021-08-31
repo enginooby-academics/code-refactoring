@@ -148,9 +148,10 @@ const schema = new Schema<User>({...
 > Alternative ways of writing code to help improving **code readability, clarity, brevity & optimization**  
 
 **[Preferences in C++ | Unreal Engine](CPP_UE.md#preferences)**  
-**[Preferences in C#](CS.md#preferences)**  
+**[Preferences in C#](CS.md#preferences)**
+**[Preferences in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
-### 1 - Declaration, Initialization & Assignment
+### Declaration, Initialization & Assignment
 + Assign w/ nullable variable using **nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
@@ -186,7 +187,7 @@ let c = 3;
 [a, b, c] = [1, 2, 3]
 ```
   
-### 2 - Control Flow
+### Control Flow
 + **Guard clause/assert/precondition**: return early in special case; multiple return
 > Pro: avoid nested statements, improve readability
 ```
@@ -271,7 +272,7 @@ if(isHungry) {
 isHungry && code()
 ```
   
-### 3 - Type & Object
+### Type
 + **Constructor shorthand/property promotion** *[TS, PHP8]*
 ```
 class User {
@@ -304,7 +305,7 @@ let user = {name, age}
 ```
 + ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
 
-### 4 - Function & Method
+### Function
 + **Lambda expression/Arrow function/Expression-bodied members (=>)** *[Java8, ES6, Dart, C#]*
 ```
 function getSum(a: number, b: number) {
@@ -325,35 +326,7 @@ doSomething(foo: "someString", bar: 1);
 + ~~Overloading function~~ => **optional parameters**
 + ~~Promise/callback chaining~~ => **async-await** *[ES6]*
 
-### 5 - Mathematics
-+ **Exponent power** *[ES]*
-```
-const power = Math.pow(4, 3);
-// shorthand 
-const power = 4**3;
-```
-+ **Floor rounding** *[ES]*
-```
-const floor = Math.floor(6.8);
-// shorthand 
-const floor = ~~6.8;
-```
-+ **Decimal base exponents** *[ES]*
-```
-10000000
-// shorthand
-1e7
-```
-
-### 6 - String
-+ String to number *[ES]*
-```
-const num1 = parseInt("100");
-const num2 =  parseFloat("100.01");
-// shorthand
-const num1 = +"100";
-const num2 =  +"100.01";
-```
+### String
 + ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
 + ~~String concatenation operator (+)~~ => **String interpolation/template literals** *[ES, C#, Kotlin, PHP]*
 ```
@@ -362,7 +335,7 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
 
-### 7 - Comparision
+### Comparision
 + ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
 + **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
 ```
@@ -375,25 +348,4 @@ usort($users, function ($a, $b) {
 usort($users, function ($a, $b) {
   return $a <=> $b;
 });
-```
-
-### 8 - Collection
-+ **Spread operator (...)** _[ES6]_
-
-For joining arrays:
-```
-const odd = [1, 3, 5];
-const nums = [2 ,4 , 6].concat(odd);
-// shorthand
-const odd = [1, 3, 5 ];
-const nums = [2 ,4 , 6, ...odd];
-```
-  
-For cloning array:
-```
-const arr = [1, 2, 3, 4];
-const arr2 = arr.slice()
-// shorthand
-const arr = [1, 2, 3, 4];
-const arr2 = [...arr];
 ```
