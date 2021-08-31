@@ -1,10 +1,18 @@
 <a name="0"></a>  
 # Table of Contents
 1. [Abbreviations](#abbreviations)
-1. [Naming](#naming)
-2. [Commenting](#commenting)
-3. [Architecture](#architecture)
-4. [Coding Preferences](#preferences)
+2. [Naming](#naming) 
+    + Variable & constant
+    + Type & function
+    + Git
+3. [Commenting](#commenting)
+    + Document
+    + Task
+    + Section
+4. [Architecture](#architecture)
+    + SASS/Less
+    + NodeJS & TypeScript
+5. [Refactoring](#refactoring)
 
 <a name="abbreviations"></a>  
 ### I - Abbreviations
@@ -142,14 +150,14 @@ const schema = new Schema<User>({...
 + **TS & NodeJS** ([reference](https://github.com/microsoft/TypeScript-Node-Starter))
 
 
-<a name="preferences"></a>  
-# V - Coding Preferences
+<a name="refactoring"></a>  
+# V - Refactoring
 [⬆ To the top](#0)
 > Alternative ways of writing code to help improving **code readability, clarity, brevity & optimization**  
 
-**[Preferences in C++ | Unreal Engine](CPP_UE.md#preferences)**  
-**[Preferences in C#](CS.md#preferences)**  
-**[Preferences in TypeScript & JavaScript](TS_JS.md#preferences)**  
+**[Refactoring in C++ | Unreal Engine](CPP_UE.md#preferences)**  
+**[Refactoring in C#](CS.md#preferences)**  
+**[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
 ### Declaration, Initialization & Assignment
 + Assign w/ nullable variable using **nullish coalescing operator (??)** *[C#, PHP, ES11]*
@@ -186,6 +194,7 @@ let c = 3;
 // shorthand
 [a, b, c] = [1, 2, 3]
 ```
+  
   
 ### Control Flow
 + **Guard clause/assert/precondition**: return early in special case; multiple return
@@ -272,6 +281,7 @@ if(isHungry) {
 isHungry && code()
 ```
   
+  
 ### Type
 + **Constructor shorthand/property promotion** *[TS, PHP8]*
 ```
@@ -305,6 +315,7 @@ let user = {name, age}
 ```
 + ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
 
+
 ### Function
 + **Lambda expression/Arrow function/Expression-bodied members (=>)** *[Java8, ES6, Dart, C#]*
 ```
@@ -326,6 +337,7 @@ doSomething(foo: "someString", bar: 1);
 + ~~Overloading function~~ => **optional parameters**
 + ~~Promise/callback chaining~~ => **async-await** *[ES6]*
 
+
 ### String
 + ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
 + ~~String concatenation operator (+)~~ => **String interpolation/template literals** *[ES, C#, Kotlin, PHP]*
@@ -334,6 +346,7 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 // preference
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
+
 
 ### Comparision
 + ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
