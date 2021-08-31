@@ -3,18 +3,17 @@
 ### Table of Contents
 + [Declaration, Initialization & Assignment](#init)  
 + [Control Flow](#_control-flow)
-+ [OOP](#_oop)
 + [Function](#_function)
-+ [String](#_string)
-+ [Collection](#_collection)
-+ [Mathematics & Number](#_mathematics)
 + [Comparision](#_comparision)
++ [OOP](#_oop)
++ [String](#_string)
++ [Number](#_number)
++ [Collection](#_collection)
 + [Others](#_others)
 
 <a name="init"></a>      
 ### Declaration, Initialization & Assignment
 [⬆ To the top](#0)
-+ Prefer **object initializer syntax** than overloading constructors or invoking multiples setters ([reference](https://stackoverflow.com/a/740682))
 + **Implicit typing (var)**: for long named type
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
@@ -27,13 +26,14 @@ Nullable<int> num = null;
 //shorthand
 int? num = null;
 ```
-+ **Concise new (new())** *[C#9]* 
++ Init object using **type-omitted new expression (new())** [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#fit-and-finish-features)] 
 ```
 ExampleClass instance = new ExampleClass();
 //shorthand
 ExampleClass instance = new();
 ```
-+ Initialize collections using **collection initializer syntax**
++ Prefer **object initializer syntax** than overloading constructors or invoking multiples setters [[Reference](https://stackoverflow.com/a/740682)]
++ Init collection using **collection initializer syntax**
 ```
 List<string> users = new();  
 users.Add("User 1");  
@@ -48,7 +48,7 @@ List<string> users = new {"User 1", "User 2");
 <a name="_control-flow"></a>      
 ### Control Flow
 [⬆ To the top](#0)
-+ **Switch expressions** _[C#8]_
++ **Switch expressions** [[C#8](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#switch-expressions)]
 ```
 enum BankStatus {Open, Closed, VIPOnly};
 
@@ -89,7 +89,8 @@ static bool CheckIfCanWalkIntoBank(BankStatus bankStatus, bool isVip) => bankSta
 <a name="_oop"></a>      
 ###  OOP
 [⬆ To the top](#0)
-+ ~~Class/Struct~~ => **Record**: for immutable data models _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types))
++ ~~Class/Struct~~ => **Record**: for immutable data models [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types)]
+
 + **Automatic properties**
 ```
 class User {
@@ -104,7 +105,8 @@ class User {
     public string Name {get; set}
 }
 ```
-+ ~~set accessor~~ => **init accesor**: for immutable properties in class/struct/record _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#init-only-setters))
+
++ ~~set accessor~~ => **init accesor**: for immutable properties in class/struct/record [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#init-only-setters)]
 ```
 class User {
     public string Name {get; set};
@@ -115,8 +117,10 @@ User user = new {Name = "John", age = 18};
 user.Name = "John Ritter"; // no error
 user.Age = 20; // error! CS8852.
 ```
-+ Use **readonly** for members which don't modify state, e.g. ```ToString()``` _[C#8]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))  
+
++ Use **readonly** for members which don't modify state, e.g. ```ToString()``` [[C#8](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))]
 > Reason: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
+
 + Use **partial class** to split the implementation of different interfaces
 ```
 partial class MyClass
@@ -135,8 +139,8 @@ partial class MyClass : IF2
     //implementation of IF2
 }
 ```
-+ ~~POCO class~~ => **tuple**: for returning multiple values from private and internal utility methods _[C#7]_
-+ Use **tuple** in class constructor _[C#7]_
+
++ Use **tuple** in class constructor [C#7]
 ```
 class User {
     public string Name {get; set};
@@ -184,6 +188,7 @@ if(i.IsGreaterThan(3)) System.Console.WriteLine($"{i} is greater than 3"); // ou
 string name = "Foo Bar";
 System.Console.WriteLine(name.GetWordCount()); // output: 2
 ```
+
 + **Implicit method group conversion**
 ```
 List<string> users = new {"User 1", "User 2"};
@@ -191,18 +196,20 @@ users.ForEach(user => Console.WriteLine(user));
 //shorthand
 users.ForEach(Console.WriteLine);
 ```
++ ~~POCO class~~ => **tuple**: for returning multiple values from private and internal utility methods [C#7]
 
 
 
 <a name="_comparision"></a>      
 ### Comparision
 [⬆ To the top](#0)
-+ Check null using **pattern matching (is, is not)**_[C#7]_
++ Check null using **pattern matching (is, is not)** [C#7]
 ```
 if (a == null && b != null)
 //preference
 if (a is null && b is not null)
 ```
+
 + Check null for nullable type using **HasValue**
 ```
 User? user = null;
@@ -212,11 +219,13 @@ if(user is not null)
 if(user.HasValue)
 ```
 + Check equality for nullable objects using **Object.Equals()**
+
 ```
 if ((user1 == user2) || ((user1 != null && user2 != null) && user1.Equals(user2)))
 //shorthand
 if(Object.Equals(user1, user2))
 ```
+
 + Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
 > Pro: removes the additional string allocation overhead
 ```
@@ -241,14 +250,16 @@ public void PrintUserName(User currentUser)
     currentUser is null && _logger.Error($"Argument {nameof(currentUser)} is not provided");
 }    
 ```
+
 + ~~""~~ => **String.Empty**
+
 + ~~Escaped characters~~ => **verbatim string (@)**
 ```
 string myFileName = "C:\\myfolder\\myfile.txt";
 //shorthand
 string myFileName = @"C:\myfolder\myfile.txt";
-   
 ```
+
 + **String methods**
 ```
 //Indicates whether the specified string is null or an Empty string.
@@ -263,36 +274,15 @@ String.Join(",", users);
 
 
 
-<a name="_mathematics"></a>      
-### Mathematics & Number
+<a name="_number"></a>      
+### Number
 [⬆ To the top](#0)
-+ **Digit separators**: for long numbers _[C#7]_
++ **Digit separators**: for long numbers [C#7]
 ```
 public const long BillionsAndBillions = 100000000000;
 // preference
 public const long BillionsAndBillions = 100_000_000_000;
 ```
-
-+ ~~Region directive (#region)~~
-> Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
-
-+ ~~Base type casting~~ => **System.Convert** 
-> Reason: Convert class enables to convert between non-compatible types
-```
-string variable = "5.00"; 
-
-double varDouble = (double)variable; // error: InvalidCastException
-double varDouble = System.Convert.ToDouble(variable); // no error
-```
-+ ~~Objest casting~~ => **as**
-> Reason: if non-comatible types, casting throws InvalidCastException while as return null  
-> Con: potential to get NullReferenceException later
-```
-User instance = (User) mobileUser;
-//preference
-User instance = mobileUser as User;
-```
-
 
 
 <a name="_collection"></a>      
@@ -300,8 +290,9 @@ User instance = mobileUser as User;
 [⬆ To the top](#0)  
 ~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
 > Reason: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
+    
 + ~~Dictionary.ContainsKey()~~ => Dictionary.TryGetValue()
-> Pro: thread-safety, more compact if want to check & get value
+> Pro: thread-safety, more compact if check & get value
 ```
 if(dictionary.ContainsKey(key)) 
 {
@@ -313,7 +304,8 @@ if(dictionary.ContainsKey(key))
 if(dictionary.TryGetValue(key, out value)) 
 { ... }
 ```    
-+ Use **from end operator (^)** & **range operator (..)** for sequence/collection _[C#8])_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/ranges-indexes#language-support-for-indices-and-ranges))
+    
++ Use **from end operator (^)** & **range operator (..)** for sequence/collection [[C#8](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/ranges-indexes#language-support-for-indices-and-ranges)]
 ```
 string[] words = new string[]
 {
@@ -367,7 +359,7 @@ List<int> from2To8 = Enumerable.Range(2, 8).ToList();
 <a name="_others"></a>      
 ### Others
 [⬆ To the top](#0)
-+ **Top-level statement**: compact Main method _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#top-level-statements))
++ **Top-level statement**: compact Main method [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#top-level-statements)]
 ```
 using System;
 namespace HelloWorld
@@ -385,7 +377,7 @@ using System;
 Console.WriteLine("Hello World!");
 ```
     
-+ **File-scoped namespace declaration** _[C#10]_
++ **File-scoped namespace declaration** [C#10]
 ```
 namespace ApplicationA {
     class User {
@@ -426,4 +418,25 @@ Dictionary<string, Dictionary<string, List<string>>> User2 = new();
 using ASimpleName = Dictionary<string, Dictionary<string, List<string>>>;
 ASimpleName User1 = new();
 ASimpleName User2 = new();
+```
+    
++ ~~Region directive (#region)~~
+> Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
+
++ ~~Base type casting~~ => **System.Convert** 
+> Reason: Convert class enables to convert between non-compatible types
+```
+string variable = "5.00"; 
+
+double varDouble = (double)variable; // error: InvalidCastException
+double varDouble = System.Convert.ToDouble(variable); // no error
+```
+
++ ~~Objest casting~~ => **as**
+> Reason: if non-comatible types, casting throws InvalidCastException while as return null  
+> Con: potential to get NullReferenceException later
+```
+User instance = (User) mobileUser;
+//preference
+User instance = mobileUser as User;
 ```
