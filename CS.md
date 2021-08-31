@@ -292,6 +292,17 @@ string[] allWords = words[..];
 string[] lazyDog = words[^2..^0];
 string[] theLazyDog = words[6..];
 ```
++ Make a collection of continuous integers using **Enumerable.Range()**
+```
+//longhand
+List<int> from2To8 = new(){2, 3, 4, 5, 6, 7, 8};
+//longhand
+List<int> from2To8 = new();
+for(int i = 2; i <= 8; i++) from2To8.Add(i);
+                     
+//shorthand
+List<int> from2To8 = Enumerable.Range(2, 8).ToList();
+```
 + Initialize collections using **collection initializer syntax**
 ```
 List<string> users = new();  
@@ -338,4 +349,7 @@ String.IsNullOrEmpty(string value);
 
 //Indicates whether a specified string is null, empty, or consists only of white-space characters.
 String.IsNullOrWhiteSpace(string value);
+ 
+List<string> users = new(){"User 1", "User 2"};
+String.Join(",", users);
 ```
