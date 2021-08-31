@@ -1,5 +1,15 @@
 # TypeScript & JavaScript
 
+### String
++ String to number *[ES]*
+```
+const num1 = parseInt("100");
+const num2 =  parseFloat("100.01");
+// shorthand
+const num1 = +"100";
+const num2 =  +"100.01";
+```
+
 ### Mathematics
 + **Exponent power**
 ```
