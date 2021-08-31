@@ -105,6 +105,13 @@ public void PrintUserName(User currentUser)
     currentUser is null && _logger.Error($"Argument {nameof(currentUser)} is not provided");
 }    
 ```
++ Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
+> Pro: removes the additional string allocation overhead
+```
+str1.ToUpper() == str2.ToUpper()
+//preference
+str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
+```
     
     
     
