@@ -120,6 +120,7 @@ str1.ToUpper() == str2.ToUpper()
 //preference
 str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
 ```
++ ~~""~~ => **String.Empty**
 + ~~Dictionary.ContainsKey()~~ => Dictionary.TryGetValue()
 > Pro: thread-safety, more compact if want to check & get value
 ```
