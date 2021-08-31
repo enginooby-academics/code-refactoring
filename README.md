@@ -148,7 +148,7 @@ const schema = new Schema<User>({...
 > Alternative ways of writing code to help improving **code readability, clarity, brevity & optimization**  
 
 **[Preferences in C++ | Unreal Engine](CPP_UE.md#preferences)**  
-**[Preferences in C#](CS.md#preferences)**
+**[Preferences in C#](CS.md#preferences)**  
 **[Preferences in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
 ### Declaration, Initialization & Assignment
