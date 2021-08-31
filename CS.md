@@ -75,13 +75,20 @@ string name = "Foo Bar";
 System.Console.WriteLine(name.GetWordCount()); // output: 2
 ```
 + ~~POCO class~~ => **tuple**: for returning multiple values from private and internal utility methods _[C#7]_
-+ ~~Casting~~ => **System.Convert** 
++ ~~Base type casting~~ => **System.Convert** 
 > Reason: Convert class enables to convert between non-compatible types
 ```
 string variable = "5.00"; 
 
 double varDouble = (double)variable; // error: InvalidCastException
 double varDouble = System.Convert.ToDouble(variable); // no error
+```
++ ~~Objest casting~~ => **as**
+> Reason: if non-comatible types, casting throws exception while as return null
+```
+User instance = (User) mobileUser;
+//preference
+User instance = mobileUser as User;
 ```
 ~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
 > Reason: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
