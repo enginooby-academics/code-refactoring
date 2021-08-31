@@ -3,8 +3,8 @@
 ### Table of Contents
 + [Declaration, Initialization & Assignment](#init)  
 + [Control Flow](#_control-flow)
++ [Expressions](#_expressions)
 + [Function](#_function)
-+ [Comparision](#_comparision)
 + [OOP](#_oop)
 + [String](#_string)
 + [Number](#_number)
@@ -33,6 +33,15 @@ ExampleClass instance = new ExampleClass();
 ExampleClass instance = new();
 ```
 + Prefer **object initializer syntax** than overloading constructors or invoking multiples setters [[Reference](https://stackoverflow.com/a/740682)]
+```
+User user1 = new();
+user1.Name = "User 1";
+user1.Age = 18;
+
+//preference
+User user1 = new {Name: "User 1"; Age: 18};
+```
+
 + Init collection using **collection initializer syntax**
 ```
 List<string> users = new();  
@@ -50,38 +59,85 @@ List<string> users = new {"User 1", "User 2");
 [⬆ To the top](#0)
 + **Switch expressions** [[C#8](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#switch-expressions)]
 ```
-enum BankStatus {Open, Closed, VIPOnly};
-
-static bool CheckIfCanWalkIntoBankSwitch(BankStatus bankStatus, bool isVip)
+switch (DateTime.Now.DayOfWeek)
 {
-    bool result = false;
-
-    switch(bankStatus)
-    {
-        case BankStatus.Open : 
-            result = true;
-            break;
-        case BankStatus.Closed : 
-            result = false;
-            break;       
-        case BankStatus.VIPCustomersOnly : 
-            result = isVip;
-            break;
-        default:
-            throw new ArgumentException(message: "invalid enum value"),
-    }
-
-    return result;
+    case DayOfWeek.Monday:
+        return "Not Weekend";
+    case DayOfWeek.Tuesday:
+        return "Not Weekend";
+    case DayOfWeek.Wednesday:
+        return "Not Weekend";
+    case DayOfWeek.Thursday:
+        return "Not Weekend";
+    case DayOfWeek.Friday:
+        return "Not Weekend";
+    case DayOfWeek.Saturday:
+        return "Weekend";
+    case DayOfWeek.Sunday:
+        return "Weekend";
+    default:
+        throw new ArgumentOutOfRangeException();
 }
 
-//shorthand (w/ arrow function)
-static bool CheckIfCanWalkIntoBank(BankStatus bankStatus, bool isVip) => bankStatus switch
+//shorthand
+DateTime.Now.DayOfWeek switch
 {
-    BankBranchStatus.Open => true, 
-    BankBranchStatus.Closed => false, 
-    BankBranchStatus.VIPCustomersOnly => isVip,
-    _ => throw new ArgumentException(message: "invalid enum value")
-};
+    DayOfWeek.Monday => "Not Weekend",
+    DayOfWeek.Tuesday => "Not Weekend",
+    DayOfWeek.Wednesday => "Not Weekend",
+    DayOfWeek.Thursday => "Not Weekend",
+    DayOfWeek.Friday => "Not Weekend",
+    DayOfWeek.Saturday => "Weekend",
+    DayOfWeek.Sunday  => "Weekend",
+    _ => throw new ArgumentOutOfRangeException()
+}
+
+//shorthand with pattern (not)
+DateTime.Now.DayOfWeek switch
+{
+    not (DayOfWeek.Saturday or DayOfWeek.Sunday) => "Not Weekend",
+    DayOfWeek.Saturday or DayOfWeek.Sunday => "Weekend",
+    _ => throw new ArgumentOutOfRangeException()
+}
+```
+
+
+
+<a name="_expressions"></a>      
+### Expressions
+[⬆ To the top](#0)
+> Used with control flow (if expression, switch case expression), = expression, return expression
++ ~~==, !=, &&, ||~~ => **pattern matching (is) & pattern combinators (not, and, or)** [[C#7](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-7#pattern-matching)]
+
+Check type:
+```
+if (a is int)
+```
+
+Check null:
+```
+User? user = null;
+
+if(!user.HasValue)
+if(user == null)
+//preference
+if(user is null)
+```
+
++ Check equality for nullable objects using **Object.Equals()**
+
+```
+if ((user1 == user2) || ((user1 != null and user2 != null) and user1.Equals(user2)))
+//shorthand
+if(Object.Equals(user1, user2))
+```
+
++ Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
+> Pro: removes the additional string allocation overhead
+```
+str1.ToUpper() == str2.ToUpper()
+//preference
+str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
 ```
 
 
@@ -89,7 +145,8 @@ static bool CheckIfCanWalkIntoBank(BankStatus bankStatus, bool isVip) => bankSta
 <a name="_oop"></a>      
 ###  OOP
 [⬆ To the top](#0)
-+ ~~Class/Struct~~ => **Record**: for immutable data models [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types)]
++ ~~Class/Struct~~ => **Record**: for DTO [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types)]
+> Pro: reference type, immutable by default
 
 + **Automatic properties**
 ```
@@ -200,41 +257,6 @@ users.ForEach(Console.WriteLine);
 
 
 
-<a name="_comparision"></a>      
-### Comparision
-[⬆ To the top](#0)
-+ Check null using **pattern matching (is, is not)** [C#7]
-```
-if (a == null && b != null)
-//preference
-if (a is null && b is not null)
-```
-
-+ Check null for nullable type using **HasValue**
-```
-User? user = null;
-
-if(user is not null)
-//preference
-if(user.HasValue)
-```
-+ Check equality for nullable objects using **Object.Equals()**
-
-```
-if ((user1 == user2) || ((user1 != null && user2 != null) && user1.Equals(user2)))
-//shorthand
-if(Object.Equals(user1, user2))
-```
-
-+ Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
-> Pro: removes the additional string allocation overhead
-```
-str1.ToUpper() == str2.ToUpper()
-//preference
-str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
-```
-
-
 <a name="_string"></a>      
 ### String
 [⬆ To the top](#0)
@@ -288,7 +310,7 @@ public const long BillionsAndBillions = 100_000_000_000;
 <a name="_collection"></a>      
 ### Collection
 [⬆ To the top](#0)  
-~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
++ ~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
 > Reason: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
     
 + ~~Dictionary.ContainsKey()~~ => Dictionary.TryGetValue()
@@ -354,6 +376,15 @@ for(int i = 2; i <= 8; i++) from2To8.Add(i);
 List<int> from2To8 = Enumerable.Range(2, 8).ToList();
 ```
 
++ Return empty collection using **Enumerable.Empty<T>() or Array.Empty<T>()**
+> Pro: reusable empty instance
+```
+return null; //1: force to check null
+return new List<User>(); //2: increase the pressure on the Garbage Collector
+    
+// preference
+return Enumerable.Empty<User>();
+```
     
 
 <a name="_others"></a>      
