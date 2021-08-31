@@ -1,142 +1,53 @@
 # C#
+<a name="0"></a>  
+### Table of Contents
++ [Declaration, Initialization & Assignment](#init)  
++ [Control Flow](#_control-flow)
++ [OOP](#_oop)
++ [Function](#_function)
++ [String](#_string)
++ [Collection](#_collection)
++ [Mathematics & Number](#_mathematics)
++ [Comparision](#_comparision)
++ [Others](#_others)
 
-## Preferences
-+ Check null using **pattern matching (is, is not)**_[C#7]_
-```
-if (a == null && b != null)
-//preference
-if (a is null && b is not null)
-```
-+ Check null for nullable type using **HasValue**
-```
-User? user = null;
-
-if(user is not null)
-//preference
-if(user.HasValue)
-```
-+ ~~Class/Struct~~ => **Record**: for immutable data models _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types))
-+ ~~set accessor~~ => **init accesor**: for immutable properties in class/struct/record _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#init-only-setters))
-```
-class User {
-    public string Name {get; set};
-    public int Age {get; init};
-}
-
-User user = new {Name = "John", age = 18};
-user.Name = "John Ritter"; // no error
-user.Age = 20; // error! CS8852.
-```
+<a name="init"></a>      
+### Declaration, Initialization & Assignment
+[⬆ To the top](#0)
 + Prefer **object initializer syntax** than overloading constructors or invoking multiples setters ([reference](https://stackoverflow.com/a/740682))
-+ **Digit separators**: for long numbers _[C#7]_
++ **Implicit typing (var)**: for long named type
 ```
-public const long BillionsAndBillions = 100000000000;
-// preference
-public const long BillionsAndBillions = 100_000_000_000;
+AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
+// shorthand
+var instance = new AReallyReallyLooooongClass();
 ```
-+ Use **readonly** for members which don't modify state, e.g. ```ToString()``` _[C#8]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))  
-> Reason: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
-+ Use **partial class** to split the implementation of different interfaces
++ Declare nullable type w/ **T?**
 ```
-partial class MyClass
-{
-    // main implementation of MyClass
-}
+Nullable<int> num = null;
+// shorthand
+int? num = null;
+```
++ **Concise new (new())** *[C#9]* 
+```
+ExampleClass instance = new ExampleClass();
+// shorthand
+ExampleClass instance = new();
+```
++ Initialize collections using **collection initializer syntax**
+```
+List<string> users = new();  
+users.Add("User 1");  
+users.Add("User 2");
+
+// shorthand
+List<string> users = new {"User 1", "User 2");
+```
 
 
-partial class MyClass : IF1
-{
-    // implementation of IF1
-}
 
-partial class MyClass : IF2
-{
-    // implementation of IF2
-}
-```
-+ ~~Region directive (#region)~~
-> Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
-+ Create **extension methods** for commonly used operations on value types or existing classes  
-> Reason: reduce one parameter in utility method for value types, add new functions for a class without modifying/inheriting it
-```
-namespace ExtensionMethods;
-
-public static class IntUtils
-{
-    public static bool IsGreaterThan(this int i, int value) => i > value;
-    public static bool IsPrime...
-}
-
-public static class StringUtils
-{
-    public static int GetWordCount(this string word) => str.Split(new char[] { ' ', '.', '?' }, StringSplitOptions.RemoveEmptyEntries).Length;
-}
-```
-Usage:  
-```
-using ExtensionMethods;
-
-int i = 5;
-if(i.IsGreaterThan(3)) System.Console.WriteLine($"{i} is greater than 3"); // output: 5 is greater than 3
-
-string name = "Foo Bar";
-System.Console.WriteLine(name.GetWordCount()); // output: 2
-```
-+ ~~POCO class~~ => **tuple**: for returning multiple values from private and internal utility methods _[C#7]_
-+ ~~Base type casting~~ => **System.Convert** 
-> Reason: Convert class enables to convert between non-compatible types
-```
-string variable = "5.00"; 
-
-double varDouble = (double)variable; // error: InvalidCastException
-double varDouble = System.Convert.ToDouble(variable); // no error
-```
-+ ~~Objest casting~~ => **as**
-> Reason: if non-comatible types, casting throws InvalidCastException while as return null  
-> Con: potential to get NullReferenceException later
-```
-User instance = (User) mobileUser;
-//preference
-User instance = mobileUser as User;
-```
-~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
-> Reason: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
-+ Use **nameof()** to address class/function/param name in string
-> Reason: when changing name, the corresspond values in string will update as well
-```
-public void PrintUserName(User currentUser)
-{
-    //The refactoring tool might miss the textual reference to current user below if we're renaming it
-    currentUser is null && _logger.Error("Argument currentUser is not provided");
-    
-    //preference
-    currentUser is null && _logger.Error($"Argument {nameof(currentUser)} is not provided");
-}    
-```
-+ Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
-> Pro: removes the additional string allocation overhead
-```
-str1.ToUpper() == str2.ToUpper()
-//preference
-str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
-```
-+ ~~""~~ => **String.Empty**
-+ ~~Dictionary.ContainsKey()~~ => Dictionary.TryGetValue()
-> Pro: thread-safety, more compact if want to check & get value
-```
-if(dictionary.ContainsKey(key)) 
-{
-    value = dictionary[key];
-    ...
-}
-    
-//preference
-if(dictionary.TryGetValue(key, out value)) 
-{ ... }
-```    
-
-    
-## Shorthands
+<a name="_control-flow"></a>      
+### Control Flow
+[⬆ To the top](#0)
 + **Switch expressions** _[C#8]_
 ```
 enum BankStatus {Open, Closed, VIPOnly};
@@ -172,24 +83,13 @@ static bool CheckIfCanWalkIntoBank(BankStatus bankStatus, bool isVip) => bankSta
     _ => throw new ArgumentException(message: "invalid enum value")
 };
 ```
-+ **Implicit typing (var)**: for long named type
-```
-AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
-// shorthand
-var instance = new AReallyReallyLooooongClass();
-```
-+ Declare nullable type w/ **T?**
-```
-Nullable<int> num = null;
-// shorthand
-int? num = null;
-```
-+ **Concise new (new())** *[C#9]* 
-```
-ExampleClass instance = new ExampleClass();
-// shorthand
-ExampleClass instance = new();
-```
+
+
+
+<a name="_oop"></a>      
+###  OOP
+[⬆ To the top](#0)
++ ~~Class/Struct~~ => **Record**: for immutable data models _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types))
 + **Automatic properties**
 ```
 class User {
@@ -204,69 +104,216 @@ class User {
     public string Name {get; set}
 }
 ```
++ ~~set accessor~~ => **init accesor**: for immutable properties in class/struct/record _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#init-only-setters))
+```
+class User {
+    public string Name {get; set};
+    public int Age {get; init};
+}
+
+User user = new {Name = "John", age = 18};
+user.Name = "John Ritter"; // no error
+user.Age = 20; // error! CS8852.
+```
++ Use **readonly** for members which don't modify state, e.g. ```ToString()``` _[C#8]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))  
+> Reason: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
++ Use **partial class** to split the implementation of different interfaces
+```
+partial class MyClass
+{
+    // main implementation of MyClass
+}
+
+
+partial class MyClass : IF1
+{
+    // implementation of IF1
+}
+
+partial class MyClass : IF2
+{
+    // implementation of IF2
+}
+```
++ ~~POCO class~~ => **tuple**: for returning multiple values from private and internal utility methods _[C#7]_
++ Use **tuple** in class constructor _[C#7]_
+```
+class User {
+    public string Name {get; set};
+    public int Age {get; set};
+    
+    // longhand
+    public User(string name, int age){
+        _name = name;
+        _age = age;
+    }
+    
+    // shorthand
+    public User(string name, int age) => (_name, _age) = (name, age);
+}
+```
+
+
+
+<a name="_function"></a>      
+### Function
+[⬆ To the top](#0)
++ Create **extension methods** for commonly used operations on value types or existing classes  
+> Reason: reduce one parameter in utility method for value types, add new functions for a class without modifying/inheriting it
+```
+namespace ExtensionMethods;
+
+public static class IntUtils
+{
+    public static bool IsGreaterThan(this int i, int value) => i > value;
+    public static bool IsPrime...
+}
+
+public static class StringUtils
+{
+    public static int GetWordCount(this string word) => str.Split(new char[] { ' ', '.', '?' }, StringSplitOptions.RemoveEmptyEntries).Length;
+}
+```
+Usage:  
+```
+using ExtensionMethods;
+
+int i = 5;
+if(i.IsGreaterThan(3)) System.Console.WriteLine($"{i} is greater than 3"); // output: 5 is greater than 3
+
+string name = "Foo Bar";
+System.Console.WriteLine(name.GetWordCount()); // output: 2
+```
++ **Implicit method group conversion**
+```
+List<string> users = new {"User 1", "User 2"};
+users.ForEach(user => Console.WriteLine(user));
+//shorthand
+users.ForEach(Console.WriteLine);
+```
+
+
+
+<a name="_comparision"></a>      
+### Comparision
+[⬆ To the top](#0)
++ Check null using **pattern matching (is, is not)**_[C#7]_
+```
+if (a == null && b != null)
+//preference
+if (a is null && b is not null)
+```
++ Check null for nullable type using **HasValue**
+```
+User? user = null;
+
+if(user is not null)
+//preference
+if(user.HasValue)
+```
 + Check equality for nullable objects using **Object.Equals()**
 ```
 if ((user1 == user2) || ((user1 != null && user2 != null) && user1.Equals(user2)))
 //shorthand
 if(Object.Equals(user1, user2))
 ```
-+ **Top-level statement**: compact Main method _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#top-level-statements))
+
+
+
+<a name="_string"></a>      
+### String
+[⬆ To the top](#0)
++ Use **nameof()** to address class/function/param name in string
+> Reason: when changing name, the corresspond values in string will update as well
 ```
-using System;
-namespace HelloWorld
+public void PrintUserName(User currentUser)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
-// shorthand
-using System;
-Console.WriteLine("Hello World!");
+    //The refactoring tool might miss the textual reference to current user below if we're renaming it
+    currentUser is null && _logger.Error("Argument currentUser is not provided");
+    
+    //preference
+    currentUser is null && _logger.Error($"Argument {nameof(currentUser)} is not provided");
+}    
 ```
-+ **File-scoped namespace declaration** _[C#10]_
++ Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
+> Pro: removes the additional string allocation overhead
 ```
-namespace ApplicationA {
-    class User {
-        ...
-    }
-}
-// shorthand
-namespace ApplicationA;
-class User {
+str1.ToUpper() == str2.ToUpper()
+//preference
+str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
+```
++ ~~""~~ => **String.Empty**
++ ~~Escaped characters~~ => **verbatim string (@)**
+```
+string myFileName = "C:\\myfolder\\myfile.txt";
+//shorthand
+string myFileName = @"C:\myfolder\myfile.txt";
+   
+```
++ **String methods**
+```
+//Indicates whether the specified string is null or an Empty string.
+String.IsNullOrEmpty(string value);
+
+//Indicates whether a specified string is null, empty, or consists only of white-space characters.
+String.IsNullOrWhiteSpace(string value);
+ 
+List<string> users = new {"User 1", "User 2"};
+String.Join(",", users);
+```
+
+
+
+<a name="_mathematics"></a>      
+### Mathematics & Number
+[⬆ To the top](#0)
++ **Digit separators**: for long numbers _[C#7]_
+```
+public const long BillionsAndBillions = 100000000000;
+// preference
+public const long BillionsAndBillions = 100_000_000_000;
+```
+
++ ~~Region directive (#region)~~
+> Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
+
++ ~~Base type casting~~ => **System.Convert** 
+> Reason: Convert class enables to convert between non-compatible types
+```
+string variable = "5.00"; 
+
+double varDouble = (double)variable; // error: InvalidCastException
+double varDouble = System.Convert.ToDouble(variable); // no error
+```
++ ~~Objest casting~~ => **as**
+> Reason: if non-comatible types, casting throws InvalidCastException while as return null  
+> Con: potential to get NullReferenceException later
+```
+User instance = (User) mobileUser;
+//preference
+User instance = mobileUser as User;
+```
+
+
+
+<a name="_collection"></a>      
+### Collection
+[⬆ To the top](#0)  
+~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
+> Reason: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
++ ~~Dictionary.ContainsKey()~~ => Dictionary.TryGetValue()
+> Pro: thread-safety, more compact if want to check & get value
+```
+if(dictionary.ContainsKey(key)) 
+{
+    value = dictionary[key];
     ...
 }
-```
-+ **Namespace alias qualifier (::)**
-```
-namespace ApplicationA;
-class User {}
-```
-```
-namespace ApplicationB;
-class User {}
-```
-Main 
-```
-using A = ApplicationA;
-using B = ApplicationB;
-
-A::User = new();
-B::User = new();
-```
-+ **Aliased generics (using)**
-```
-Dictionary<string, Dictionary<string, List<string>>> User1 = new();
-Dictionary<string, Dictionary<string, List<string>>> User2 = new();
-
-//shorthand
-using ASimpleName = Dictionary<string, Dictionary<string, List<string>>>;
-ASimpleName User1 = new();
-ASimpleName User2 = new();
-```
+    
+//preference
+if(dictionary.TryGetValue(key, out value)) 
+{ ... }
+```    
 + Use **from end operator (^)** & **range operator (..)** for sequence/collection _[C#8])_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/ranges-indexes#language-support-for-indices-and-ranges))
 ```
 string[] words = new string[]
@@ -310,53 +357,68 @@ for(int i = 2; i <= 8; i++) from2To8.Add(i);
 //shorthand
 List<int> from2To8 = Enumerable.Range(2, 8).ToList();
 ```
-+ Initialize collections using **collection initializer syntax**
-```
-List<string> users = new();  
-users.Add("User 1");  
-users.Add("User 2");
 
-// shorthand
-List<string> users = new {"User 1", "User 2");
+
+<a name="_others"></a>      
+### Others
+[⬆ To the top](#0)
++ **Top-level statement**: compact Main method _[C#9]_ ([reference](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#top-level-statements))
 ```
-+ Use **tuple** in class constructor _[C#7]_
-```
-class User {
-    public string Name {get; set};
-    public int Age {get; set};
-    
-    // longhand
-    public User(string name, int age){
-        _name = name;
-        _age = age;
+using System;
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
     }
+}
+// shorthand
+using System;
+Console.WriteLine("Hello World!");
+```
     
-    // shorthand
-    public User(string name, int age) => (_name, _age) = (name, age);
++ **File-scoped namespace declaration** _[C#10]_
+```
+namespace ApplicationA {
+    class User {
+        ...
+    }
+}
+// shorthand
+namespace ApplicationA;
+class User {
+    ...
 }
 ```
-+ **Implicit method group conversion**
+    
++ **Namespace alias qualifier (::)**
 ```
-List<string> users = new {"User 1", "User 2"};
-users.ForEach(user => Console.WriteLine(user));
-//shorthand
-users.ForEach(Console.WriteLine);
+namespace ApplicationA;
+class User {}
 ```
-+ ~~Escaped characters~~ => **verbatim string (@)**
 ```
-string myFileName = "C:\\myfolder\\myfile.txt";
-//shorthand
-string myFileName = @"C:\myfolder\myfile.txt";
-   
+namespace ApplicationB;
+class User {}
 ```
-+ **String methods**
+Main 
 ```
-//Indicates whether the specified string is null or an Empty string.
-String.IsNullOrEmpty(string value);
+using A = ApplicationA;
+using B = ApplicationB;
 
-//Indicates whether a specified string is null, empty, or consists only of white-space characters.
-String.IsNullOrWhiteSpace(string value);
- 
-List<string> users = new {"User 1", "User 2"};
-String.Join(",", users);
+A::User = new();
+B::User = new();
+```
+    
++ **Aliased generics (using)**
+```
+Dictionary<string, Dictionary<string, List<string>>> User1 = new();
+Dictionary<string, Dictionary<string, List<string>>> User2 = new();
+
+//shorthand
+using ASimpleName = Dictionary<string, Dictionary<string, List<string>>>;
+ASimpleName User1 = new();
+ASimpleName User2 = new();
 ```
