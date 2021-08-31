@@ -291,6 +291,13 @@ class User {
     public User(string name, int age) => (_name, _age) = (name, age);
 }
 ```
++ ~~Escaped characters~~ => **verbatim string (@)**
+```
+string myFileName = "C:\\myfolder\\myfile.txt";
+//shorthand
+string myFileName = @"C:\myfolder\myfile.txt";
+   
+```
 + **String methods**
 ```
 // Indicates whether the specified string is null or an Empty string.
