@@ -112,9 +112,20 @@ str1.ToUpper() == str2.ToUpper()
 //preference
 str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
 ```
++ ~~Dictionary.ContainsKey()~~ => Dictionary.TryGetValue()
+> Pro: thread-safety, more compact if want to check & get value
+```
+if(dictionary.ContainsKey(key)) 
+{
+    value = dictionary[key];
+    ...
+}
     
+//preference
+if(dictionary.TryGetValue(key, out value)) 
+{ ... }
     
-    
+
     
 ## Shorthands
 + **Switch expressions** _[C#8]_
