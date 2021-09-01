@@ -26,7 +26,7 @@ Nullable<int> num = null;
 //shorthand
 int? num = null;
 ```
-+ Init object using **type-omitted new expression (new())** [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#fit-and-finish-features)] 
++ Init object using **target-typed new expressions (new())** [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/target-typed-new)] 
 ```
 ExampleClass instance = new ExampleClass();
 //shorthand
@@ -40,6 +40,19 @@ user1.Age = 18;
 
 //preference
 User user1 = new {Name: "User 1"; Age: 18};
+```
+
++ Copy then modify record instance using **with expression** [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/with-expression)]
+```
+//given
+User user1 = new {Name: "User 1"; Age: 18};
+
+//longhand
+User user2 = user1;
+user2.Name = "User 2";
+
+//shorthand
+User user2 = user1 with {Name = "User 2");
 ```
 
 + Init collection using **collection initializer syntax**
