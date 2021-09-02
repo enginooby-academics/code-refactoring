@@ -10,7 +10,7 @@ const num1 = +"100";
 const num2 =  +"100.01";
 ```
 
-### Mathematics
+### Number
 + **Exponent power**
 ```
 const power = Math.pow(4, 3);
@@ -49,4 +49,34 @@ const arr2 = arr.slice()
 // shorthand
 const arr = [1, 2, 3, 4];
 const arr2 = [...arr];
+```
+
+### Others
++ **Barrel**
+```
+// user/WindowsUser.ts
+export class WindowsUser {}
+
+// user/LinuxUser.ts
+export class LinuxUser {}
+
+// user/AndroidUser.ts
+export class AndroidUser {}
+```
+Import w/o a barrel:
+```
+import { WindowsUser } from '../user/WindowsUser';
+import { LinuxUser } from '../user/LinuxUser';
+import { AndroidUser } from '../user/AndroidUser';
+```
+Preference: create a barrel
+```
+// user/index.ts
+export * from './WindowsUser';
+export * from './LinuxUser';
+export * from './AndroidUser';
+```
+Import from barrel:
+```
+import { WindowsUser, LinuxUser, AndroidUser } from '../user'; // user/index.ts is implied
 ```
