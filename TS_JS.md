@@ -1,5 +1,13 @@
 # TypeScript & JavaScript
 
+### Declaration, Initialization & Assignment
++ ~~Explicit types~~ => **implicit type**
+```
+const message: string = 'hello world'
+//preference
+const message = 'hello world'
+```
+
 ### String
 + String to number *[ES]*
 ```
@@ -51,7 +59,9 @@ const arr = [1, 2, 3, 4];
 const arr2 = [...arr];
 ```
 
-### Others
+
+
+### Module
 + **Barrel**
 ```
 // user/WindowsUser.ts
@@ -79,4 +89,15 @@ export * from './AndroidUser';
 Import from barrel:
 ```
 import { WindowsUser, LinuxUser, AndroidUser } from '../user'; // user/index.ts is implied
+```
+
++ ~~Default export~~ => simple export
+> Pro: import name will update if rename the export entity
+```
+export default User
+import User from './user'
+
+//preference
+export class User {}
+import { User } from './user'
 ```
