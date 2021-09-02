@@ -1,7 +1,7 @@
 # TypeScript & JavaScript
 
 ### Declaration, Initialization & Assignment
-+ ~~Explicit types~~ => **implicit type**
++ ~~Explicit type (type annotation)~~ => **implicit type (type inference)**
 ```
 const message: string = 'hello world'
 //preference
