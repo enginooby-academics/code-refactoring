@@ -9,3 +9,23 @@ vector<int> vec = {0, 1, 2, 3};
 for (const auto &value : vec)
   cout << value << ' ';
 ```
+
+### OOP
++ **Initializer list** for constructor [Reference](https://www.educative.io/edpresso/what-are-initializer-lists-in-cpp)
+> Pros: shorthand, init reference/constant members
+```
+class Point {
+  private:
+    int x;
+    int y;
+  public:
+    //constructor
+    Point(int i = 0, int j = 0) {
+      x = i;
+      y = j;
+    }
+    
+    //preference
+    Point(int i = 0, int j = 0) : x(i), y(j) {}
+};
+```
