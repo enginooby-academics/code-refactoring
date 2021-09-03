@@ -17,19 +17,19 @@
 + **Implicit typing (var)**: for long named type
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
-//shorthand
+// shorthand
 var instance = new AReallyReallyLooooongClass();
 ```
 + Declare nullable type w/ **T?**
 ```
 Nullable<int> num = null;
-//shorthand
+// shorthand
 int? num = null;
 ```
 + Init object using **target-typed new expressions (new())** [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/target-typed-new)] 
 ```
 ExampleClass instance = new ExampleClass();
-//shorthand
+// shorthand
 ExampleClass instance = new();
 ```
 + Prefer **object initializer syntax** than overloading constructors or invoking multiples setters [[Reference](https://stackoverflow.com/a/740682)]
@@ -38,20 +38,19 @@ User user1 = new();
 user1.Name = "User 1";
 user1.Age = 18;
 
-//preference
+// preference
 User user1 = new {Name: "User 1"; Age: 18};
 ```
 
 + Copy then modify record instance using **with expression** [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/with-expression)]
 ```
-//given
 User user1 = new {Name: "User 1"; Age: 18};
 
-//longhand
+// longhand
 User user2 = user1;
 user2.Name = "User 2";
 
-//shorthand
+// shorthand
 User user2 = user1 with {Name = "User 2");
 ```
 
@@ -61,7 +60,7 @@ List<string> users = new();
 users.Add("User 1");  
 users.Add("User 2");
 
-//shorthand
+// shorthand
 List<string> users = new {"User 1", "User 2");
 ```
 
@@ -92,7 +91,7 @@ switch (DateTime.Now.DayOfWeek)
         throw new ArgumentOutOfRangeException();
 }
 
-//shorthand
+// shorthand
 DateTime.Now.DayOfWeek switch
 {
     DayOfWeek.Monday => "Not Weekend",
@@ -105,7 +104,7 @@ DateTime.Now.DayOfWeek switch
     _ => throw new ArgumentOutOfRangeException()
 }
 
-//shorthand with pattern (not)
+// shorthand with pattern (not)
 DateTime.Now.DayOfWeek switch
 {
     not (DayOfWeek.Saturday or DayOfWeek.Sunday) => "Not Weekend",
@@ -133,7 +132,8 @@ User? user = null;
 
 if(!user.HasValue)
 if(user == null)
-//preference
+
+// preference
 if(user is null)
 ```
 
@@ -141,15 +141,15 @@ if(user is null)
 
 ```
 if ((user1 == user2) || ((user1 != null and user2 != null) and user1.Equals(user2)))
-//shorthand
+// shorthand
 if(Object.Equals(user1, user2))
 ```
 
 + Use **Equals() & OrdinalIgnoreCase** to compare strings regardless of case
-> Pro: removes the additional string allocation overhead
+> Pros: removes the additional string allocation overhead
 ```
 str1.ToUpper() == str2.ToUpper()
-//preference
+// preference
 str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
 ```
 
@@ -159,19 +159,19 @@ str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
 ###  OOP
 [⬆ To the top](#0)
 + ~~Class/Struct~~ => **Record**: for DTO [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types)]
-> Pro: reference type, immutable by default
+> Pros: reference type, immutable by default
 
 + **Automatic properties**
 ```
 class User {
-    //longhand
+    // longhand
     private string _name;
     public string Name {
         get {return _name}
         set (_name = value}
     }
     
-    //shorthand
+    // shorthand
     public string Name {get; set}
 }
 ```
@@ -189,24 +189,24 @@ user.Age = 20; // error! CS8852.
 ```
 
 + Use **readonly** for members which don't modify state, e.g. ```ToString()``` [[C#8](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))]
-> Reason: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
+> Pros: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
 
 + Use **partial class** to split the implementation of different interfaces
 ```
 partial class MyClass
 {
-    //main implementation of MyClass
+    // main implementation of MyClass
 }
 
 
 partial class MyClass : IF1
 {
-    //implementation of IF1
+    // implementation of IF1
 }
 
 partial class MyClass : IF2
 {
-    //implementation of IF2
+    // implementation of IF2
 }
 ```
 
@@ -216,13 +216,13 @@ class User {
     public string Name {get; set};
     public int Age {get; set};
     
-    //longhand
+    // longhand
     public User(string name, int age){
         _name = name;
         _age = age;
     }
     
-    //shorthand
+    // shorthand
     public User(string name, int age) => (_name, _age) = (name, age);
 }
 ```
@@ -233,7 +233,7 @@ class User {
 ### Function
 [⬆ To the top](#0)
 + Create **extension methods** for commonly used operations on value types or existing classes  
-> Reason: reduce one parameter in utility method for value types, add new functions for a class without modifying/inheriting it
+> Pros: reduce one parameter in utility method for value types, add new functions for a class without modifying/inheriting it
 ```
 namespace ExtensionMethods;
 
@@ -274,7 +274,7 @@ users.ForEach(Console.WriteLine);
 ### String
 [⬆ To the top](#0)
 + Use **nameof()** to address class/function/param name in string
-> Reason: when changing name, the corresspond values in string will update as well
+> Pros: when changing name, the corresspond values in string will update as well
 ```
 public void PrintUserName(User currentUser)
 {
@@ -291,16 +291,16 @@ public void PrintUserName(User currentUser)
 + ~~Escaped characters~~ => **verbatim string (@)**
 ```
 string myFileName = "C:\\myfolder\\myfile.txt";
-//shorthand
+// shorthand
 string myFileName = @"C:\myfolder\myfile.txt";
 ```
 
 + **String methods**
 ```
-//Indicates whether the specified string is null or an Empty string.
+// Indicates whether the specified string is null or an Empty string.
 String.IsNullOrEmpty(string value);
 
-//Indicates whether a specified string is null, empty, or consists only of white-space characters.
+// Indicates whether a specified string is null, empty, or consists only of white-space characters.
 String.IsNullOrWhiteSpace(string value);
  
 List<string> users = new {"User 1", "User 2"};
@@ -324,7 +324,7 @@ public const long BillionsAndBillions = 100_000_000_000;
 ### Collection
 [⬆ To the top](#0)  
 + ~~System.Collections.ArrayList~~ => **generic collection** (System.Collections.Generic.List<T>)
-> Reason: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
+> Pros: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
     
 + ~~Dictionary.ContainsKey()~~ => Dictionary.TryGetValue()
 > Pro: thread-safety, more compact if check & get value
@@ -335,7 +335,7 @@ if(dictionary.ContainsKey(key))
     ...
 }
     
-//preference
+// preference
 if(dictionary.TryGetValue(key, out value)) 
 { ... }
 ```    
@@ -361,7 +361,8 @@ To access collection element:
 ```
 Console.WriteLine($"The last word is {words[words.Length - 1]}");
 Console.WriteLine($"The second last word is {words[words.Length - 2]}");
-//shorthand
+    
+// shorthand
 Console.WriteLine($"The last word is {words[^1]}");
 Console.WriteLine($"The second last word is {words[^2]}");
 ```
@@ -369,9 +370,11 @@ Console.WriteLine($"The second last word is {words[^2]}");
 To extract elements:
 ```
 string[] quickBrownFox = new string[] {words[1], words[2], words[3]};
-//shorthand
+    
+// shorthand
 string[] quickBrownFox = words[1..4];
-//other examples
+    
+// other examples
 string[] allWords = words[..];
 string[] lazyDog = words[^2..^0];
 string[] theLazyDog = words[6..];
@@ -379,9 +382,10 @@ string[] theLazyDog = words[6..];
     
 + Make a collection of continuous integers using **Enumerable.Range()**
 ```
-//longhand
+// longhand
 List<int> from2To8 = new {2, 3, 4, 5, 6, 7, 8};
-//longhand
+    
+// longhand
 List<int> from2To8 = new();
 for(int i = 2; i <= 8; i++) from2To8.Add(i);
                      
@@ -390,7 +394,7 @@ List<int> from2To8 = Enumerable.Range(2, 8).ToList();
 ```
 
 + Return empty collection using **Enumerable.Empty<T>() or Array.Empty<T>()**
-> Pro: reusable empty instance
+> Pros: reusable empty instance
 ```
 return null; //1: force to check null
 return new List<User>(); //2: increase the pressure on the Garbage Collector
@@ -416,7 +420,8 @@ namespace HelloWorld
         }
     }
 }
-//shorthand
+    
+// shorthand
 using System;
 Console.WriteLine("Hello World!");
 ```
@@ -428,7 +433,8 @@ namespace ApplicationA {
         ...
     }
 }
-//shorthand
+    
+// shorthand
 namespace ApplicationA;
 class User {
     ...
@@ -458,7 +464,7 @@ B::User = new();
 Dictionary<string, Dictionary<string, List<string>>> User1 = new();
 Dictionary<string, Dictionary<string, List<string>>> User2 = new();
 
-//shorthand
+// shorthand
 using ASimpleName = Dictionary<string, Dictionary<string, List<string>>>;
 ASimpleName User1 = new();
 ASimpleName User2 = new();
@@ -468,7 +474,7 @@ ASimpleName User2 = new();
 > Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
 
 + ~~Base type casting~~ => **System.Convert** 
-> Reason: Convert class enables to convert between non-compatible types
+> Pros: Convert class enables to convert between non-compatible types
 ```
 string variable = "5.00"; 
 
@@ -478,9 +484,9 @@ double varDouble = System.Convert.ToDouble(variable); // no error
 
 + ~~Objest casting~~ => **as**
 > Reason: if non-comatible types, casting throws InvalidCastException while as return null  
-> Con: potential to get NullReferenceException later
+> Cons: potential to get NullReferenceException later
 ```
 User instance = (User) mobileUser;
-//preference
+// preference
 User instance = mobileUser as User;
 ```
