@@ -353,7 +353,19 @@ doSomething("someString", 1);
 //preference
 doSomething(foo: "someString", bar: 1);
 ```
-+ ~~Overloading function~~ => **optional parameters**
++ ~~Overloading functions~~ that differ only in trailing parameters => **optional parameters**
+```
+interface Example {
+  diff(one: string): number;
+  diff(one: string, two: string): number;
+  diff(one: string, two: string, three: boolean): number;
+}
+
+//shorthand
+interface Example {
+  diff(one: string, two?: string, three?: boolean): number;
+}
+```
 + ~~Promise/callback chaining~~ => **async-await** *[ES6]*
 
 
