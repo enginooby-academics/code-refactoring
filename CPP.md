@@ -1,8 +1,12 @@
 # C++
 
 ### Declaration, Initialization & Assignment
-+ Use type **inference (auto)** [C+11]
++ Use **type inference (auto)** [C+11]
 
++ Swap value using **XOR**
+```
+
+```
 
 
 
@@ -18,6 +22,8 @@ for (auto& value = vec.begin(); value != vec.end(); value++)
 for (const auto &value : vec)
   cout << value << ' ';
 ```
+
+
 
 ### OOP
 + **Initializer list** for constructor [[Reference](https://www.educative.io/edpresso/what-are-initializer-lists-in-cpp)]
@@ -37,4 +43,14 @@ class Point {
     //preference
     Point(int i = 0, int j = 0) : x(i), y(j) {}
 };
+```
+
+
+
+### String
++ ~~strlen()~~
+```
+for (int i = 0; i < strlen(s); ++i)
+//preference
+for (int i = 0; s[i]; ++i)
 ```
