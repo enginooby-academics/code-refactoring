@@ -1,9 +1,18 @@
 # C++
 
+### Declaration, Initialization & Assignment
++ Use type **inference (auto)** [C+11]
+
+
+
+
 ### Collection
 + ~~Iterator~~ => **range based for loop** to iterate through arrays, vectocs [C++11]
 ```
 vector<int> vec = {0, 1, 2, 3};
+
+for (auto& value = vec.begin(); value != vec.end(); value++)
+  cout << value << ' ';
 
 //preference
 for (const auto &value : vec)
@@ -11,7 +20,7 @@ for (const auto &value : vec)
 ```
 
 ### OOP
-+ **Initializer list** for constructor [Reference](https://www.educative.io/edpresso/what-are-initializer-lists-in-cpp)
++ **Initializer list** for constructor [[Reference](https://www.educative.io/edpresso/what-are-initializer-lists-in-cpp)]
 > Pros: shorthand, init reference/constant members
 ```
 class Point {
