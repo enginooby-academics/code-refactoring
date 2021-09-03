@@ -8,6 +8,20 @@ const message: string = 'hello world'
 const message = 'hello world'
 ```
 
+### Function
++ Use the return type **void** for callbacks whose value will be ignored
+> Reason: prevents accidentally using the return value in an unchecked way
+```
+function fn(x: () => any) {
+  x();
+}
+
+//preference
+function fn(x: () => void) {
+  x();
+}
+```
+
 ### String
 + String to number *[ES]*
 ```
