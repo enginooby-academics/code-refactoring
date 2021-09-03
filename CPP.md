@@ -3,10 +3,6 @@
 ### Declaration, Initialization & Assignment
 + Use **type inference (auto)** [C+11]
 
-+ Swap value using **XOR**
-```
-
-```
 
 
 
@@ -18,10 +14,23 @@ vector<int> vec = {0, 1, 2, 3};
 for (auto& value = vec.begin(); value != vec.end(); value++)
   cout << value << ' ';
 
-//preference
+// preference
 for (const auto &value : vec)
   cout << value << ' ';
 ```
+
++ **Built-in functions**
+```
+  // are all of the elements positive?
+  all_of(first, first+n, ispositive()); 
+
+  // is there at least one positive element?
+  any_of(first, first+n, ispositive());
+
+  // are none of the elements positive?
+  none_of(first, first+n, ispositive()); 
+```
+
 
 
 
@@ -34,13 +43,13 @@ class Point {
     int x;
     int y;
   public:
-    //constructor
+    // normal constructor
     Point(int i = 0, int j = 0) {
       x = i;
       y = j;
     }
     
-    //preference
+    // preference
     Point(int i = 0, int j = 0) : x(i), y(j) {}
 };
 ```
@@ -51,6 +60,6 @@ class Point {
 + ~~strlen()~~
 ```
 for (int i = 0; i < strlen(s); ++i)
-//preference
+// preference
 for (int i = 0; s[i]; ++i)
 ```
