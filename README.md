@@ -154,29 +154,30 @@ const schema = new Schema<User>({...
 <a name="refactoring"></a>  
 # V - Refactoring
 [⬆ To the top](#0)
-> Alternative ways of writing code to help improving **code readability, clarity, brevity & optimization**  
+> Alternative ways of writing code to help improving **code readability, clarity, brevity & performance**  
 
-**[Refactoring in C++ | Unreal Engine](CPP_UE.md#preferences)**  
 **[Refactoring in C#](CS.md#preferences)**  
+**[Refactoring in C++](CPP.md#preferences)**  
+**[Refactoring in C++ | Unreal Engine](CPP_UE.md#preferences)**  
 **[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
 ### Declaration, Initialization & Assignment
 + Assign w/ nullable variable using **nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
-// shorthand
+//shorthand
 result = a ?? b
 ```
 + Assign w/ nullable variable using **short circuit evaluation** *[most languages]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
-// shorthand
+//shorthand
 result = a || b
 ```
 + Assign default value for nullable variable using **logical nullish assigment operator (??=)** *[TS/JS, C#8]*
 ```
 a ?? (a = b)
-// shorthand
+//shorthand
 a ??= b
 ```
 + **Multiple variable declaration** _[ES, C#, Java]_
@@ -184,7 +185,7 @@ a ??= b
 let a;
 let b;
 let c = 3;
-// shorthand
+//shorthand
 let a, b, c = 3;
 ```
 + Assign multiple variables using **object destructuring/tuple** _[ES, C#]_
@@ -192,14 +193,14 @@ let a, b, c = 3;
 let a = 1;
 let b = 2;
 let c = 3;
-// shorthand
+//shorthand
 [a, b, c] = [1, 2, 3]
 ```
   
   
 ### Control Flow
 + **Guard clause/assert/precondition**: return early in special case; multiple return
-> Pro: avoid nested statements, improve readability
+> Pros: avoid nested statements, improve readability
 ```
 function getInsuranceDeductible(insurance) {
   if (insurance.covered) {
@@ -226,7 +227,7 @@ function getInsuranceDeductible(insurance) {
 ```
 + **Ternary operator (? :)** *[most languages]*  
 
-For assignment:
+To assign value:
 ```
 if (a > b) {
     result = x;
@@ -237,7 +238,8 @@ else {
 //shorthand
 result = a > b ? x : y;
 ```
-For return:
+
+To return:
 ```
 if (a > b) {
     return x;
@@ -293,7 +295,8 @@ $users = ['branko', 'ivana', 'luka', 'ivano'];
 usort($users, function ($a, $b) {
   return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
 });
-// shorthand
+
+//shorthand
 usort($users, function ($a, $b) {
   return $a <=> $b;
 });
@@ -312,7 +315,8 @@ class User {
     this.age = age;
   }
 }
-// shorthand
+
+//shorthand
 class User {
   constructor(
     private name: string,
@@ -320,28 +324,17 @@ class User {
   ) {}
 }
 ```
-+ **Object property value shorthand** *[ES6]*
-```
-let name = 'User 1';
-let age = 18;
 
-var user = {
-  name: name,
-  age: age,
-}
-//shorthand
-let user = {name, age}
-```
-+ ~~Enum~~ => **Union types** ([reference](https://fettblog.eu/tidy-typescript-avoid-enums/?fbclid=IwAR18SiWtUFai4gEY4B6rm2nSGYfR54Yw3bitrkl4Ph9z72qwM_8kbOUYhX8)) *[TS]*
 
 
 ### Function
-+ **Lambda expression/Arrow function/Expression-bodied members (=>)** *[Java8, ES6, Dart, C#]*
++ **Lambda expression/Arrow function/Fat arrow/Expression-bodied members (=>)** *[Java8, ES6, Dart, C#]*
+> Pros: bind _this_ to the invoker
 ```
 function getSum(a: number, b: number) {
   return a + b
 }
-// shorthand
+//shorthand
 const getSum = (a: number, b: number) => (a + b)
 ```
 + **Named parameters** *[PHP, Kotlin, C#]*
@@ -366,7 +359,7 @@ interface Example {
   diff(one: string, two?: string, three?: boolean): number;
 }
 ```
-+ ~~Promise/callback chaining~~ => **async-await** *[ES6]*
++ ~~Promise/callback chaining~~ => **async-await** *[ES6, C#]*
 
 
 ### String
