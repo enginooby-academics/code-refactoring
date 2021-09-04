@@ -11,7 +11,13 @@ int age = 18;
 auto name[] = "John";
 auto age = 18;
 ```
-
++ ~~Post-increment~~ => **pre-increment**
+> Pros: pre-increment does not copy the previous value, hence faster
+```
+for (int i = 0; i < n; i++)
+// preference
+for (int i = 0; i < n; ++i)
+```
 
 
 ### Collection (Container)
@@ -19,7 +25,7 @@ auto age = 18;
 ```
 vector<int> vec = {0, 1, 2, 3};
 
-for (auto& value = vec.begin(); value != vec.end(); value++)
+for (auto& value = vec.begin(); value != vec.end(); ++value)
   cout << value << ' ';
 
 // preference
