@@ -6,18 +6,11 @@
 char name[] = "John";
 int age = 18;
 
-
 // preference
 auto name[] = "John";
 auto age = 18;
 ```
-+ ~~Post-increment~~ => **pre-increment**
-> Pros: pre-increment does not copy the previous value, hence faster
-```
-for (int i = 0; i < n; i++)
-// preference
-for (int i = 0; i < n; ++i)
-```
+
 
 
 ### Collection (Container)
