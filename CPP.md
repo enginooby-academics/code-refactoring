@@ -70,3 +70,12 @@ for (int i = 0; i < strlen(s); ++i)
 // preference
 for (int i = 0; s[i]; ++i)
 ```
+
+
+
+### Number
++ **Built-in functions**
+```
+#include <numeric>
+std::gcd(p, q) // return greatest common divisor
+```
