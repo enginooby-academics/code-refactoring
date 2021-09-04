@@ -2,12 +2,20 @@
 
 ### Declaration, Initialization & Assignment
 + Use **type inference (auto)** [C+11]
+```
+char name[] = "John";
+int age = 18;
+
+
+// preference
+auto name[] = "John";
+auto age = 18;
+```
 
 
 
-
-### Collection
-+ ~~Iterator~~ => **range based for loop** to iterate through arrays, vectocs [C++11]
+### Collection (Container)
++ ~~Iterator~~ => **range-based for loop** to iterate through arrays, vectocs, string [C++11]
 ```
 vector<int> vec = {0, 1, 2, 3};
 
