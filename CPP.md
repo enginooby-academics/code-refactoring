@@ -17,7 +17,15 @@ typedef long long ll;
 ll a = 123LL;
 ```
 
++ Use **initializer list** to init containers [C+11] 
+```
+pair<int, int> p = make_pair(3, 4);
 
+// shorthand
+pair<int, int> p = {};
+vector<int> v = {1, 2, 5, 2};
+set<int> s = {4, 6, 2, 7, 4};
+```
 
 ### Collection (Container)
 + ~~Iterator~~ => **range-based for loop** to iterate through arrays, vectocs, string [C++11]
