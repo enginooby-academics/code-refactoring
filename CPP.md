@@ -22,7 +22,7 @@ ll a = 123LL;
 pair<int, int> p = make_pair(3, 4);
 
 // shorthand
-pair<int, int> p = {};
+pair<int, int> p = {3, 4};
 vector<int> v = {1, 2, 5, 2};
 set<int> s = {4, 6, 2, 7, 4};
 ```
@@ -85,7 +85,7 @@ for (int i = 0; i < strlen(s); ++i)
 for (int i = 0; s[i]; ++i)
 ```
 
-+ ~~endl~~ => "/n"
++ ~~endl~~ => "/n" [?]
 > Pros: faster, shorter
 
 
