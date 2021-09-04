@@ -11,6 +11,12 @@ auto name[] = "John";
 auto age = 18;
 ```
 
++ Alias type using **typedef**
+```
+typedef long long ll;
+ll a = 123LL;
+```
+
 
 
 ### Collection (Container)
@@ -18,8 +24,8 @@ auto age = 18;
 ```
 vector<int> vec = {0, 1, 2, 3};
 
-for (auto& value = vec.begin(); value != vec.end(); ++value)
-  cout << value << ' ';
+for (set<int>::iterator it = s.begin(); it != s.end(); ++it)
+  cout << *it << ' ';
 
 // preference
 for (const auto &value : vec)
