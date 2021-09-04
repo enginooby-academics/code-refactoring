@@ -26,7 +26,7 @@ for (const auto &value : vec)
   cout << value << ' ';
 ```
 
-+ **Built-in functions**
++ **Inbuilt functions**
 ```
   // are all of the elements positive?
   all_of(first, first+n, ispositive()); 
@@ -71,11 +71,13 @@ for (int i = 0; i < strlen(s); ++i)
 for (int i = 0; s[i]; ++i)
 ```
 
++ ~~endl~~ => "/n"
+> Pros: faster, shorter
 
 
 ### Number
-+ **Built-in functions**
++ **Inbuilt functions**
 ```
 #include <numeric>
-std::gcd(p, q) // return greatest common divisor
+std::gcd(p, q) // get greatest common divisor [C++17]
 ```
