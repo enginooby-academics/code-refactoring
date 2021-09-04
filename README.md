@@ -196,7 +196,17 @@ let c = 3;
 //shorthand
 [a, b, c] = [1, 2, 3]
 ```
-  
+
++ Swap two variables using **XOR**
+> Pros: avoid using third temporary variable
+```
+temp = a;
+a = b;
+b = temp;
+
+// shorthand
+a ^= b ^= a ^= b;
+```
   
 ### Control Flow
 + **Guard clause/assert/precondition**: return early in special case; multiple return
