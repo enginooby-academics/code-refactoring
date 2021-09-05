@@ -51,3 +51,14 @@ print(a[::-1]) #zyx
 To extract elements: ```range(10)[::2] #[0, 2, 4, 6, 8]```   
 To reverse: ```range(10)[::-1] #[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]```
 
++ Use **list comprehension** to generate lists processed (w/ conditions or computations) from raw list:
+```
+odd_square = [] 
+for x in range(1, 11): 
+    if x % 2 == 1: 
+        odd_square.append(x**2)
+        
+# preference
+odd_square = [x ** 2 for x in range(1, 11) if x % 2 == 1] 
+```
+
