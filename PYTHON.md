@@ -11,12 +11,23 @@ b = temp
 a, b = b, a
 ```
 
+
+### Expressions
++ **Comparison chaining**
+```
+if a > 1 and a < 9
+# shorthand
+if 1 < a < 9
+```
+
 ### String
 + Reverse string using **extended slices syntax**
 ```
 a = "xyz"
 print(a[::-1]) #zyx
 ```
+
+
 
 ### Collection
 + **Extended slices syntax**
