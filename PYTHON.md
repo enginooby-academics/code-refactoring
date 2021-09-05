@@ -27,7 +27,13 @@ if 1 < a < 9
 def test():
     return 'abc', 100
 ```
-
++ Prefer **lambda** for one-statement functions
+```
+def subtract(x, y): 
+    return x - y
+# shorthand
+subtract = lambda x, y : x - y
+```
 
 
 ### String
