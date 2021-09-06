@@ -18,11 +18,32 @@ function fn(x: () => any) {
   x();
 }
 
-//preference
+// preference
 function fn(x: () => void) {
   x();
 }
 ```
+
++ Define a **type alias** to encapsulate callback type [TS]
+```
+var numCallback = (result: number) : void => {alert(result.toString())};
+
+class User {
+  save(callback: (n: number) => void) : void {
+    callback(42);
+  }
+}
+
+// preference
+type NumberCallback = (n: number) => void;
+
+class User {
+  save(callback: NumberCallback) : void {
+    callback(42);
+  }
+}
+```
+
 
 
 
