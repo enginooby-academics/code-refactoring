@@ -164,7 +164,7 @@ const schema = new Schema<User>({...
 **[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
 ### Declaration, Initialization & Assignment
-+ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 (auto), C# (var), TS (let), Dart (var)]_
++ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 {auto}, C# {var}, TS {let}, Dart {var}]_
 > Pros: shorthand especially for long type init, focus more attention on local variable name and value
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
@@ -177,7 +177,7 @@ foreach(User user in users)
 foreach(var user in users)
 ```
 
-+ Assign w/ nullable variable using **nullish coalescing operator (??)** *[C#, PHP, ES11]*
++ Assign w/ nullable variable using **nullish coalescing operator {??}** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
 // shorthand
@@ -189,7 +189,7 @@ result = (a !== null && a !== undefined) ? a : b;
 // shorthand
 result = a || b
 ```
-+ Assign default value for nullable variable using **logical nullish assigment operator (??=)** *[TS/JS, C#8]*
++ Assign default value for nullable variable using **logical nullish assigment operator {??=}** *[TS/JS, C#8]*
 ```
 a ?? (a = b)
 // shorthand
@@ -212,7 +212,7 @@ let c = 3;
 [a, b, c] = [1, 2, 3]
 ```
 
-+ Swap two variables using **XOR**
++ Swap two variables using **{XOR}**
 > Pros: avoid using third temporary variable
 ```
 temp = a;
@@ -250,7 +250,7 @@ function getInsuranceDeductible(insurance) {
   return 100
 }
 ```
-+ **Ternary operator (? :)**
++ **Ternary operator {? :}**
 
 To assign value:
 ```
@@ -312,8 +312,8 @@ isHungry && code()
 
 
 ### Expressions
-+ ~~Equality operator (==)~~ => **Strict equality operator** (===) *[TS]*
-+ **Spaceship/three-way comparison operator (<=>)** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
++ ~~Equality operator {==}~~ => **Strict equality operator {===}** *[TS]*
++ **Spaceship/three-way comparison operator {<=>}** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
 ```
 $users = ['branko', 'ivana', 'luka', 'ivano'];
 
@@ -353,9 +353,7 @@ class User {
 
 
 ### Function
-+ **Lambda expression/Arrow function (=>)** _[Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members)]_
-
-To declare single statement functions
++ Use **Lambda expression/Arrow function {=>}** to declare single statement functions _[Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members), Python {lambda}]_
 > Pros: bind _this_ to the invoker
 ```
 function getSum(a: number, b: number) {
@@ -365,8 +363,8 @@ function getSum(a: number, b: number) {
 const getSum = (a: number, b: number) => (a + b)
 ```
 
-To pass a function as an argument (**anonymous function**)
-> Pros: no need to declare a separate function -> reduce coding overheating
++ Pass a function as an argument w/ **anonymous function**
+> Pros: no need to declare a separate function -> reduce coding overheating, often used along w/ collection operation such as map(), where(), and reduce(), etc
 
 
 + **Named parameters** *[PHP, Kotlin, C#]*
@@ -392,7 +390,7 @@ interface Example {
 }
 ```
 
-+ ~~Promise/callback chaining~~ => **async-await** *[ES6, C#, Dart]*
++ ~~Promise/callback chaining~~ => **{async-await}** *[ES6, C#, Dart]*
 
 
 ### String
