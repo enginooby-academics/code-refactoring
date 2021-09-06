@@ -29,3 +29,15 @@ print(values); // [1000, 100, 10]
 ### OOP
 + Implement multiple inheritance using **mixin**
 > Pros: reuse functions and attributes for different types
+
++ Implement **call()** in class to make it callable like a function
+```
+class PasswordValidator {
+  bool call(String password) {
+    return password.length > 10;
+  }
+}
+
+final validator = PasswordValidator();
+validator('admin123');
+```
