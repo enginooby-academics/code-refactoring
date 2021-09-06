@@ -164,7 +164,7 @@ const schema = new Schema<User>({...
 **[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
 ### Declaration, Initialization & Assignment
-+ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 (auto), C# (var), TS (none), Dart (var)]_
++ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 (auto), C# (var), TS (let), Dart (var)]_
 > Pros: shorthand especially for long type init, focus more attention on local variable name and value
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
