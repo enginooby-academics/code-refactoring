@@ -363,8 +363,8 @@ function getSum(a: number, b: number) {
 const getSum = (a: number, b: number) => (a + b)
 ```
 
-+ Pass a function as an argument w/ **anonymous function**
-> Pros: no need to declare a separate function -> reduce coding overheating, often used along w/ collection operation such as map(), where(), and reduce(), etc
++ Pass a single-use function as an argument w/ **anonymous function**
+> Pros: no need to declare a separate disposable function -> reduce coding overheating, often used along w/ collection operation such as map(), where(), and reduce(), etc
 
 
 + **Named parameters** *[PHP, Kotlin, C#]*
