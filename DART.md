@@ -6,6 +6,27 @@
 
 
 
+### Function
++ Use underscores for unused arguments
+> Reason: more compact, avoid paying attention on unnecessary details
+```
+ListView.builder(
+  itemBuilder: (context, index) => ListTile(
+    title: Text('all the same'),
+  ),
+  itemCount: 10,
+);
+
+// preference
+ListView.builder(
+  itemBuilder: (_, __) => ListTile( // _ # __
+    title: Text('all the same'),
+  ),
+  itemCount: 10,
+);
+```
+
+
 ### Async
 + Use **Future.wait** to execute multiple independent Futures concurrently
 ```
@@ -18,9 +39,9 @@ class CovidAPI {
 
 final api = CovidAPI();
 final values = await Future.wait([
-    api.getCases(),
-    api.getRecovered(),
-    api.getDeaths(),
+  api.getCases(),
+  api.getRecovered(),
+  api.getDeaths(),
 ]);
 print(values); // [1000, 100, 10]
 ```
