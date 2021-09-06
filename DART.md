@@ -2,7 +2,7 @@
 
 
 ### String
-+ **String multiplication** ```"abc"*3 // "abcabcabc"```
++ **String multiplication** ```"abc" * 3 // "abcabcabc"```
 
 
 
@@ -40,4 +40,28 @@ class PasswordValidator {
 
 final validator = PasswordValidator();
 validator('admin123');
+```
+
+
+
+### Collections
++ Iterate through map using its ~~keys/values~~ => **entries** properties
+> Reason: access entries in a null-safe way, hence less error-prone
+```
+// given
+const users = <String, int>{
+  'Jeff 1': 18,
+  'Jeff 2': 21,
+  'Jeff 3': 17,
+};
+
+for (var name in users.keys) {
+  final age = users[name]!;
+  print('$name: $age');
+}
+
+// preference
+for (var user in users.entries) {
+  print('${user.key}: ${user.value}');
+}
 ```
