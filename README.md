@@ -164,7 +164,7 @@ const schema = new Schema<User>({...
 **[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
 ### Declaration, Initialization & Assignment
-+ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable [C++11 (auto), C# (var), TS (none), Dart (var)]
++ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 (auto), C# (var), TS (none), Dart (var)]_
 > Pros: shorthand especially for long type init, focus more attention on local variable name and value
 ```
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
@@ -180,19 +180,19 @@ foreach(var user in users)
 + Assign w/ nullable variable using **nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
-//shorthand
+// shorthand
 result = a ?? b
 ```
-+ Assign w/ nullable variable using **short circuit evaluation** *[most languages]*
++ Assign w/ nullable variable using **short circuit evaluation**
 ```
 result = (a !== null && a !== undefined) ? a : b;
-//shorthand
+// shorthand
 result = a || b
 ```
 + Assign default value for nullable variable using **logical nullish assigment operator (??=)** *[TS/JS, C#8]*
 ```
 a ?? (a = b)
-//shorthand
+// shorthand
 a ??= b
 ```
 + **Multiple variable declaration** _[ES, C#, Java]_
@@ -200,7 +200,7 @@ a ??= b
 let a;
 let b;
 let c = 3;
-//shorthand
+// shorthand
 let a, b, c = 3;
 ```
 + Assign multiple variables using **object destructuring/tuple** _[ES, C#]_
@@ -208,7 +208,7 @@ let a, b, c = 3;
 let a = 1;
 let b = 2;
 let c = 3;
-//shorthand
+// shorthand
 [a, b, c] = [1, 2, 3]
 ```
 
@@ -241,7 +241,7 @@ function getInsuranceDeductible(insurance) {
   }
 }
 
-//preference (use daisy chaining ternary operator to shorten furthermore)
+// preference (use daisy chaining ternary operator to shorten furthermore)
 function getInsuranceDeductible(insurance) {
   if (!insurance.covered) return 0
   if (insurance.majorRepair) return 500
@@ -250,7 +250,7 @@ function getInsuranceDeductible(insurance) {
   return 100
 }
 ```
-+ **Ternary operator (? :)** *[most languages]*  
++ **Ternary operator (? :)**
 
 To assign value:
 ```
@@ -260,7 +260,7 @@ if (a > b) {
 else {
     result = y;
 }
-//shorthand
+// shorthand
 result = a > b ? x : y;
 ```
 
@@ -285,7 +285,7 @@ function getInsuranceDeductible(insurance) {
   return 100
 }
 
-//shorthand
+// shorthand
 function getInsuranceDeductible(insurance) {
   return insurance.covered ? 0
          : insurance.majorRepair ? 500
@@ -300,7 +300,7 @@ if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !=
 // shorthand
 if(a && b && c && d && array.length)
 ```
-+ Conditional w/ **short circuit evaluation** *[most languages]*
++ Conditional w/ **short circuit evaluation**
 ```
 if(isHungry) {
   code()
@@ -321,7 +321,7 @@ usort($users, function ($a, $b) {
   return ($a < $b) ? -1 : (($a > $b) ? 1 : 0);
 });
 
-//shorthand
+// shorthand
 usort($users, function ($a, $b) {
   return $a <=> $b;
 });
@@ -330,7 +330,7 @@ usort($users, function ($a, $b) {
 
   
 ### Type
-+ **Constructor shorthand/property promotion** *[TS, PHP8]*
++ **Constructor shorthand** *[TS, PHP8 (property promotion), Dart]*
 ```
 class User {
   private name: string;
@@ -341,7 +341,7 @@ class User {
   }
 }
 
-//shorthand
+// shorthand
 class User {
   constructor(
     private name: string,
@@ -353,7 +353,7 @@ class User {
 
 
 ### Function
-+ **Lambda expression/Arrow function (=>)** [Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members)]
++ **Lambda expression/Arrow function (=>)** _[Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members)]_
 
 To declare single statement functions
 > Pros: bind _this_ to the invoker
@@ -386,7 +386,7 @@ interface Example {
   diff(one: string, two: string, three: boolean): number;
 }
 
-//shorthand
+// shorthand
 interface Example {
   diff(one: string, two?: string, three?: boolean): number;
 }
