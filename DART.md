@@ -3,13 +3,20 @@
 
 ### String
 + **String multiplication** ```"abc" * 3 // "abcabcabc"```
++ ~~Escape character~~ => **raw string {r}**
+```dart
+string myFile = "C:\\myfolder\\myfile.txt";
+
+// preference
+string myFile = r'C:\myfolder\myfile.txt';
+```
 
 
 
 ### Function
 + Use underscores for unused arguments
 > Reason: more compact, avoid paying attention on unnecessary details
-```
+```dart
 ListView.builder(
   itemBuilder: (context, index) => ListTile(
     title: Text('all the same'),
@@ -27,7 +34,7 @@ ListView.builder(
 ```
 
 + Use **cascade operator {..}** to perform a sequence of operations on the same object
-```
+```dart
 user.setName("Jeff");
 user.setAge(18);
 user.showInfo();
@@ -41,7 +48,7 @@ user..setName("Jeff")
 
 ### Async
 + Use **Future.wait** to execute multiple independent Futures concurrently
-```
+```dart
 // Mock API class
 class CovidAPI {
   Future<int> getCases() => Future.value(1000);
@@ -64,7 +71,7 @@ print(values); // [1000, 100, 10]
 > Pros: reuse functions and attributes for different types
 
 + Implement **call()** in class to make it callable like a function
-```
+```dart
 class PasswordValidator {
   bool call(String password) {
     return password.length > 10;
@@ -80,7 +87,7 @@ validator('admin123');
 ### Collections
 + Iterate through map using its ~~keys/values~~ => **entries** properties
 > Reason: access entries in a null-safe way, hence less error-prone
-```
+```dart
 // given
 const users = <String, int>{
   'Jeff 1': 18,
