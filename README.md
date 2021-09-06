@@ -13,9 +13,17 @@
     + SASS/Less
     + NodeJS & TypeScript
 5. [Refactoring](#refactoring)
+    + Language-specific
+    + Declaration, initialization & assignment
+    + Control flow
+    + Expressions
+    + OOP
+    + Function
+    + String
 
 <a name="abbreviations"></a>  
 ### I - Abbreviations
+[⬆ To the top](#0)
 > Should be **universally accepted**, provide **good result of shortening**, used for naming & commenting
 * **addr** address - **app** application
 * **bg** background - **btn** button
@@ -156,65 +164,72 @@ const schema = new Schema<User>({...
 [⬆ To the top](#0)
 > Alternative ways of writing code to help improving **code readability, clarity, brevity & performance**  
 
-**[Refactoring in C#](CS.md#preferences)**  
-**[Refactoring in C++](CPP.md#preferences)**  
-**[Refactoring in C++ | Unreal Engine](CPP_UE.md#preferences)**  
-**[Refactoring in Dart](DART.md#preferences)**  
-**[Refactoring in Python](PYTHON.md#preferences)**  
-**[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
+### Language-Specific
+|[C#](CS.md)|[C++](CPP.md)|[C++ in Unreal Engine](CPP_UE.md)|[Dart](DART.md)|[Python](PYTHON.md)|[JavaScript & TypeScript](TS_JS.md)|
+|---|---|---|---|---|---|
 
 ### Declaration, Initialization & Assignment
 + ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 {auto}, C# {var}, TS {let}, Dart {var}]_
 > Pros: shorthand especially for long type init, focus more attention on local variable name and value
-```
+```csharp
 AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
+
 // preference
 var instance = new AReallyReallyLooooongClass();
 
 List<User> users = {User1, User2...};
 foreach(User user in users)
+
 // preference
 foreach(var user in users)
 ```
 
 + Assign w/ nullable variable using **nullish coalescing operator {??}** *[C#, PHP, ES11]*
-```
-result = (a !== null && a !== undefined) ? a : b;
+```ts
+const result = (a !== null && a !== undefined) ? a : b
+
 // shorthand
-result = a ?? b
+const result = a ?? b
 ```
+
 + Assign w/ nullable variable using **short circuit evaluation**
-```
-result = (a !== null && a !== undefined) ? a : b;
+```ts
+const result = (a !== null && a !== undefined) ? a : b
+
 // shorthand
-result = a || b
+const result = a || b
 ```
+
 + Assign default value for nullable variable using **logical nullish assigment operator {??=}** *[TS/JS, C#8]*
 ```
 a ?? (a = b)
 // shorthand
 a ??= b
 ```
+
 + **Multiple variable declaration** _[ES, C#, Java]_
-```
+```ts
 let a;
 let b;
 let c = 3;
+
 // shorthand
 let a, b, c = 3;
 ```
-+ Assign multiple variables using **object destructuring/tuple** _[ES, C#]_
-```
+
++ Assign multiple variables using **object destructuring/tuple** _[ES6, C#, Python]_
+```ts
 let a = 1;
 let b = 2;
 let c = 3;
+
 // shorthand
 [a, b, c] = [1, 2, 3]
 ```
 
 + Swap two variables using **{XOR}**
 > Pros: avoid using third temporary variable
-```
+```csharp
 temp = a;
 a = b;
 b = temp;
@@ -226,7 +241,7 @@ a ^= b ^= a ^= b;
 ### Control Flow
 + **Guard clause/assert/precondition**: return early in special case; multiple return
 > Pros: avoid nested statements, improve readability
-```
+```ts
 function getInsuranceDeductible(insurance) {
   if (insurance.covered) {
     if (insurance.majorRepair) {
@@ -250,33 +265,37 @@ function getInsuranceDeductible(insurance) {
   return 100
 }
 ```
+
 + **Ternary operator {? :}**
 
 To assign value:
-```
+```ts
 if (a > b) {
     result = x;
 }
 else {
     result = y;
 }
+
 // shorthand
 result = a > b ? x : y;
 ```
 
 To return:
-```
+```ts
 if (a > b) {
     return x;
 }
 else {
     return y;
 }
-//shorthand
+
+// shorthand
 return a > b ? x : y;
 ```
+
 Daisy chaining:
-```
+```ts
 function getInsuranceDeductible(insurance) {
   if (!insurance.covered) return 0
   if (insurance.majorRepair) return 500
@@ -295,16 +314,18 @@ function getInsuranceDeductible(insurance) {
 ```
 
 + Conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
-```
+```ts
 if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
+
 // shorthand
 if(a && b && c && d && array.length)
 ```
 + Conditional w/ **short circuit evaluation**
-```
+```ts
 if(isHungry) {
   code()
 }
+
 // shorthand
 isHungry && code()
 ```
@@ -313,8 +334,9 @@ isHungry && code()
 
 ### Expressions
 + ~~Equality operator {==}~~ => **Strict equality operator {===}** *[TS]*
+
 + **Spaceship/three-way comparison operator {<=>}** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
-```
+```php
 $users = ['branko', 'ivana', 'luka', 'ivano'];
 
 usort($users, function ($a, $b) {
@@ -331,7 +353,7 @@ usort($users, function ($a, $b) {
   
 ### Type
 + **Constructor shorthand** *[TS, PHP8 (property promotion), Dart]*
-```
+```ts
 class User {
   private name: string;
   private age: number;
@@ -355,10 +377,11 @@ class User {
 ### Function
 + Use **Lambda expression/Arrow function {=>}** to declare single statement functions _[Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members), Python {lambda}]_
 > Pros: bind _this_ to the invoker
-```
+```ts
 function getSum(a: number, b: number) {
   return a + b
 }
+
 // shorthand
 const getSum = (a: number, b: number) => (a + b)
 ```
@@ -367,24 +390,27 @@ const getSum = (a: number, b: number) => (a + b)
 > Pros: no need to declare a separate disposable function -> reduce coding overheating, often used along w/ collection operation such as map(), where(), and reduce(), etc
 
 
-+ **Named parameters** *[PHP, Kotlin, C#]*
++ **Named parameters** *[PHP8, Kotlin, C#]*
 > Reason: for clarity, can change order of params
-```
+```csharp
+// given
 public void doSomething(string foo, int bar) {...}
 
 doSomething("someString", 1);
-//preference
+
+// preference
 doSomething(foo: "someString", bar: 1);
 ```
+
 + ~~Overloading functions~~ that differ only in trailing parameters => **optional parameters**
-```
+```ts
 interface Example {
   diff(one: string): number;
   diff(one: string, two: string): number;
   diff(one: string, two: string, three: boolean): number;
 }
 
-// shorthand
+// preference
 interface Example {
   diff(one: string, two?: string, three?: boolean): number;
 }
@@ -394,10 +420,13 @@ interface Example {
 
 
 ### String
-+ ~~String~~ => **StringBuffer** for string appending *[Java, C#]*
++ ~~String~~ => **StringBuffer** for string manipulations *[Java, C#]*
+> Pros: do not create new String instances -> save memory
+
 + ~~String concatenation operator (+)~~ => **String interpolation/template literals** *[ES, C#, Kotlin, PHP]*
-```
+```ts
 console.log("Sum of " + a + " and " + b + " is " + (a + b))
+
 // preference
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
