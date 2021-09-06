@@ -159,6 +159,7 @@ const schema = new Schema<User>({...
 **[Refactoring in C#](CS.md#preferences)**  
 **[Refactoring in C++](CPP.md#preferences)**  
 **[Refactoring in C++ | Unreal Engine](CPP_UE.md#preferences)**  
+**[Refactoring in Dart](DART.md#preferences)**  
 **[Refactoring in Python](PYTHON.md#preferences)**  
 **[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
@@ -390,7 +391,8 @@ interface Example {
   diff(one: string, two?: string, three?: boolean): number;
 }
 ```
-+ ~~Promise/callback chaining~~ => **async-await** *[ES6, C#]*
+
++ ~~Promise/callback chaining~~ => **async-await** *[ES6, C#, Dart]*
 
 
 ### String
