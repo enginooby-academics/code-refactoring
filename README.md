@@ -159,9 +159,12 @@ const schema = new Schema<User>({...
 **[Refactoring in C#](CS.md#preferences)**  
 **[Refactoring in C++](CPP.md#preferences)**  
 **[Refactoring in C++ | Unreal Engine](CPP_UE.md#preferences)**  
+**[Refactoring in Python](PYTHON.md#preferences)**  
 **[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
 ### Declaration, Initialization & Assignment
++ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) [C++ (auto), C# (var), TS (none), Dart (var)]
+> Pros: shorthand especially for long type init
 + Assign w/ nullable variable using **nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
