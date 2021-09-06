@@ -352,15 +352,22 @@ class User {
 
 
 ### Function
-+ **Lambda expression/Arrow function/Fat arrow/Expression-bodied members (=>)** *[Java8, ES6, Dart, C#]*
++ **Lambda expression/Arrow function (=>)** [Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members)]
+
+To declare single statement functions
 > Pros: bind _this_ to the invoker
 ```
 function getSum(a: number, b: number) {
   return a + b
 }
-//shorthand
+// shorthand
 const getSum = (a: number, b: number) => (a + b)
 ```
+
+To pass a function as an argument (**anonymous function**)
+> Pros: no need to declare a separate function -> reduce coding overheating
+
+
 + **Named parameters** *[PHP, Kotlin, C#]*
 > Reason: for clarity, can change order of params
 ```
