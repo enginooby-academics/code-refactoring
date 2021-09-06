@@ -82,6 +82,7 @@ final validator = PasswordValidator();
 validator('admin123');
 ```
 
++ Auto-generate hashCode, == and toString() implementations using **Equatable** package
 
 
 ### Collections
