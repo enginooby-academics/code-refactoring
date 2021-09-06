@@ -163,8 +163,19 @@ const schema = new Schema<User>({...
 **[Refactoring in TypeScript & JavaScript](TS_JS.md#preferences)**  
 
 ### Declaration, Initialization & Assignment
-+ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) [C++ (auto), C# (var), TS (none), Dart (var)]
-> Pros: shorthand especially for long type init
++ ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable [C++11 (auto), C# (var), TS (none), Dart (var)]
+> Pros: shorthand especially for long type init, focus more attention on local variable name and value
+```
+AReallyReallyLooooongClass instance = new AReallyReallyLooooongClass();
+// preference
+var instance = new AReallyReallyLooooongClass();
+
+List<User> users = {User1, User2...};
+foreach(User user in users)
+// preference
+foreach(var user in users)
+```
+
 + Assign w/ nullable variable using **nullish coalescing operator (??)** *[C#, PHP, ES11]*
 ```
 result = (a !== null && a !== undefined) ? a : b;
