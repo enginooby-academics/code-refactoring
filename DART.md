@@ -26,6 +26,18 @@ ListView.builder(
 );
 ```
 
++ Use **cascade operator {..}** to perform a sequence of operations on the same object
+```
+user.setName("Jeff");
+user.setAge(18);
+user.showInfo();
+
+// preference
+user..setName("Jeff") 
+    ..setAge(18)
+    ..showInfo(); 
+```
+
 
 ### Async
 + Use **Future.wait** to execute multiple independent Futures concurrently
