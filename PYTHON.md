@@ -62,10 +62,10 @@ for x in range(1, 11):
 odd_square = [x ** 2 for x in range(1, 11) if x % 2 == 1] 
 ```
 
-+ Use **unpacking generalizations** to merge dictionaties, overwrite duplicate [Python3.5]
++ Use **unpacking generalizations** to merge dictionaties, overwrite duplicate [[Python3.5]](https://www.python.org/dev/peps/pep-0448/)
 ```py
 x = {'a': 1, 'b': 2}
 y = {'b': 3, 'c': 4}
 
-print({**x, **y}) # {'c': 4, 'a': 1, 'b': 3}
+print({**x, **y}) # {'a': 1, 'b': 3, c': 4}
 ```
