@@ -43,24 +43,27 @@
 > Normally use camelCase for variables & functions/methods, SNAKE_CASE for constants, PascalCase for types, w/ prefix if necessary
 
 ### 1 - Variable & Constant
++ **Exceptions** (Go - exported) ```PascalCase```
 + **Element/HTMLElement** ```e prefix```: *eBtn*
-+ **NodeListOf\<Element>** ```es prefix```: *esBtn* (questionable?)
-+ **JQuery\<HTMLElement>** ```$ prefix```: *$btn* (questionable?)
++ **NodeListOf\<Element>** ```es prefix```: *esBtn*
++ **JQuery\<HTMLElement>** ```$ prefix```: *$btn*
 + **Boolean** ```{is/have/can/do}+{noun}+{adj/verb-ed}```: *wasBtnClicked*, *areBtnsGreen*
-+ **Private class member** ```_ prefix```: *_id* (questionable?)
-+ **Constant** (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
-+ **Constant** (reference type || function-scoped) ```camelCase```
++ **Private class member** ```_ prefix```: *_id*
++ **Constant** 
+    - (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
+    - (reference type || function-scoped) ```camelCase```
 
 ### 2 - Type & Function
 + **Function** ```camelCase```: *disableBtn()*
-+ **Function** (async) ```camelCase | Async suffix``` *fetchUsersAsync()*
-+ **Function** (in C#|Unity; C++|Unreal Engine) ```PascalCase```: *DisableBtn()*
+    - (async) ```camelCase | Async suffix``` *fetchUsersAsync()*
+    - (C#|Unity; C++|Unreal Engine, Go - exported) ```PascalCase```: *DisableBtn()*
 + **Class/struct/record** ```PascalCase```: *CoolBtn*
 + **Interface** ```PascalCase | I prefix```: *IClickable*
 + **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
-+ **Event** (of current class) ```camelCase | on+{ordinal}+{action}```: *onClick()*, *on1stClick()*
-+ **Event** (of other object) ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
-+ **CSS class** ```BEM```: *hero__btn--round* ([reference](https://sparkbox.com/foundry/bem_by_example))
++ **Event** 
+    - (of current class) ```camelCase | on+{ordinal}+{action}```: *onClick()*, *on1stClick()*
+    - (of other object) ```camelCase | on+{noun}+{ordinal}+{action}```: *onBtnClick*, *onBtn1stClick*
++ **CSS class** ```BEM```: *hero__btn--round* [[Reference](https://sparkbox.com/foundry/bem_by_example)]
 
 ### 3 - Git
 + **Repo name** ```kebab-case | All lower``` (avoid lowerscore _ which seems bad for URL)  
