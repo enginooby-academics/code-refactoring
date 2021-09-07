@@ -7,7 +7,7 @@ temp = a
 a = b
 b = temp
 
-// shorthand
+# shorthand
 a, b = b, a
 ```
 
@@ -16,6 +16,7 @@ a, b = b, a
 + **Comparison chaining**
 ```py
 if a > 1 and a < 9
+
 # shorthand
 if 1 < a < 9
 ```
@@ -27,10 +28,12 @@ if 1 < a < 9
 def test():
     return 'abc', 100
 ```
+
 + Prefer **lambda** for one-statement functions
-```
+```py
 def subtract(x, y): 
     return x - y
+
 # shorthand
 subtract = lambda x, y : x - y
 ```
@@ -67,5 +70,5 @@ odd_square = [x ** 2 for x in range(1, 11) if x % 2 == 1]
 x = {'a': 1, 'b': 2}
 y = {'b': 3, 'c': 4}
 
-print({**x, **y}) # {'a': 1, 'b': 3, c': 4}
+print({**x, **y}) #{'a': 1, 'b': 3, c': 4}
 ```
