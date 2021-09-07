@@ -168,8 +168,8 @@ const schema = new Schema<User>({...
 > Alternative ways of writing code to help improving **code readability, clarity, brevity & performance**  
 
 ### Language-Specific
-|[C#](CS.md)|[C++](CPP.md)|[C++ in Unreal Engine](CPP_UE.md)|[Dart](DART.md)|[Python](PYTHON.md)|[JavaScript & TypeScript](TS_JS.md)|
-|---|---|---|---|---|---|
+|[C#](CS.md)|[C++](CPP.md)|[C++ in Unreal Engine](CPP_UE.md)|[Dart](DART.md)|[Python](PYTHON.md)|[JavaScript & TypeScript](TS_JS.md)|[Go](GO.md)|
+|---|---|---|---|---|---|---|
 
 ### Declaration, Initialization & Assignment
 + ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 {auto}, C# {var}, TS {let}, Dart {var}]_
@@ -210,7 +210,7 @@ a ?? (a = b)
 a ??= b
 ```
 
-+ **Multiple variable declaration** _[ES, C#, Java]_
++ **Multiple variable declaration** for related variables _[JS/TS, C#, Java, Go]_
 ```ts
 let a;
 let b;
@@ -232,6 +232,7 @@ let c = 3;
 
 + Swap two variables using **{XOR}**
 > Pros: avoid using third temporary variable
+> Cons: statement purpose is not straightforward 
 ```csharp
 temp = a;
 a = b;
@@ -242,7 +243,7 @@ a ^= b ^= a ^= b;
 ```
   
 ### Control Flow
-+ **Guard clause/assert/precondition**: return early in special case; multiple return
++ **Guard clause/assert/precondition**: early return for special case; multiple return statements
 > Pros: avoid nested statements, improve readability
 ```ts
 function getInsuranceDeductible(insurance) {
