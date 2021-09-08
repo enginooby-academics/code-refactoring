@@ -25,6 +25,29 @@ fmt.Println(C1, C3, C4) // "1 3 4"
 ```
 
 
+### OOP
++ Implement **{String()}** from fmt.Stringer interface for structs as toString() in order to log/debug using fmt
+```go
+type User struct {
+  Name  string
+  Age int
+}
+
+func (u User) String() string {
+  return fmt.Sprintf("%s <%s>", u.Name, u.Age)
+}
+
+func main() {
+  u := User{
+      Name:  "Jeff",
+      Age: 18,
+  }
+
+  fmt.Println(u) // Jeff <18>
+}
+```
+
+
 ### Numeric
 + Use ~~int64~~ => **{time.Duration}** for time
 ```go
