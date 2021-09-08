@@ -12,7 +12,7 @@ const {
 }
 ```
 
-+ Init successive integer constants using **{iota}** [[Reference](https://yourbasic.org/golang/iota/)]
++ Init successive integer constants using **```iota```** [[Reference](https://yourbasic.org/golang/iota/)]
 ```go
 const (
   C1 = iota + 1 // offset 1
@@ -26,7 +26,7 @@ fmt.Println(C1, C3, C4) // "1 3 4"
 
 
 ### OOP
-+ Implement **{String()}** from fmt.Stringer interface for structs as toString() in order to log/debug using fmt
++ Implement **```String()```** from fmt.Stringer interface for structs in order to log/debug using fmt
 ```go
 type User struct {
   Name  string
@@ -49,7 +49,7 @@ func main() {
 
 
 ### Numeric
-+ Use ~~int64~~ => **{time.Duration}** for time
++ Use ~~```int64```~~ => **```time.Duration```** for time
 ```go
 var delayInSeconds int64 = 15000
 
