@@ -60,6 +60,7 @@
     - (C#|Unity; C++|Unreal Engine, Go - exported) ```PascalCase```: *DisableBtn()*
 + **Class/struct/record** ```PascalCase```: *CoolBtn*
 + **Interface** ```PascalCase | I prefix```: *IClickable*
++ **Trait** (PHP) ```PascalCase | T prefix```: *TDisplay*
 + **Enum** ```PascalCase | Singular```: *BtnState {Clicked, Focus, Hover, Active, Disabled}*
 + **Event** 
     - (of current class) ```camelCase | on+{ordinal}+{action}```: *onClick()*, *on1stClick()*
