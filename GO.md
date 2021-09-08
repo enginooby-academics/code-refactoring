@@ -1,6 +1,17 @@
 # Go
 
 ### Declaration, Initialization & Assignment
++ Group declarations for related constants
+```go
+const {
+  // constants about a...
+}
+
+const {
+  // constants about b...
+}
+```
+
 + Init successive integer constants using **{iota}** [[Reference](https://yourbasic.org/golang/iota/)]
 ```go
 const (
