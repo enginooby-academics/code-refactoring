@@ -200,6 +200,7 @@ foreach(var user in users)
 
 + Assign w/ nullable variable using **nullish coalescing operator ```??```** *[C#, PHP, ES11]*
 ```ts
+// 👎 longhand
 const result = (a !== null && a !== undefined) ? a : b
 
 // 👍 shorthand
@@ -318,7 +319,7 @@ else {
 return a > b ? x : y;
 ```
 
-Daisy chaining:
+To shorten switch w/ multiple return statements using **daisy chaining**:
 ```ts
 // 👎 longhand
 function getInsuranceDeductible(insurance) {
