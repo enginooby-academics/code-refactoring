@@ -52,6 +52,7 @@
 + **Constant** 
     - (primitive type && project/file/class-scoped) ```SNAKE_CASE | All caps```: *BTN_SELECTOR*
     - (reference type || function-scoped) ```camelCase```
++ **Unit** (interval, dimension) ```in+{unit} suffix```: *delayInSeconds, BTN_WIDTH_IN_METERS*
 
 ### 2 - Type & Function
 + **Function** ```camelCase```: *disableBtn()*
