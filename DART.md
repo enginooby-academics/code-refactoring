@@ -3,11 +3,12 @@
 
 ### String
 + **String multiplication** ```"abc" * 3 // "abcabcabc"```
-+ ~~Escape character~~ => **raw string {r}**
++ ~~Escape sequence~~ => **raw string ```r```**
 ```dart
+// 👎 non-compliant
 string myFile = "C:\\myfolder\\myfile.txt";
 
-// preference
+// 👍 preference
 string myFile = r'C:\myfolder\myfile.txt';
 ```
 
@@ -17,6 +18,7 @@ string myFile = r'C:\myfolder\myfile.txt';
 + Use underscores for unused arguments
 > Reason: more compact, avoid paying attention on unnecessary details
 ```dart
+// 👎 non-compliant
 ListView.builder(
   itemBuilder: (context, index) => ListTile(
     title: Text('all the same'),
@@ -24,22 +26,23 @@ ListView.builder(
   itemCount: 10,
 );
 
-// preference
+// 👍 preference
 ListView.builder(
-  itemBuilder: (_, __) => ListTile( // _ # __
+  itemBuilder: (_, __) => ListTile( // _ is different than __
     title: Text('all the same'),
   ),
   itemCount: 10,
 );
 ```
 
-+ Use **cascade operator {..}** to perform a sequence of operations on the same object
++ Use **cascade operator ```..```** to perform a sequence of operations on the same object
 ```dart
+// 👎 non-compliant
 user.setName("Jeff");
 user.setAge(18);
 user.showInfo();
 
-// preference
+// 👍 preference
 user..setName("Jeff") 
     ..setAge(18)
     ..showInfo(); 
@@ -47,9 +50,9 @@ user..setName("Jeff")
 
 
 ### Async
-+ Use **Future.wait** to execute multiple independent Futures concurrently
++ Use **```Future.wait```** to execute multiple independent Futures concurrently
 ```dart
-// Mock API class
+// 👉 given: mock API class
 class CovidAPI {
   Future<int> getCases() => Future.value(1000);
   Future<int> getRecovered() => Future.value(100);
@@ -57,6 +60,8 @@ class CovidAPI {
 }
 
 final api = CovidAPI();
+
+// 👍 preference
 final values = await Future.wait([
   api.getCases(),
   api.getRecovered(),
@@ -70,7 +75,7 @@ print(values); // [1000, 100, 10]
 + Implement multiple inheritance using **mixin**
 > Pros: reuse functions and attributes for different types
 
-+ Implement **call()** in class to make it callable like a function
++ Implement **```call()```** in class to make it callable like a function
 ```dart
 class PasswordValidator {
   bool call(String password) {
@@ -86,22 +91,23 @@ validator('admin123');
 
 
 ### Collections
-+ Iterate through map using its ~~keys/values~~ => **entries** properties
++ Iterate through map using its ~~keys/values~~ => **```entries```** properties
 > Reason: access entries in a null-safe way, hence less error-prone
 ```dart
-// given
+// 👉 given
 const users = <String, int>{
   'Jeff 1': 18,
   'Jeff 2': 21,
   'Jeff 3': 17,
 };
 
+// 👎 non-compliant
 for (var name in users.keys) {
   final age = users[name]!;
   print('$name: $age');
 }
 
-// preference
+// 👍 preference
 for (var user in users.entries) {
   print('${user.key}: ${user.value}');
 }
