@@ -23,3 +23,13 @@ const (
 
 fmt.Println(C1, C3, C4) // "1 3 4"
 ```
+
+
+### Numeric
++ Use ~~int64~~ => **{time.Duration}** for time
+```go
+var delayInSeconds int64 = 15000
+
+// preference
+var delayInSeconds time.Duration = 15 * time.Second
+```
