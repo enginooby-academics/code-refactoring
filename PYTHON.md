@@ -23,6 +23,21 @@ if a > 1 and a < 9
 if 1 < a < 9
 ```
 
++ Check multiple flags w/ same value
+```py
+# 👎 longhand
+if a == 1 or b == 1 or c == 1:
+
+# 👍 shorthand
+if 1 in (a, b, c):
+```
+
++ Check multiple flags for truthiness/falsiness
+```py
+if a or b or c:
+
+if(any(a, b, c)):
+```
 
 ### Function
 + Return multiple values using **tuple**
