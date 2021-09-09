@@ -56,6 +56,18 @@ def subtract(x, y):
 subtract = lambda x, y : x - y
 ```
 
++ Use **```@cache```** decorator from **functools** library to cache expensive computations, esp. in recursive functions [[Python3.2](https://docs.python.org/3/library/functools.html#functools.cache)]
+> Reason: improve performance
+```py
+# 👎 non-compliant
+factorial = lambda n : n * factorial(n-1) if n else 1
+
+# 👍 preference
+@cache
+factorial = lambda n : n * factorial(n-1) if n else 1
+```
+
+
 
 ### String
 + Reverse string using **extended slices syntax**
@@ -96,4 +108,4 @@ print({**x, **y}) #{'a': 1, 'b': 3, c': 4}
 
 
 ### OOP
-+ Use **dataclasses** library to generate common function implementations for classes such as ```__init__, __repr__, __eq__``` [[Python3.7](https://realpython.com/python-data-classes/)]
++ Use **```@dataclass```** decorator from **dataclasses** library to generate common function implementations for classes such as ```__init__, __repr__, __eq__``` [[Python3.7](https://realpython.com/python-data-classes/)]
