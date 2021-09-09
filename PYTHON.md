@@ -92,3 +92,8 @@ y = {'b': 3, 'c': 4}
 # 👍 preference
 print({**x, **y}) #{'a': 1, 'b': 3, c': 4}
 ```
+
+
+
+### OOP
++ Use **dataclasses** library to generate common function implementations for classes such as ```__init__, __repr__, __eq__``` [[Python3.7](https://realpython.com/python-data-classes/)]
