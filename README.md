@@ -263,7 +263,8 @@ a ^= b ^= a ^= b;
   
 ### Control Flow
 + **Guard clause/assert/precondition**: early return for special case; multiple return statements
-> Pros: avoid nested statements, improve readability
+> ✔️ Pros: avoid nested statements, improve readability  
+> ⚠️ Cautions: too many return statements will make code unobvious and harder to debug
 ```ts
 // 👎 non-compliant
 function getInsuranceDeductible(insurance) {
