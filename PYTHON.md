@@ -14,7 +14,7 @@ a, b = b, a
 
 
 ### Expressions
-+ **Comparison chaining**
++ **Chained comparisons** for one-direction multiple comparisons
 ```py
 # 👎 longhand
 if a > 1 and a < 9
@@ -56,7 +56,7 @@ def subtract(x, y):
 subtract = lambda x, y : x - y
 ```
 
-+ Use **```@cache```** decorator from **functools** library to cache expensive computations, esp. in recursive functions [[Python3.2](https://docs.python.org/3/library/functools.html#functools.cache)]
++ Use **```@cache```** decorator from **functools** library to cache repeating expensive computations, esp. in recursive functions [[Python3.2](https://docs.python.org/3/library/functools.html#functools.cache)]
 > Reason: improve performance
 ```py
 # 👎 non-compliant
