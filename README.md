@@ -340,7 +340,7 @@ function getInsuranceDeductible(insurance) {
 }
 ```
 
-+ Conditional w/ **truthy/falsy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby]*
++ Conditional w/ **falsy/truthy values** *[TS/JS, Groovy, Perl, PHP, Python, Ruby, C++ ```0, false```]*
 ```ts
 // 👎 longhand
 if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !== "" && array.length !== 0)
