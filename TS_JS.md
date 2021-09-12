@@ -1,15 +1,6 @@
 # TypeScript & JavaScript
 
 ### Declaration, Initialization & Assignment
-+ ~~Explicit type (type annotation)~~ => **implicit type (type inference)**
-```ts
-// 👎 non-compliant
-const message: string = 'hello world'
-
-// 👍 preference
-const message = 'hello world'
-```
-
 
 
 ### Function
@@ -18,19 +9,19 @@ const message = 'hello world'
 ```ts
 // 👎 non-compliant
 function fn(x: () => any) {
-  x();
+  x().doOtherThing(); // runtime error
 }
 
 // 👍 preference
 function fn(x: () => void) {
-  x();
+  x().doOtherThing(); // compile error
 }
 ```
 
 + Define a **type alias** to encapsulate callback type [TS]
 ```ts
 // 👉 given
-var numCallback = (result: number) : void => {alert(result.toString())};
+var numCallback = (result: number) : void => alert(result.toString());
 
 // 👎 non-compliant
 class User {
