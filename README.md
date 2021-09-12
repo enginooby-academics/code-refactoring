@@ -201,31 +201,34 @@ foreach(User user in users)
 foreach(var user in users)
 ```
 
-+ Assign w/ nullable variable using **nullish coalescing operator ```??```** *[C#, PHP, ES11]*
++ Assign w/ nullable variable 
 ```ts
 // 👎 longhand
-const result = (a !== null && a !== undefined) ? a : b
-
-// 👍 shorthand
-const result = a ?? b
+const result = (nullableVar !== null && nullableVar !== undefined) ? nullableVar : fallbackVar
 ```
 
-+ Assign w/ nullable variable using **short circuit evaluation ```&&, ||```**
+Using **nullish coalescing operator ```??```** *[C#, PHP, ES11]*
 ```ts
-// 👎 longhand
-const result = (a !== null && a !== undefined) ? a : b
-
 // 👍 shorthand
-const result = a || b
+const result = nullableVar ?? fallbackVar
+```
+
+Using **short circuit evaluation ```&&, ||```**
+```ts
+// 👍 shorthand
+const result = nullableVar || fallbackVar
 ```
 
 + Assign default value for nullable variable using **logical nullish assigment operator ```??=```** *[TS/JS, C#8]*
-```csharp
+```ts
 // 👎 longhand
-a ?? (a = b);
+nullableVar = (nullableVar !== null && nullableVar !== undefined) ? nullableVar : defaultVal
+
+// 👎 longhand
+nullableVar ?? (nullableVar = defaultVal)
 
 // 👍 shorthand
-a ??= b;
+nullableVar ??= defaultVal
 ```
 
 + **Multiple variable declaration** for related variables _[JS/TS, C#, Java, Go]_
@@ -251,8 +254,8 @@ let c = 3;
 ```
 
 + Swap two variables using **XOR ```^```**
-> Pros: avoid using third temporary variable
-> Cons: statement purpose is not straightforward 
+> ✔️ Pros: avoid using third temporary variable  
+> ❌ Cons: purpose may not seem straightforward 
 ```csharp
 // 👎 longhand
 temp = a;
@@ -269,11 +272,11 @@ a ^= b ^= a ^= b;
 > ⚠️ Cautions: too many return statements (esp. void) will make code unobvious and harder to debug
 ```ts
 // 👎 non-compliant
-function getInsuranceDeductible(insurance) {
+function getInsuranceDeductible(insurance){
   if (insurance.covered) {
     if (insurance.majorRepair) {
       return 500
-    } else if (insurance.mediumRepair) {
+    } else if (insurance.mediumRepair){
       return 300
     } else {
       return 100
@@ -284,7 +287,7 @@ function getInsuranceDeductible(insurance) {
 }
 
 // 👍 preference (use daisy chaining ternary operator to shorten furthermore)
-function getInsuranceDeductible(insurance) {
+function getInsuranceDeductible(insurance){
   if (!insurance.covered) return 0
   if (insurance.majorRepair) return 500
   if (insurance.mediumRepair) return 300
@@ -351,7 +354,7 @@ if(typeof a !== "undefined" && typeof b !== "null" && typeof c !== "NaN" && d !=
 // 👍 shorthand
 if(a && b && c && d && array.length)
 ```
-+ Conditional w/ **short circuit evaluation ```&&, ||```**
++ One-statement in conditional w/ **short circuit evaluation ```&&, ||```**
 ```ts
 // 👎 longhand
 if(isHungry && isSleepy) {
@@ -365,7 +368,7 @@ isHungry && isSleepy && code()
 
 
 ### Expressions
-+ ~~Equality operator {==}~~ => **Strict equality operator ```===```** *[TS]*
++ ~~Equality operator ```==```~~ => **Strict equality operator ```===```** *[TS]*
 
 + **Spaceship/three-way comparison operator ```<=>```** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
 ```php
@@ -410,7 +413,7 @@ class User {
 
 
 ### Function
-+ Use **Lambda expression/Arrow function ```=>```** to declare single statement functions _[Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members), Python ```lambda```]_
++ Use **lambda expression/arrow function ```=>```** to declare single statement functions _[Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members), Python ```lambda```]_
 > Pros: bind _this_ to the invoker
 ```ts
 // 👎 longhand
@@ -422,12 +425,12 @@ function getSum(a: number, b: number) {
 const getSum = (a: number, b: number) => (a + b)
 ```
 
-+ Pass a single-use function as an argument w/ **anonymous function**
++ Pass a single-use callback function as an argument w/ **anonymous function**
 > Pros: no need to declare a separate disposable function -> reduce coding overheating, often used along w/ collection operation such as map(), where(), and reduce(), etc
 
 
 + **Named parameters** *[PHP8, Kotlin, C#]*
-> Reason: for clarity, can change order of params
+> Reason: for clarity, order of params could be changed
 ```csharp
 // 👉 given
 public void doSomething(string foo, int bar) {...}
@@ -459,7 +462,7 @@ interface Example {
 
 ### String
 + ~~```String```~~ => **```StringBuffer```** for string manipulations *[Java, C#]*
-> Pros: do not create new String instances -> save memory
+> Reason: do not create new String instances on manipulations -> save memory
 
 + ~~String concatenation operator ```+```~~ => **String interpolation/template literals ``` `${}` ```** *[ES, C#, Kotlin, PHP]*
 ```ts
