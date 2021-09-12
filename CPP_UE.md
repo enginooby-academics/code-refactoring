@@ -1,6 +1,6 @@
 # C++ In Unreal Engine
 
-## String
+## FString
 + Concatenate string w/ **format specifier**
 ```cpp
 FString name = "John";
