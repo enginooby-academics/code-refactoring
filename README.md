@@ -135,8 +135,10 @@ const schema = new Schema<User>({...
 + **FIX**
 + **REMOVE** the code is used for reference later and removed when becoming unneccesary.
 + **ADHOC** temporary code needed to be replaced by more elegant solutions.
-+ **UTIL** utility/helper method should be moved into a dedicated file.
-+ **REFACTOR** - **DRY** - **PARAMETERIZE**
++ **REFACTOR** general refactoring tasks
+    - **DRY** extract common code block as a function
+    - **PARAMETERIZE** replace magic literals by variables
+    - **UTIL** utility/helper method should be moved into a dedicated file.
 + **SPECIFIC** the code inside a general framework/library to solve problems for only a specific project, should be moved into that very project
   
 ### 3 - Section
