@@ -163,7 +163,7 @@ if(Object.Equals(user1, user2))
 ```
 
 + Use **```Equals() & OrdinalIgnoreCase```** to compare strings regardless of case
-> Pros: removes the additional string allocation overhead
+> ✔️ Pros: removes the additional string allocation overhead
 ```csharp
 // 👎 non-compliant
 str1.ToUpper() == str2.ToUpper()
@@ -178,7 +178,7 @@ str1.Equals(str2, StringComparison.OrdinalIgnoreCase)
 ###  OOP
 [⬆ To the top](#0)
 + ~~Class/Struct~~ => **Record**: for DTO [[C#9](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9#record-types)]
-> Pros: reference type, immutable by default
+> ✔️ Pros: reference type, immutable by default
 
 + **Automatic properties**
 ```csharp
@@ -207,8 +207,8 @@ user.Name = "John Ritter"; // no error
 user.Age = 20; // error! CS8852.
 ```
 
-+ Use **```readonly```** for members which don't modify state, e.g. ```ToString()``` [[C#8](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members))]
-> Pros: this feature specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
++ Use **```readonly```** for members which don't modify state, e.g. ```ToString()``` [[C#8](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#readonly-members)]
+> ✔️ Pros: specifies the design intent so the compiler can enforce it, and make optimizations based on that intent.
 
 + Use **partial class** to split the implementation of different interfaces
 ```csharp
@@ -245,7 +245,7 @@ class User {
 ### Function
 [⬆ To the top](#0)
 + Create **extension methods** for commonly used operations on value types or existing classes  
-> Pros: reduce one parameter in utility method for value types, add new functions for a class without modifying/inheriting it
+> ✔️ Pros: reduce one parameter in utility method for value types, add new functions for a class without modifying/inheriting it
 ```csharp
 namespace ExtensionMethods;
 
@@ -272,7 +272,7 @@ string name = "Foo Bar";
 System.Console.WriteLine(name.GetWordCount()); // output: 2
 ```
 
-+ **Implicit method group conversion**
++ **Implicit method group conversion** for callback function
 ```csharp
 // 👉 given
 List<string> users = new {"User 1", "User 2"};
@@ -292,7 +292,7 @@ users.ForEach(Console.WriteLine);
 ### String
 [⬆ To the top](#0)
 + Use **```nameof()```** to address class/function/param name in string
-> Pros: when changing name, the corresspond values in string will update as well
+> ✔️ Pros: when changing name, the corresspond values in string will update as well
 ```csharp
 public void PrintUserName(User currentUser)
 {
@@ -317,10 +317,10 @@ string myFileName = @"C:\myfolder\myfile.txt";
 
 + **String methods**
 ```csharp
-// indicates whether the specified string is null or an Empty string.
+// whether the specified string is null or an Empty string.
 String.IsNullOrEmpty(string value);
 
-// indicates whether a specified string is null, empty, or consists only of white-space characters.
+// whether a specified string is null, empty, or consists only of white-space characters.
 String.IsNullOrWhiteSpace(string value);
  
 List<string> users = new {"User 1", "User 2"};
@@ -347,10 +347,10 @@ public const long BillionsAndBillions = 100_000_000_000;
 ### Collection
 [⬆ To the top](#0)  
 + ~~```System.Collections.ArrayList```~~ => **generic collection** ```System.Collections.Generic.List<T>```
-> Pros: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
+> ✔️ Pros: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
     
 + ~~```Dictionary.ContainsKey()```~~ => **```Dictionary.TryGetValue()```**
-> Pro: thread-safety, more compact if check & get value
+> ✔️ Pro: thread-safety, more compact if check & get value
 ```csharp
 // 👎 non-compliant
 if(dictionary.ContainsKey(key)) 
@@ -421,7 +421,7 @@ List<int> from2To8 = Enumerable.Range(2, 8).ToList();
 ```
 
 + Return empty collection using **```Enumerable.Empty<T>()```** or **```Array.Empty<T>()```**
-> Pros: reusable empty instance
+> ✔️ Pros: reusable empty instance
 ```csharp
 // 👎 non-compliant
 return null; // 1: force to check null
@@ -457,14 +457,14 @@ Console.WriteLine("Hello World!");
     
 + **File-scoped namespace declaration** [C#10]
 ```csharp
-// 👎 longhand
+// 👎 non-compliant
 namespace ApplicationA {
     class User {
         ...
     }
 }
     
-// 👍 shorthand
+// 👍 preference
 namespace ApplicationA;
 class User {
     ...
@@ -472,6 +472,7 @@ class User {
 ```
     
 + **Namespace alias qualifier ```::```**
+> ✔️ Pros: avoid conflict, abbreviate namespace
 ```csharp
 // 📄 ApplicationA/User.cs
 namespace ApplicationA;
@@ -520,8 +521,8 @@ double varDouble = System.Convert.ToDouble(variable); // no error
 ```
 
 + ~~Objest casting~~ => **```as```**
-> Reason: if non-comatible types, casting throws InvalidCastException while as return null  
-> Cons: potential to get NullReferenceException later
+> ✔️ Pros: if non-comatible types, casting throws InvalidCastException while ```as``` return null  
+> ❌ Cons: potential to get NullReferenceException later
 ```csharp
 // 👎 non-compliant
 User instance = (User) mobileUser;
