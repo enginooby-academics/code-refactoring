@@ -109,3 +109,6 @@ print({**x, **y}) #{'a': 1, 'b': 3, c': 4}
 
 ### OOP
 + Use **```@dataclass```** decorator from **dataclasses** library to generate common function implementations for classes such as ```__init__, __repr__, __eq__``` [[Python3.7](https://realpython.com/python-data-classes/)]
+
++ Use ~~class/dict/tuple~~ => **namedtuple** for DTO [[Reference](https://yasoob.me/2015/06/06/why-should-you-use-namedtuple-instead-of-a-tuple/)]
+> ✔️ Pros: lightweight, short syntax, immutable by defaut, can access properties via index or ```.```
