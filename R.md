@@ -10,3 +10,14 @@ a = 1
 # 👍 preference
 a <- 1
 ```
+
++ Multiple assignments
+```
+// 👎 longhand
+a <- 1
+b <- 1
+c <- 1
+
+// 👍 shorthand
+a <- b <- c <- 1
+```
