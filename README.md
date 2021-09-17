@@ -429,8 +429,8 @@ const getSum = (a: number, b: number) => (a + b)
 > Pros: no need to declare a separate disposable function -> reduce coding overheating, often used along w/ collection operation such as map(), where(), and reduce(), etc
 
 
-+ **Named parameters** *[PHP8, Kotlin, C#]*
-> Reason: for clarity, order of params could be changed
++ **Named argument** *[PHP8, Kotlin, C#, Python (keyword argument)]*
+> Reason: for clarity, order of params could be changed, convenient to leave default arguments
 ```csharp
 // 👉 given
 public void doSomething(string foo, int bar) {...}
