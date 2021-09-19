@@ -24,7 +24,7 @@
 <a name="abbreviations"></a>  
 ### I - Abbreviations
 [⬆ To the top](#0)
-> Should be **universally accepted**, provide **good result of shortening**, used for naming & commenting
+> Should be **universally accepted**, provide **good result of shortening (>40%)**, used for naming & commenting
 * **addr** address - **app** application
 * **bg** background - **btn** button
 * **char** character - **col** column - **coord** coordinate
