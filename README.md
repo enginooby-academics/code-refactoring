@@ -1,3 +1,5 @@
+> Alternative ways of writing code to help improving **code readability, clarity, brevity & performance**  
+
 <a name="0"></a>  
 # Table of Contents
 + Language-specific
@@ -7,9 +9,6 @@
 + OOP
 + Function
 + String
-
-[⬆ To the top](#0)
-> Alternative ways of writing code to help improving **code readability, clarity, brevity & performance**  
 
 ### Language-Specific
 |[C#](CS.md)|[C++](CPP.md)|[C++ in Unreal Engine](CPP_UE.md)|[Dart](DART.md)|[Python](PYTHON.md)|[JavaScript & TypeScript](TS_JS.md)|[Go](GO.md)|
