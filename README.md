@@ -35,7 +35,7 @@
 * **obj** object
 * **pwd** password - **param** parameter - **pic** picture - **pos** position
 * **str** string - **src** source
-* **val** value - **var** variable
+* **val** value - **var** variable - **vec** vector
 
 <a name="naming"></a>  
 # II - Naming
