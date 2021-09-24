@@ -490,16 +490,17 @@ A::User = new();
 B::User = new();
 ```
     
-+ **Aliased generics ```using```**
++ **Aliased generics ```using```** for long & complex types
 ```csharp
 // 👎 longhand
-Dictionary<string, Dictionary<string, List<string>>> User1 = new();
-Dictionary<string, Dictionary<string, List<string>>> User2 = new();
+Dictionary<string, Dictionary<string, List<string>>> userInfo = new();
+System.Collections.Generic.LinkedList<User> users = new();
 
 // 👍 shorthand
-using ASimpleName = Dictionary<string, Dictionary<string, List<string>>>;
-ASimpleName User1 = new();
-ASimpleName User2 = new();
+using UserInfo = Dictionary<string, Dictionary<string, List<string>>>;
+using Generic = System.Collection.Generic
+UserInfo user = new();
+Generic.LinkedList<User> users = new();
 ```
 
 + **Global using** directive to use namespace in all files of the project [[C#10](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive#global-modifier)]
