@@ -226,7 +226,7 @@ usort($users, function ($a, $b) {
 
 
   
-### Type
+### OOP
 + **Constructor shorthand** *[TS, PHP8 (property promotion), Dart]*
 ```ts
 // 👎 longhand
@@ -248,6 +248,17 @@ class User {
 }
 ```
 
++ Explicitly declare access modifiers for class members
+> Reason: clarify purpose of the member
+```ts
+class User {
+  // 👎 non-compliant
+  name: string;
+  
+  // 👍 preference
+  public name: string;
+}
+```
 
 
 ### Function
