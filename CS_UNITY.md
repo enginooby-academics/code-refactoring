@@ -10,3 +10,6 @@ bulletBody.velocity = transform.forward * speed;
 Rigidbody bulletBody = Instantiate(bulletPrefab, transform.position, transform.rotation);
 bulletBody.velocity = transform.forward * speed;
 ```
+
++ Declare **```public```** members which don't need to modify in Playmode w/ **```[HideInInspector]```** attribute
+> Reason: clean up Inspector
