@@ -505,8 +505,8 @@ Generic.LinkedList<User> users = new();
 
 + **Global using** directive to use namespace in all files of the project [[C#10](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive#global-modifier)]
     
-+ ~~Region directive ```#region```~~
-> Reason: Regions are considered anti-patterns. They require more work which doesn’t increase the quality or readability of the code, reduce the number of bugs, and makes the code more complicated to refactor.
++ ~~Region directive ```#region```~~ => use _**partial classes**_ or separate into multiple different classes
+> Reason: Regions are considered anti-patterns since they mostly indicate the class have more then one responsibility.
 
 + ~~Base type casting~~ => **```System.Convert```** 
 > Pros: Convert class enables to convert between non-compatible types
