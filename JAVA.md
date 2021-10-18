@@ -12,6 +12,20 @@ long hexBytes = 0xFF_EC_DE_5E;
 long bytes = 0b11010010_01101001_10010100_10010010;
 ```
 
++ Use **```&```** to check oddity
+> Reason: cover negative cases, high performance
+```java
+// 👎 non-compliant
+public boolean isOdd(int num) {
+  return num % 2 == 1;
+}
+
+// 👍 preference
+public boolean isOdd(int num) {
+  return (num & 1) != 0;
+}
+```
+
 ### Collection
 + Use ~~_**double-brace initialization/stream**_~~ => _**convenience factory method**_ to initialize collections [[Java9](https://www.baeldung.com/java-9-collections-factory-methods)]
 ```java
