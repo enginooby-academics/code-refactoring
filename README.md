@@ -11,8 +11,8 @@
 + String
 
 ### Language-Specific
-|[C#](CS.md)|[C# in Unity](CS_UNITY.md)|[C++](CPP.md)|[C++ in Unreal Engine](CPP_UE.md)|[Dart](DART.md)|[Python](PYTHON.md)|[R](R.md)|[JS/TS](TS_JS.md)|[Go](GO.md)|
-|---|---|---|---|---|---|---|---|---|
+|[C#](CS.md)|[C# in Unity](CS_UNITY.md)|[C++](CPP.md)|[C++ in Unreal Engine](CPP_UE.md)|[Java](JAVA.md)|[Dart](DART.md)|[Python](PYTHON.md)|[R](R.md)|[JS/TS](TS_JS.md)|[Go](GO.md)|
+|---|---|---|---|---|---|---|---|---|---|
 
 ### Declaration, Initialization & Assignment
 + ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 ```auto```, C# ```var```, TS ```let```, Dart ```var```]_
