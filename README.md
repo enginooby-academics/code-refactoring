@@ -9,6 +9,7 @@
 + OOP
 + Function
 + String
++ Collection
 
 ### Language-Specific
 |[C#](CS.md)|[C# in Unity](CS_UNITY.md)|[C++](CPP.md)|[C++ in Unreal Engine](CPP_UE.md)|[Java](JAVA.md)|[Dart](DART.md)|[Python](PYTHON.md)|[R](R.md)|[JS/TS](TS_JS.md)|[Go](GO.md)|
@@ -277,6 +278,8 @@ const getSum = (a: number, b: number) => (a + b)
 + Pass a single-use callback function as an argument w/ **anonymous function**
 > Pros: no need to declare a separate disposable function -> reduce coding overheating, often used along w/ collection operation such as map(), where(), and reduce(), etc
 
++ Return ~~null~~ => _**empty collection**_
+> Reason: less error prone, reduce null checking on function usage
 
 + **Named argument** *[PHP8, Kotlin, C#, Python (keyword argument)]*
 > Reason: for clarity, order of params could be changed, convenient to leave default arguments
@@ -321,4 +324,5 @@ console.log("Sum of " + a + " and " + b + " is " + (a + b))
 // 👍 preference
 console.log(`Sum of ${a} and ${b} is ${a + b}`)
 ```
+
 
