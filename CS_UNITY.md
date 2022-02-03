@@ -39,8 +39,9 @@ void Update(){
 }
 
 // 👍 performance
-private int attackHash = Animator.StringToHash("Attack");
+private readonly int ATTACK_HASH = Animator.StringToHash("Attack");
+
 void Update(){
-  if(attackKey.IsUp()) anim.SetTrigger(attackHash);
+  if(attackKey.IsUp()) anim.SetTrigger(ATTACK_HASH);
 }
 ```
