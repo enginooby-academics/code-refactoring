@@ -1,3 +1,14 @@
+### OOP
++ Use a serialized public property to cut down a serialized private field
+```cs
+// 👎 non-compliant
+[SerializeField] private int _level;
+public int Level => _level;
+
+// 👍 preference
+[field: SerializeField] public int Level {get; private set;}
+```
+
 ### Declaration, Initialization & Assignment
 + Refer directly to specific component when _**Instantiate**_ new GameObject
 ```cs
