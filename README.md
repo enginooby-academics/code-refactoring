@@ -70,15 +70,17 @@ nullableVar ?? (nullableVar = defaultVal)
 nullableVar ??= defaultVal
 ```
 
-+ **Multiple variable declaration** for related variables _[JS/TS, C#, Java, Go]_
-```ts
++ **Multiple variable declaration** for related variables (and usually same type) _[JS/TS, C#, Java, Go]_
+```csharp
 // 👎 longhand
-let a;
-let b;
-let c = 3;
+private string _firstName;
+private string _lastName;
+private float _height;
+private float _weight;
 
 // 👍 shorthand
-let a, b, c = 3;
+private string _firstName, _lastName;
+private float _height, _weight;
 ```
 
 + Assign multiple variables using **object destructuring/tuple** _[ES6, C#, Python]_
