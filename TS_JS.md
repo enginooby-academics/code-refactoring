@@ -40,7 +40,8 @@ class User {
 }
 ```
 
-
+### Expressions
++ ~~Equality operator ```==```~~ => **Strict equality operator ```===```** *[TS]*
 
 
 ### Type
