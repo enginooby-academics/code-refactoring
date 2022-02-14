@@ -1,20 +1,20 @@
-> Alternative ways of writing code to help improving **code readability, clarity, brevity & performance**  
+> Alternative ways of writing code to improve **code readability, clarity, brevity & performance**  
 
 <a name="0"></a>  
 # Table of Contents
-+ Language-specific
-+ Declaration, initialization & assignment
-+ Control flow
-+ Expressions
-+ OOP
-+ Function
-+ String
-+ Collection
++ [Declaration, Initialization & Assignment](#init)  
++ [Control Flow](#_control-flow)
++ [Expressions](#_expressions)
++ [Function](#_function)
++ [OOP](#_oop)
++ [String](#_string)
++ [Collection](#_collection)
 
 ### Language-Specific
 |[C#](CS.md)|[C# in Unity](CS_UNITY.md)|[C++](CPP.md)|[C++ in Unreal Engine](CPP_UE.md)|[Java](JAVA.md)|[Dart](DART.md)|[Python](PYTHON.md)|[R](R.md)|[JS/TS](TS_JS.md)|[Go](GO.md)|
 |---|---|---|---|---|---|---|---|---|---|
 
+<a name="init"></a>      
 ### Declaration, Initialization & Assignment
 + ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 ```auto```, C# ```var```, TS ```let```, Dart ```var```]_
 > Pros: shorthand especially for long type init, focus more attention on local variable name and value
@@ -104,7 +104,8 @@ b = temp;
 // 👍 shorthand
 a ^= b ^= a ^= b;
 ```
-  
+ 
+<a name="_control-flow"></a>      
 ### Control Flow
 + **Guard clause/assert/precondition**: early return for special case; multiple return statements
 > ✔️ Pros: avoid nested statements, improve readability  
@@ -205,10 +206,8 @@ isHungry && isSleepy && code()
 ```
 
 
-
+<a name="_expressions"></a>      
 ### Expressions
-+ ~~Equality operator ```==```~~ => **Strict equality operator ```===```** *[TS]*
-
 + **Spaceship/three-way comparison operator ```<=>```** *[C++, Groovy, Kotlin, Perl, PHP, Ruby]*
 ```php
 // 👉 given
@@ -226,7 +225,7 @@ usort($users, function ($a, $b) {
 ```
 
 
-  
+<a name="_oop"></a>      
 ### OOP
 + **Constructor shorthand** *[TS, PHP8 (property promotion), Dart]*
 ```ts
@@ -262,6 +261,7 @@ class User {
 ```
 
 
+<a name="_function"></a>      
 ### Function
 + Use **lambda expression/arrow function ```=>```** to declare single statement functions _[Java8, JS/TS (fat arrow), Dart, C# (expression-bodied members), Python ```lambda```]_
 > Pros: bind _this_ to the invoker
@@ -312,6 +312,7 @@ interface Example {
 + ~~Promise/callback chaining~~ => **```async-await```** *[ES6, C#, Dart]*
 
 
+<a name="_string"></a>      
 ### String
 + ~~```String```~~ => **```StringBuffer```** for string manipulations *[Java, C#]*
 > Reason: do not create new String instances on manipulations -> save memory
