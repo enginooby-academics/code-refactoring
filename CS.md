@@ -271,6 +271,22 @@ if(i.IsGreaterThan(3)) System.Console.WriteLine($"{i} is greater than 3"); // ou
 string name = "Foo Bar";
 System.Console.WriteLine(name.GetWordCount()); // output: 2
 ```
++ Create **extension method** taking bool param to write single-statement function w/ single flag in form of **expression body**
+```csharp
+// 👉 given
+private AudioSource _bgmSource;
+private bool _enableSound;
+
+// 👎 longhand: statement body
+public void PlayBgm() {
+    if(_enableSound) {
+        _bgmSource.Play();
+    }
+}
+
+// 👍 shorthand: expressionn body
+public void PlayBgm() => _bgmSource.Play(@if: _enableSound);
+```
 
 + **Implicit method group conversion** for callback function
 ```csharp
