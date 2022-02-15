@@ -14,6 +14,7 @@ public int Level => _level;
 
 // 👍 preference: use UsedImplicitly attribute if only assign in Inspector
 [field: SerializeField] public int Level {get; [UsedImplicitly] private set;}
+[field: SerializeField] [UsedImplicitly] public int Level {get; private set;}
 ```
 
 ### Declaration, Initialization & Assignment
