@@ -46,3 +46,7 @@ void Update(){
   if(attackKey.IsUp()) anim.SetTrigger(ATTACK_HASH);
 }
 ```
+
+### 3rd-Party Asset
++ Wrap asset API usage in its **conditional compiling symbol (directive)** to avoid error on its absence.
+> Use [CCU](https://github.com/Unity-Technologies/ConditionalCompilationUtility) to detect and add asset symbol.
