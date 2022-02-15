@@ -364,6 +364,9 @@ public const long BillionsAndBillions = 100_000_000_000;
 [⬆ To the top](#0)  
 + ~~```System.Collections.ArrayList```~~ => **generic collection** ```System.Collections.Generic.List<T>```
 > ✔️ Pros: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
+
++ ~~Array~~ => **IEnumerable\<T\> ** | ~~List\<T\>~~ => **IList\<T\>**
+> ✔️ Pros: cover more cases, esp for creating extension method
     
 + ~~```Dictionary.ContainsKey()```~~ => **```Dictionary.TryGetValue()```**
 > ✔️ Pro: thread-safety, more compact if check & get value
