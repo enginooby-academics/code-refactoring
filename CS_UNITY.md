@@ -33,6 +33,15 @@ bulletBody.velocity = transform.forward * speed;
 + Declare **```public```** members which don't need to modify in Playmode w/ **```[HideInInspector]```** attribute
 > Reason: clean up Inspector
 
+### Function
++ Pass individual vector components without creating new vector (Unity API usually has overloading method for this, otherwise, create extension method)
+```cs
+// 👎 non-compliant
+_ballRigidbody.AddForce(shotPoint.transform.TransformDirection(new Vector3(0f, 0f, _powerToRoll)));
+
+// 👍 preference
+_ballRigidbody.AddForce(shotPoint.transform.TransformDirection(0f, 0f, _powerToRoll));
+```
 
 ### Animation
 + Use _**hash id**_ to change animator state
