@@ -362,11 +362,11 @@ public const long BillionsAndBillions = 100_000_000_000;
 <a name="_collection"></a>      
 ### Collection
 [⬆ To the top](#0)  
-+ ~~```System.Collections.ArrayList```~~ => **generic collection** ```System.Collections.Generic.List<T>```
-> ✔️ Pros: avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance
++ Use the most generalist type as possible for creating method
+> ✔️ Pros: cover more types, avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance  
 
-+ ~~Array~~ => **IEnumerable\<T\> ** | ~~List\<T\>~~ => **IList\<T\>**
-> ✔️ Pros: cover more cases, esp for creating extension method
+~~```System.Collections.ArrayList```~~ => **generic collection** ```System.Collections.Generic.List<T>```  
+~~Array, IList~~ => **IEnumerable\<T\>** (for operation w/o element addition/removal) | ~~List\<T\>~~ => **IList\<T\>** (for operation w/ element addition/removal)  
     
 + ~~```Dictionary.ContainsKey()```~~ => **```Dictionary.TryGetValue()```**
 > ✔️ Pro: thread-safety, more compact if check & get value
