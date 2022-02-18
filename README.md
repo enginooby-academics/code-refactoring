@@ -19,6 +19,17 @@
 + ~~Type annotation (explicit type)~~ => **type inference** (implicit type) for initializer expression and local variable _[C++11 ```auto```, C# ```var```, TS ```let```, Dart ```var```]_
 > Pros: shorthand especially for long type init, focus more attention on local variable name and value
 
++ Remove redundant member initializer (with default value)
+``` csharp
+// 👎 non-compliant
+private int _level = 0;
+private bool _isGameOver = false;
+
+// 👍 preference
+private int _level;
+private bool _isGameOver;
+```
+
 Initializer expression:
 ```csharp
 // 👎 longhand
