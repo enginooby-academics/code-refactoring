@@ -76,7 +76,16 @@ users.Add("User 2");
 List<string> users = new {"User 1", "User 2");
 ```
 
++ Swap two variables using **tuple** 
+```csharp
+// 👎 longhand
+var temp = a;
+a = b;
+b = temp;
 
+// 👍 shorthand
+(a, b) = (b, a);
+```
 
 <a name="_control-flow"></a>      
 ### Control Flow
