@@ -375,7 +375,7 @@ public static double Double(this double number) => number * 2;
 ...
 
 // 👍 preference
-public static T Double(this T number) where T: struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable 
+public static T Double(this T number) where T: unmanaged, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable 
     => (dynamic) number * 2;
 ```
 
