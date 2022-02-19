@@ -366,6 +366,18 @@ public const long BillionsAndBillions = 100000000000;
 public const long BillionsAndBillions = 100_000_000_000;
 ```
 
++ Constraint numeral type for generics instead of creating overloading methods as follows: (#generics #numeric)
+```csharp
+// 👎 non-compliant
+public static int Double(this int number) => number * 2;
+public static float Double(this float number) => number * 2;
+public static double Double(this double number) => number * 2;
+...
+
+// 👍 preference
+public static T Double(this T number) where T: struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable 
+    => (dynamic) number * 2;
+```
 
 
 <a name="_collection"></a>      
