@@ -378,6 +378,7 @@ public static double Double(this double number) => number * 2;
 public static T Double(this T number) where T: unmanaged, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable 
     => (dynamic) number * 2;
 ```
+Alternative: use **code generator** or [**type policy**](https://stackoverflow.com/questions/32664/is-there-a-constraint-that-restricts-my-generic-method-to-numeric-types/4834066#4834066)
 
 
 <a name="_collection"></a>      
