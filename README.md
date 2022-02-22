@@ -179,6 +179,20 @@ else {
 return a > b ? x : y;
 ```
 
+To invoke function:
+```csharp
+// 👎 longhand
+if (target is not null) {
+    print("Target found.");
+}
+else {
+    print("Target not found.");
+}
+
+// 👍 shorthand
+print(target is not null ? "Target found." : "Target not found.");
+```
+
 To shorten switch w/ multiple return statements using **daisy chaining**:
 ```ts
 // 👎 longhand
