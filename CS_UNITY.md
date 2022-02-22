@@ -63,3 +63,16 @@ void Update(){
 ### 3rd-Party Asset
 + Wrap asset API usage in its **conditional compiling symbol (directive)** to avoid error on its absence.
 > Use [CCU](https://github.com/Unity-Technologies/ConditionalCompilationUtility) to detect and add asset symbol.
+
+### Others
++ ~~```GetComponent```~~ => **```TryGetComponent```** when need to get and use a component:
+```cs
+// 👎 non-compliant
+bulletBody = bullet.GetComponent<Rigidbody>();
+if(bulletBody is not null) 
+  bulletBody.velocity = transform.forward * speed;
+
+// 👍 preference
+if(bullet.TryGetComponent(out Rigidbody bulletBody)
+  bulletBody.velocity = transform.forward * speed;
+```
