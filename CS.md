@@ -401,11 +401,12 @@ Alternative: use **code generator** or [**type policy**](https://stackoverflow.c
 <a name="_collection"></a>      
 ### Collection
 [⬆ To the top](#0)  
-+ Use the most generalist type as possible for creating method
++ Use the as abstract and generic type as possible for creating method
 > ✔️ Pros: cover more types, avoid boxing/unboxing => reduce workload of Garbabe Collection => increase performance  
 
 ~~```System.Collections.ArrayList```~~ => **generic collection** ```System.Collections.Generic.List<T>```  
-~~Array, IList~~ => **IEnumerable\<T\>** (for operation w/o element addition/removal) | ~~List\<T\>~~ => **IList\<T\>** (for operation w/ element addition/removal)  
+~~Array, IList~~ => **IEnumerable\<T\>** (for method w/o element addition/removal)  
+~~List\<T\>~~ => **ICollection\<T\>** (for method w/ element addition/removal)   
     
 + ~~```Dictionary.ContainsKey()```~~ => **```Dictionary.TryGetValue()```**
 > ✔️ Pro: thread-safety, more compact if check & get value
