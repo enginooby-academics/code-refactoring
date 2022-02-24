@@ -135,6 +135,23 @@ DateTime.Now.DayOfWeek switch
 }
 ```
 
++ Flatten continuous loops:
+```csharp
+// 👎 non-compliant
+foreach (var assembly in assemblies){
+    foreach (var type in assembly.GetTypes())
+        ...
+    }
+}
+
+// 👍 preference
+foreach (var assembly in assemblies)
+foreach (var type in assembly.GetTypes()){
+    ...
+}
+```
+  
+
 
 
 <a name="_expressions"></a>      
