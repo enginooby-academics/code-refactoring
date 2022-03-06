@@ -62,7 +62,47 @@ void Update(){
 
 ### 3rd-Party Asset
 + Wrap asset API usage in its **conditional compiling symbol (directive)** to avoid error on its absence.
-> Use [CCU](https://github.com/Unity-Technologies/ConditionalCompilationUtility) to detect and add asset symbol.
+> Use [CCU](https://github.com/Unity-Technologies/ConditionalCompilationUtility) to automatically detect and add asset symbol.
+
++ Create a wrapper/adapter for commonly-used class/attribute from 3rd-party asset
+```cs
+// 👎 non-compliant
+public class MyClass1 : MonoBehaviour {
+#if USING_SERVICE
+  [SerializeField] private ServiceClass _service;
+#endif
+  ...
+  
+  public void DoSomething() {
+#if USING_SERVICE
+    _service.Execute();
+#endif
+  }
+}
+// and many other classes using ServiceClass...
+
+// 👍 preference
+[Serializable]
+public class ServiceWrapper {
+#if USING_SERVICE
+  [SerializeField] private ServiceClass _service;
+#endif
+
+  public void Execute() {
+#if USING_SERVICE
+    _service.Execute();
+#endif
+}
+
+public class MyClass1 {
+  [SerializeField] private ServiceWrapper _service;
+  ...
+  
+  public void DoSomething() {
+    _service.Execute();
+  }
+}
+```
 
 ### Others
 + ~~```GetComponent```~~ => **```TryGetComponent```** when need to get and use a component:
