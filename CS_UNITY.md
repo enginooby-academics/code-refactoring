@@ -71,7 +71,6 @@ public class MyClass1 : MonoBehaviour {
 #if USING_SERVICE
   [SerializeField] private ServiceClass _service;
 #endif
-  ...
   
   public void DoSomething() {
 #if USING_SERVICE
@@ -96,7 +95,6 @@ public class ServiceWrapper {
 
 public class MyClass1 {
   [SerializeField] private ServiceWrapper _service;
-  ...
   
   public void DoSomething() {
     _service.Execute();
